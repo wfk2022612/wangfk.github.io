@@ -1,27 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo blog</title>
+  <title>墨迹啊呸</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wfk2022612.github.io/"/>
-  <updated>2018-07-26T06:07:52.970Z</updated>
+  <updated>2018-07-26T08:02:16.390Z</updated>
   <id>http://wfk2022612.github.io/</id>
-  
-  <author>
-    <name>John Doe</name>
-    
-  </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Untitled</title>
+    <title>才能和</title>
+    <link href="http://wfk2022612.github.io/2018/07/26/untitled-1532592092763/"/>
+    <id>http://wfk2022612.github.io/2018/07/26/untitled-1532592092763/</id>
+    <published>2018-07-26T08:01:32.000Z</published>
+    <updated>2018-07-26T08:02:16.390Z</updated>
+    
+    <content type="html"><![CDATA[<p>才能和</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;才能和&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>123456</title>
+    <link href="http://wfk2022612.github.io/2018/07/26/hh/"/>
+    <id>http://wfk2022612.github.io/2018/07/26/hh/</id>
+    <published>2018-07-26T07:55:54.000Z</published>
+    <updated>2018-07-26T07:59:40.826Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2018/07/26/hh/5548926-52355809250f78c7.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/2018/07/26/hh/5548926-52355809250f78c7.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nhibernate</title>
+    <link href="http://wfk2022612.github.io/2018/07/26/nhibernate/"/>
+    <id>http://wfk2022612.github.io/2018/07/26/nhibernate/</id>
+    <published>2018-07-26T07:40:25.000Z</published>
+    <updated>2018-07-26T07:40:50.761Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="很好用啊"><a href="#很好用啊" class="headerlink" title="很好用啊"></a>很好用啊</h1><p><a href="http://www.baidu.com" target="_blank" rel="external">百度</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;很好用啊&quot;&gt;&lt;a href=&quot;#很好用啊&quot; class=&quot;headerlink&quot; title=&quot;很好用啊&quot;&gt;&lt;/a&gt;很好用啊&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.baidu.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="nhib" scheme="http://wfk2022612.github.io/categories/nhib/"/>
+    
+    
+      <category term="hello" scheme="http://wfk2022612.github.io/tags/hello/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>23355</title>
+    <link href="http://wfk2022612.github.io/2018/07/26/untitled-1532590722610/"/>
+    <id>http://wfk2022612.github.io/2018/07/26/untitled-1532590722610/</id>
+    <published>2018-07-26T07:38:42.000Z</published>
+    <updated>2018-07-26T08:00:29.976Z</updated>
+    
+    <content type="html"><![CDATA[<p>1123</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1123&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="11" scheme="http://wfk2022612.github.io/categories/11/"/>
+    
+    
+      <category term="55" scheme="http://wfk2022612.github.io/tags/55/"/>
+    
+      <category term="66" scheme="http://wfk2022612.github.io/tags/66/"/>
+    
+      <category term="77" scheme="http://wfk2022612.github.io/tags/77/"/>
+    
+      <category term="88" scheme="http://wfk2022612.github.io/tags/88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SBS</title>
     <link href="http://wfk2022612.github.io/2018/07/26/untitled-1532585228473/"/>
     <id>http://wfk2022612.github.io/2018/07/26/untitled-1532585228473/</id>
     <published>2018-07-26T06:07:08.000Z</published>
-    <updated>2018-07-26T06:07:52.970Z</updated>
+    <updated>2018-07-26T09:39:47.654Z</updated>
     
     <content type="html"><![CDATA[<p>测试<br><a href="https://www.jianshu.com/p/68e727dda16d" target="_blank" rel="external">https://www.jianshu.com/p/68e727dda16d</a></p>]]></content>
     
@@ -35,27 +131,12 @@
     
     </summary>
     
+      <category term="nhibernate" scheme="http://wfk2022612.github.io/categories/nhibernate/"/>
     
-  </entry>
-  
-  <entry>
-    <title>nhibernate</title>
-    <link href="http://wfk2022612.github.io/2018/07/26/nhibernate/"/>
-    <id>http://wfk2022612.github.io/2018/07/26/nhibernate/</id>
-    <published>2018-07-26T01:02:20.000Z</published>
-    <updated>2018-07-26T01:12:05.252Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="很好用啊"><a href="#很好用啊" class="headerlink" title="很好用啊"></a>很好用啊</h1><p><a href="http://www.baidu.com" target="_blank" rel="external">百度</a></p>]]></content>
+      <category term="fet" scheme="http://wfk2022612.github.io/tags/fet/"/>
     
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;很好用啊&quot;&gt;&lt;a href=&quot;#很好用啊&quot; class=&quot;headerlink&quot; title=&quot;很好用啊&quot;&gt;&lt;/a&gt;很好用啊&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.baidu.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;
-      
-    
-    </summary>
-    
+      <category term="sdf" scheme="http://wfk2022612.github.io/tags/sdf/"/>
     
   </entry>
   
@@ -63,8 +144,8 @@
     <title>Hello World</title>
     <link href="http://wfk2022612.github.io/2017/11/10/hello-world/"/>
     <id>http://wfk2022612.github.io/2017/11/10/hello-world/</id>
-    <published>2017-11-10T08:45:57.775Z</published>
-    <updated>2017-11-10T08:45:57.776Z</updated>
+    <published>2017-11-10T08:45:57.000Z</published>
+    <updated>2018-07-26T07:40:08.118Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
     
@@ -77,6 +158,12 @@
     
     </summary>
     
+      <category term="hw" scheme="http://wfk2022612.github.io/categories/hw/"/>
+    
+    
+      <category term="hello" scheme="http://wfk2022612.github.io/tags/hello/"/>
+    
+      <category term="666" scheme="http://wfk2022612.github.io/tags/666/"/>
     
   </entry>
   
