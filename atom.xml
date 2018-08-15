@@ -6,10 +6,37 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wfk2022612.github.io/"/>
-  <updated>2018-07-26T07:40:08.118Z</updated>
+  <updated>2018-08-15T00:46:32.108Z</updated>
   <id>http://wfk2022612.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1</title>
+    <link href="http://wfk2022612.github.io/2018/08/07/1/"/>
+    <id>http://wfk2022612.github.io/2018/08/07/1/</id>
+    <published>2018-08-07T05:59:10.000Z</published>
+    <updated>2018-08-15T00:46:32.108Z</updated>
+    
+    <content type="html"><![CDATA[<a href="/2018/08/07/1/密封点001.xlsx" title="密封点001.xlsx">密封点001.xlsx</a><img src="/2018/08/07/1/7rxmoAL.jpg" title="7rxmoAL.jpg">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a href=&quot;/2018/08/07/1/密封点001.xlsx&quot; title=&quot;密封点001.xlsx&quot;&gt;密封点001.xlsx&lt;/a&gt;
+&lt;img src=&quot;/2018/08/07/1/7rxmoAL.jpg&quot; title=&quot;7rxmoAL.jpg&quot;&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="aaa" scheme="http://wfk2022612.github.io/tags/aaa/"/>
+    
+      <category term="bbb" scheme="http://wfk2022612.github.io/tags/bbb/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -29,7 +56,7 @@
     
     </summary>
     
-      <category term="hw" scheme="http://wfk2022612.github.io/categories/hw/"/>
+      <category term="hw" scheme="http://wfk2022612.github.io/category/hw/"/>
     
     
       <category term="hello" scheme="http://wfk2022612.github.io/tags/hello/"/>
