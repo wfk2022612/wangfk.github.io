@@ -12407,7 +12407,7 @@
 
 			_jquery2["default"].ajax({
 				type: 'get',
-				url: "http://openapi.zhongguowangshi.com/wxHandler.ashx",
+				url: window.protocol+"://openapi.zhongguowangshi.com/wxHandler.ashx",
 				dataType: 'jsonp',
 				data:"action=getWeixinConfig&debug=0&site=xhsh5",
 				jsonp: "callback",
