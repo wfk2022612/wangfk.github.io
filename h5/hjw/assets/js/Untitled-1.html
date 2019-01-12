@@ -1,16 +1,23 @@
 <transition name='main'>
-    <div class="lt-full zmiti-detail-main-ui " :class="{'show':show}" ref='page'>
-        <div :style="{background:'url('+imgs.detailBg+') no-repeat center top',backgroundSize:'cover'}">
+    <div class="lt-full zmiti-detail-main-ui" :class="{'show':show}" ref='page'>
+        <div :style="{background:'url('+imgs.detailBg+') no-repeat center
+            top',backgroundSize:'cover'}">
             <div class="zmiti-index-logo"><img :src="imgs.logo" alt=""></div>
             <h1></h1>
             <div class="zmiti-detail-title"><img :src="data.title" alt=""></div>
-            <div v-tap='[toggleVideo]' v-if='data.videoPoster' class="zmiti-video-C" :style="{background:showVideo?'transparent':'url('+data.videoPoster+')
-                no-repeat center'}"><video :style="{opacity:showVideo?1:0}" :src="data.videoUrl" x5-playsinline=""
-                    ref="video" controls x-webkit-airplay="true" webkit-playsinline="true" playsinline="true">
+            <div v-tap='[toggleVideo]' v-if='data.videoPoster'
+                class="zmiti-video-C"
+                :style="{background:showVideo?'transparent':'url('+data.videoPoster+')
+                no-repeat center'}"><video :style="{opacity:showVideo?1:0}"
+                    :src="data.videoUrl" x5-playsinline=""
+                    ref="video" controls x-webkit-airplay="true"
+                    webkit-playsinline="true" playsinline="true">
                 </video></div>
             <div class="zmiti-video-text">{{data.videoText}}</div>
-            <div v-for='(c,i) in data.content' v-if='data.content&&data.content.length'>
-                <div class="zmiti-image" v-if='c.img' :key="i"><img :src="c.img" alt=""></div>
+            <div v-for='(c,i) in data.content'
+                v-if='data.content&&data.content.length'>
+                <div class="zmiti-image" v-if='c.img' :key="i"><img :src="c.img"
+                        alt=""></div>
                 <div class="zmiti-subtitle" v-if="c.img&&c.title" :key="i">{{c.title}}</div>
                 <div class="zmiti-image-text" v-if='c.text'>
                     <div>{{c.text}}</div>
@@ -18,28 +25,51 @@
             </div>
             <div class="zmiti-comment"></div>
         </div>
-        <section class="zmiti-back" v-tap='[hidePage]'><img :src="imgs.back" alt=""></section>
+        <section class="zmiti-back" v-tap='[hidePage]'><img :src="imgs.back"
+                alt=""></section>
     </div>
 </transition>
 
 <transition name='main'>
-    <div class="lt-full zmiti-detail-main-ui " :class="{'show':show}" ref='page'>
-        <div :style="{background:'url('+imgs.detailBg+') no-repeat center top',backgroundSize:'cover'}">
+    <div class="lt-full zmiti-detail-main-ui" :class="{'show':show}" ref='page'>
+        <div :style="{background:'url('+imgs.detailBg+') no-repeat center
+            top',backgroundSize:'cover'}">
             <div class="zmiti-index-logo"><img :src="imgs.logo" alt=""></div>
             <h1></h1>
             <div class="zmiti-detail-title"><img :src="data.title" alt=""></div>
-            <div v-tap='[toggleVideo]' v-if='data.videoPoster' class="zmiti-video-C" :style="{background:showVideo?'transparent':'url('+data.videoPoster+')
-                no-repeat center'}"><video :style="{opacity:showVideo?1:0}" :src="data.videoUrl" x5-playsinline=""
-                    ref="video" controls x-webkit-airplay="true" webkit-playsinline="true" playsinline="true">
+            <div v-tap='[toggleVideo]' v-if='data.videoPoster'
+                class="zmiti-video-C"
+                :style="{background:showVideo?'transparent':'url('+data.videoPoster+')
+                no-repeat center'}"><video :style="{opacity:showVideo?1:0}"
+                    :src="data.videoUrl" x5-playsinline=""
+                    ref="video" controls x-webkit-airplay="true"
+                    webkit-playsinline="true" playsinline="true">
                 </video></div>
             <div class="zmiti-video-text">{{data.videoText}}</div>
             <div class="zmiti-image"><img :src="data.image" alt=""></div>
             <div class="zmiti-subtitle">{{data.subTitle}}</div>
             <div class="zmiti-image-text" v-if='data.imageText'>
-                <div v-for='(text,i) in data.imageText.split("|")' :key='i'>{{text}}</div>
+                <div v-for='(text,i) in data.imageText.split(" |" )' :key='i'>{{text}}</div>
             </div>
             <div class="zmiti-comment"></div>
         </div>
-        <section class="zmiti-back" v-tap='[hidePage]'><img :src="imgs.back" alt=""></section>
+        <section class="zmiti-back" v-tap='[hidePage]'><img :src="imgs.back"
+                alt=""></section>
     </div>
+</transition>
+
+<transition name="team"><div v-tap='[hideTeam]' v-show='showTeam' class="lt-full
+        zmiti-team-main-ui" :style="{background:'url('+imgs.teamBg+') no-repeat
+        center center',backgroundSize:'cover'}"><div class="zmiti-team-main">
+            <div>
+                <aside>出品人</aside>
+                <aside><span>陈凯星</span></aside>
+            </div>
+            <div>
+                <aside>监<label for="">监</label>审</aside> <aside><span>葛素表</span></aside></div><div><aside>策<label
+                        for="">策</label>划</aside> <aside><span>陈知春</span></aside></div><div><aside>监<label
+                        for="">人</label>制</aside> <aside><span>牟 帆</span></aside></div><div><aside>文<label
+                        for="">人</label>案</aside> <aside><span>许露颖</span></aside></div><div><aside>制<label
+                        for="">人</label>作</aside> <aside><span
+                        style='display:block;line-height:40px'>EG365</span></aside></div><div>新华社新媒体中心</div><div>出品</div></div></div>
 </transition>
