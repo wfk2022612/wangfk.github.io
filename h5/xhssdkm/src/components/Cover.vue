@@ -82,7 +82,7 @@ export default{
 				var _this = this;
 				this.showIndexMask = true;
                 this.showVideo = false;
-                this.$router.push("/main")
+                this.$router.push("/info")
 			},
 
 			initPoints: function initPoints() {
@@ -104,7 +104,7 @@ export default{
 						_this2.points.push(p);
 					}
                 };
-                debugger
+                
 				img.src = config.imgs.point;
 
 				var animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame,
