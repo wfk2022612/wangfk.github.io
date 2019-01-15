@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html style="width:100%;height:100%">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Audio auto play in mobile</title>
+        <meta name="viewport" content="width=750,user-scalable=no" />
+        <script src="//cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <audio preload="preload" id="car_audio" src="/assets/music/LuckyDay.mp3"
+            autoplay="autoplay" loop="">
+            buzhichi
+        </audio>
+        <div id="playMask" style="width:100vw;height:100vh;opacity: 0;position: absolute;top:0;left:0">woshianniu</div>
+        <button id="play">play</button>
+        <!-- <script>
+            /*音乐*/
+        var audio = $('#car_audio');
+            var isPlaying = false;
+            function playAudio() {
+                var audio = $('#car_audio');
+                if (audio.attr('src') == undefined) {
+                    audio.attr('src', audio.data('src'));
+                }
+                audio[0].play();
+                isPlaying = true;
+            }
+            $(function(){
+                playAudio();
+                if(WeixinJSBridge){
+                    document.addEventListener("WeixinJSBridgeReady", function () {
+                        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                            network = e.err_msg.split(":")[1];  //结果在这里
+                            playAudio();
+                        });
+                    }, false);
+                }
+                else{
+                
+                } 
+                $("#play").on("click", function () {
+                        alert("click")
+                            playAudio();
+                    });
+            })
+        </script> -->
+        <script>
+            //音乐自动播放
+            $(document).ready(function(){
+                autoPlayMusic();
+                audioAutoPlay();
+            });
+            function audioAutoPlay() {
+                var audio = document.getElementById('car_audio');
+                audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                }, false);
+            }
+
+            $("#play").on("click",function(){
+                var audio = document.getElementById('car_audio');
+                audio.paused?audio.play():audio.pause()
+            })
+
+            $("#playMask").one("click",function(){
+                $("#playMask").remove();
+            })
+
+            // 音乐播放
+            function autoPlayMusic() {
+                // 自动播放音乐效果，解决浏览器或者APP自动播放问题
+                function musicInBrowserHandler() {
+                    musicPlay(true);
+                    document.body.removeEventListener('touchend', musicInBrowserHandler);
+                }
+                document.body.addEventListener('touchend', musicInBrowserHandler);
+                // 自动播放音乐效果，解决微信自动播放问题
+                function musicInWeixinHandler() {
+                    musicPlay(true);
+                    document.addEventListener("WeixinJSBridgeReady", function () {
+                        musicPlay(true);
+                    }, false);
+                    document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+                }
+                document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+            }
+            function musicPlay(isPlay) {
+                var media = document.querySelector('#car_audio');
+                if (isPlay && media.paused) {
+                    media.play();
+                }
+                if (!isPlay && !media.paused) {
+                    media.pause();
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -13,8 +13,10 @@
                
             </div>
             <div class="content">
-                <img class="pic" :src="current.img">
-                <div class="title">tip</div>
+                <!-- <img class="pic" :src="current.img"> -->
+                <!-- <video ref="video" autoplay="autoplay" controls="controls" style="width: 70vw;margin: 0 auto;">
+                    <source :src="movie" type="video/ogg" />
+                </video> -->
             </div>
             <div class="right-button" @click="rightClick">
                   
@@ -40,7 +42,8 @@ export default{
     data(){
         return {
             config:require( '@/assets/js/Config.js'),
-            index:0
+            index:0,
+            movie:require('@/assets/movie/movie.ogg')
         }
     },
     computed:{
@@ -69,7 +72,9 @@ export default{
                 this.index=this.contents.length-1
             }
         },
-        
+        playVideo(){
+            this.$ref["video"].play()
+        }
     }
 }
 </script>
@@ -147,9 +152,9 @@ export default{
 }
 
 .content .title{
-    height: 1.4em;
+    height: 2em;
     overflow: hidden;
-    background-color: black;
+    /* background-color: black; */
     color: white;
     font-size: 0.5em;
     width: 70vw;

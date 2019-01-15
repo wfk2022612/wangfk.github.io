@@ -51,4 +51,4 @@ config.contents = [
   { img: config.imgs.c32, title: 'ceshi biaoti233', des: 'nihao noahao 2244.' }
 ]
 
-module.exports = config
+export default config

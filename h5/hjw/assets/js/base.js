@@ -164,8 +164,8 @@ var mainImgList = [{
 
 var musics = {
     music: {
-        src: './assets/music/bg2.mp3',
-        autoplay: false,
+        src: './assets/music/LuckyDay.mp3',
+        autoplay: true,
         name: 'bg',
         loop: true
     },

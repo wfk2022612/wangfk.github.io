@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="m.dongpi.com"><!--描述-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"><!--缩屏-->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <title>背景音乐</title>
+        <script src="//cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            html,body{
+                width: 100%;
+                height: 100%;
+                background: black;
+            }
+            .mscBtn{
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                width: 25px;
+                height: 25px;
+                border: solid 2px white;
+                border-radius: 50%;
+                background: url(miuse-ioc.png) no-repeat center center;
+                background-size: 15px 15px;
+                cursor: pointer;
+            }
+             
+            .mscBtn:after{
+                content: "";
+                position: absolute;
+                left: -10px;
+                right: -10px;
+                top: -10px;
+                bottom: -10px;
+            }
+             
+            .mscBtn span{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                height: 2px;
+                background: #fff;
+            }
+             
+            .ds-no{
+                display: none;
+            }
+             
+            .ds-black{
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <audio id="bgMusic" src="/assets/music/LuckyDay.mp3" autoplay="autoplay"></audio> 
+        <div id="audioBtn" class="mscBtn"><span class="ds-no"></span></div>
+        <script>
+             
+            /*
+             * 背景音乐
+             * 1.打开页面，音乐自动播放，图标自动旋转
+             * 2.点击图标，音乐停止播放，图标停止旋转
+             */
+             
+            var bgMusic = document.getElementById("bgMusic");
+            var audioBtn = document.getElementById("audioBtn");
+            var rot=10-0;
+            var timer;
+            var is_zhuan=false;
+             
+            audioBtn.addEventListener("touchstart",function(){
+                if(bgMusic.paused || is_zhuan==true){
+                    bgMusic.play();
+                    timer=window.setInterval(begin,10);
+                    is_zhuan=false;
+                    $("#audioBtn").removeClass("pause").addClass("play");
+                    $("#audioBtn").find("span").addClass("ds-no").removeClass("ds-black");
+                }else{
+                    bgMusic.pause();
+                    window.clearInterval(timer);
+                    is_zhuan=true;
+                    $("#audioBtn").removeClass("play").addClass("pause");
+                    $("#audioBtn").find("span").addClass("ds-black").removeClass("ds-no");
+                }
+            });
+             
+            timer=window.setInterval(begin,10);
+             
+            function begin(){
+                document.getElementById("audioBtn").style.transform="rotatez("+rot+"deg)";
+                rot+=1;
+            }
+        </script>
+    </body>
+</html>

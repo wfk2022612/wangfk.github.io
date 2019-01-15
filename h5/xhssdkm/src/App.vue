@@ -1,21 +1,32 @@
 <template>
   <div id="app">
     <router-view />
-  </div>
-</template>
+          <audio preload="preload" id="bgMusic" src="@/assets/music/LuckyDay.mp3"
+            autoplay="autoplay" loop="">
+        </audio>
+      </div>
+  </template>
 
   <script>
   import Loading from '@/components/Loading'
   
   export default {
     name: 'App',
+    data(){
+      return {
+        bgMusic:null
+      }
+    },
     components:{
       Loading
     }
   }
-</script>
 
-<style>
+  
+
+
+</script>
+  <style>
 
 html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
 	padding: 0;

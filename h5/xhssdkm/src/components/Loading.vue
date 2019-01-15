@@ -16,11 +16,11 @@
 </template>
 
 <script>
-
+import config from '@/assets/js/Config.js'
 export default {
     data(){
         return {
-            config:require( '@/assets/js/Config.js'),
+            config:config,
             progress:0,
         }
     },
@@ -46,7 +46,7 @@ export default {
         if(imgList.length>0){
             this.loading(imgList,(p)=>{this.progress=Math.round( p*100)},()=>{
                 console.log("load finish")
-                this.$router.push("./main")
+                this.$router.push("./cover")
             })
         }
     },
