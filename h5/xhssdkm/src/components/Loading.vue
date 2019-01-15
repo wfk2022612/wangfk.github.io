@@ -17,6 +17,7 @@
 
 <script>
 import config from '@/assets/js/Config.js'
+debugger
 export default {
     data(){
         return {
@@ -35,6 +36,7 @@ export default {
         }
     },
     mounted(){
+
         var imgList=[];
         for(var p in this.imgs){
             if((/^\/static\/.+/g).test(this.imgs[p])){
@@ -46,7 +48,7 @@ export default {
         if(imgList.length>0){
             this.loading(imgList,(p)=>{this.progress=Math.round( p*100)},()=>{
                 console.log("load finish")
-                this.$router.push("./cover")
+                // this.$router.push("./cover")
             })
         }
     },

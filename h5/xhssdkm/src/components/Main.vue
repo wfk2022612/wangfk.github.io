@@ -36,12 +36,13 @@
 </template>
 
 <script>
-// var  config =require( '@/assets/js/Config.js')
-//    
+
+import config from '@/assets/js/Config.js'
+
 export default{
     data(){
         return {
-            config:require( '@/assets/js/Config.js'),
+            config,
             index:0,
             movie:require('@/assets/movie/movie.ogg')
         }
