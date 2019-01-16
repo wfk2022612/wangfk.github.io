@@ -314,9 +314,9 @@ export default {
   background: #ead7a4;
   padding: 10px;
   position: relative;
-  height: 30vh;
-  max-height: 30vh;
-  max-width: 80vw;
+  /* height: 30vh; */
+  /* max-height: 30vh;
+  max-width: 80vw; */
 }
 
 .zmiti-detail-main-ui .zmiti-image:before {

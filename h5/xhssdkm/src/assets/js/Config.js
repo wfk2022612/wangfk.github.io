@@ -44,7 +44,8 @@ var imgs = {
   c8: require('@/assets/images/8.png'),
   c9: require('@/assets/images/9.png'),
   c10: require('@/assets/images/10.png'),
-  c11: require('@/assets/images/11.png')
+  c11: require('@/assets/images/11.png'),
+  bgMusic: require('@/assets/music/LuckyDay.mp3')
 
 }
 
