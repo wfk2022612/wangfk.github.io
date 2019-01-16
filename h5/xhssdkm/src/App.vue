@@ -20,7 +20,7 @@
       
     },
     mounted(){
-      this.$ref["music"].play()
+      // (this.$ref["music"]||document.getElementById("bgMusic")).play()
     },
     components:{
       // Loading

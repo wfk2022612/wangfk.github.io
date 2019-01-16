@@ -45,8 +45,9 @@ var imgs = {
   c9: require('@/assets/images/9.png'),
   c10: require('@/assets/images/10.png'),
   c11: require('@/assets/images/11.png'),
-  bgMusic: require('@/assets/music/LuckyDay.mp3')
-
+  imgBorder: require('@/assets/images/img-bg.png'),
+  rbtn: require('@/assets/images/right-btn.png'),
+  lbtn: require('@/assets/images/left-btn.png')
 }
 
 var contents = [
