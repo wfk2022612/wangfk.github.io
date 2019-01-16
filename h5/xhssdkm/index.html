@@ -12,37 +12,29 @@
     <!-- built files will be auto injected -->
   </body>
   <script src="//cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"
+  <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"
     type="text/javascript" charset="utf-8"></script>
   <script>
-    function is_weixn(){
-    var ua = navigator.userAgent.toLowerCase();
-    if(ua.match(/MicroMessenger/i)=="micromessenger") {
-        return true;
-    } else {
-        return false;
-    }
-}
+    $(function(){
+        var audio=document.getElementById("bgMusic")
+        // $("#app").one("click",function(){
+          
+        //   audio.play()
+        // })
 
+        // 微信自动播放
+        // if (window.WeixinJSBridge) {
+        //   WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        //     audio.play();
+        //   }, false);
+        // }
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+            window.canPlayAudio=true;
+          });
+        }, false);
+      })
 
-$(function(){
-  $("#app").one("click",function(){
-    var audio=document.getElementById("bgMusic")
-    audio.play()
-  })
-
-  // 微信自动播放
-  if (window.WeixinJSBridge) {
-    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-      audio.play();
-    }, false);
-  }
-  document.addEventListener("WeixinJSBridgeReady", function () {
-    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-      audio.play();
-    });
-  }, false);
-})
 
 
     

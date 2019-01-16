@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <router-view />
-          <audio preload="preload" id="bgMusic" :src="audioSrc"
-            autoplay="autoplay" loop="">
-        </audio>
-      </div>
+    <router-view @loaded="loaded" />
+      <audio ref='music' preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop="">
+      </audio>
+    </div>
   </template>
 
   <script>
-  import Loading from '@/components/Loading'
+  // import Loading from '@/components/Loading'
   
   export default {
     name: 'App',
@@ -17,12 +16,23 @@
         
       }
     },
+    created(){
+      
+    },
+    mounted(){
+      this.$ref["music"].play()
+    },
     components:{
-      Loading
+      // Loading
     },
     computed:{
       audioSrc(){
         return require("@/assets/music/LuckyDay.mp3")
+      }
+    },
+    methods:{
+      loaded(){
+        console.log('loaded')
       }
     }
   }

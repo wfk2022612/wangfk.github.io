@@ -50,8 +50,15 @@ export default {
 				this.progress=Math.round( p*100)
 				console.log(p)
 				},()=>{
-                console.log("load finish")
-                this.$router.push("./cover")
+				console.log("load finish")
+				this.$router.push("./cover")
+				// var checkPlayState=window.setInterval(()=>{
+				// 	if(window.audioCanPaly){
+				// 		this.$router.push("./cover")
+				// 		window.clearInterval(checkPlayState)
+				// 	}
+				// },100)
+                
             })
         }
     },
