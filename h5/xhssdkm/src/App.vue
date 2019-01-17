@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view @loaded="loaded" />
-      <audio ref='music' preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop="">
+      <audio ref='music' preload="preload" id="bgMusic" :src="audioSrc" autoplay  loop="">
       </audio>
     </div>
   </template>
@@ -20,14 +20,14 @@
       
     },
     mounted(){
-      // (this.$ref["music"]||document.getElementById("bgMusic")).play()
+      // this.$ref["music"].play()
     },
     components:{
       // Loading
     },
     computed:{
       audioSrc(){
-        return require("@/assets/music/LuckyDay.mp3")
+        return require("@/assets/music/bg.mp3")
       }
     },
     methods:{

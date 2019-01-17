@@ -1,11 +1,10 @@
 <template>
   <div
     class="main"
-    :style="{background:'url('+imgs.detailBg+') no-repeat center top','background-size':'100vw 100vh'}"
-  >
+    :style="{background:'url('+imgs.detailBg+') no-repeat center top','background-size':'cover'}">
     <div class="title">
-      <transition name="slide-fade" style="font-size: 1em;">
-        <div v-if="showTitle">{{showTitleText}}</div>
+      <transition name="slide-fade">
+        <div v-if="showTitle" class="title-text">{{titleText}}</div>
       </transition>
     </div>
 
@@ -14,37 +13,41 @@
         <img :src="imgs.imgBorder" style="width: 592px;">
       </div>
 
-      <div class="image">
+      <div class="image" :style="{'border-image':''}">
         <div
           class="camera"
-          :style="{width:(width)+'px',height:'395px','background':'url('+imgs.imgBorder+')'}"
-        >
+          :style="{width:(width)+'px',height:'395px'}">
           <div
             class="ani"
-            :style="{display: 'flex',position: 'relative',left:cameraLeft+'px',width:(data.length*width)+'px'}"
-          >
+            :style="{display: 'flex',position:'relative',left:cameraLeft+'px',width:(data.length*width)+'px'}">
             <img
               :style="{width:width+'px',height:'423px'}"
               :src="d.img"
               v-for="(d,i) in data"
-              :key="i"
-            >
+              :key="i">
           </div>
         </div>
       </div>
-	  <div @click="handleLeftClick" class="left-btn">
-		  <img :src="imgs.rbtn" style="transform: rotate(180deg);"/>
-	  </div>
-	  <div @click="handleRightClick" class="right-btn">
-		  <img :src="imgs.rbtn" />
-	  </div>
+      <div @click="handleLeftClick" class="left-btn">
+        <img :src="imgs.lbtn" style="transform: rotate(0deg);" />
+      </div>
+      <div @click="handleRightClick" class="right-btn">
+        <img :src="imgs.rbtn" />
+      </div>
     </div>
-    <div class="des">{{subTitle}}</div>
+    <div class="des">
+      <transition name="slide-fade">
+        <div v-if="showTitle"  style="font-size: 0.8em;">{{subTitleText}}</div>
+      </transition>
+    </div>
     <div class="forward">
-		<img :src="imgs.entry" @click="navigate" />
-	</div>
+        <img :src="imgs.entry" @click="navigate" />
+    </div>
+    <!-- <div class="bottom" :style="{background: 'url('+imgs.indexBgBottom2+')'}">
+        
+    </div> -->
     <div class="logo">
-      <img  :src="imgs.logo" alt>
+      <img :src="imgs.logo" alt>
     </div>
   </div>
 </template>
@@ -58,7 +61,8 @@ export default {
       config,
       index: 0,
       showTitle: true,
-      showTitleText: "qqeret",
+      titleText: "",
+      subTitleText:"",
       width: 566,
       cameraLeft: 0
     };
@@ -95,34 +99,49 @@ export default {
   methods: {
     handleLeftClick() {
       var _this = this;
+      var lastIndex=this.index
       this.index--;
       if (this.index < 0) {
         this.index = 0;
-	  }
-	   this.cameraLeft += this.width;
+	    }
+	   
+      if(lastIndex!=this.index){
+        this.cameraLeft += this.width;
       if (this.cameraLeft >= 0) {
         this.cameraLeft = 0;
-	  }
+      }
+        this.aniShow()
+      }
     },
     handleRightClick() {
       var _this = this;
+      var lastIndex=this.index
       this.index++;
-      if (this.index >= this.data.length) {
+      if (this.index >= this.data.length-1) {
         this.index = this.data.length - 1;
-	  }
-	 
-	  this.cameraLeft -= this.width;
-      if (Math.abs(this.cameraLeft) >= this.data.length * this.width) {
+	    }
+      
+	   
+      if(lastIndex!=this.index){
+        this.cameraLeft -= this.width;
+      if (Math.abs(this.cameraLeft) >= this.data.length* this.width) {
         this.cameraLeft = this.data.length * this.width*-1;
       }
+        this.aniShow()
+      }
+      
+    },
+    aniShow(){
+        this.showTitle = false;
+        setTimeout(() => {
+          this.titleText = this.title;
+          this.subTitleText=this.subTitle
+          this.showTitle = true;
+        }, 300);
+
     },
     handleClick() {
-      //   this.showTitle = false;
-      //   setTimeout(() => {
-      //     this.showTitleText = Math.random();
-      //     this.showTitle = true;
-      //   }, 800);
-
+     
       
       //    alert(this.cameraLeft)
     },
@@ -130,12 +149,22 @@ export default {
 		window.location.href=this.link;
 	}
   },
-  mounted() {}
+  mounted() {
+    this.titleText = this.title;
+    this.subTitleText=this.subTitle
+  }
 };
 </script>
-	
-
 <style scope="this api replaced by slot-scope in 2.5.0+">
+  .title-text{
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+    width: 85%;
+    font-size: 1.3em;
+    -webkit-text-stroke: 1px #FFFFFF;
+    color: red;
+  }
 .left-btn{
 	width: 58px;
     height: 66px;
@@ -145,12 +174,11 @@ export default {
     left: 10px;
 }
 .right-btn{
-	 position: relative;
-    /* background-color: green; */
+  position: absolute;
     z-index: 1;
     width: 56px;
-    right: -685px;
-        top: -306px;
+    right: 10px;
+    top: 350px;
     height: 66px;
 }
 .image-bg {
@@ -160,14 +188,13 @@ export default {
   margin-top: 6px;
 }
 .image-container {
-  padding-top: 75px;
   height: 458px;
 }
 .slide-fade-enter-active {
-  transition: all 0.5s ease;
+  transition: all 0.8s ease;
 }
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active for below version 2.1.8 */ {
@@ -175,7 +202,7 @@ export default {
 }
 
 .ani {
-  transition: all 3s ease;
+  transition: all 0.8s ease;
 }
 
 .main {
@@ -184,18 +211,17 @@ export default {
   font-size: 10px;
 }
 .title {
-  padding: 120px 50px 0px 50px;
-  height: 75px;
-  font-size: 3em;
-  overflow: hidden;
-  /* width: 90vw; */
-  margin: 0 auto;
-  color: black;
-  font-weight: bold;
-  /* background-color: red; */
-  /* opacity: 0.5; */
-  margin-top: 0;
-  text-align: center;
+  padding: 100px 50px 0px 50px;
+    height: 75px;
+    font-size: 3em;
+    margin: 0 auto 20px auto;
+    color: black;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: center;
+    overflow: hidden;
+    width: 500px;
+    position: relative;
 }
 
 .image {
@@ -207,7 +233,7 @@ export default {
 
 .des {
 
-    height: 250px;
+  height: 250px;
     font-size: 3em;
     padding: 0px 65px;
     text-indent: 2em;
@@ -220,13 +246,14 @@ export default {
 }
 
 .forward img{
-	    width: auto;
-    margin-top: -50px;
+	    width: 35%;
+    margin-top: -43px;
+    
 }
 
 .logo {
   
-  position: absolute;
+  position: fixed;
   right: 10px;
   bottom: 10px;
   width: 150px;
@@ -235,5 +262,13 @@ export default {
 .camera {
   overflow: hidden;
   margin: 0 auto;
+  margin-top: 5px;
+}
+
+.bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 125px;
 }
 </style>
