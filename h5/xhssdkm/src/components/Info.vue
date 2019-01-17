@@ -1,49 +1,70 @@
 <template>
-  <transition name="main">
-    <div class="lt-full zmiti-detail-main-ui show" ref="page">
-      <div
-        :style="{background:'url('+imgs.detailBg+') no-repeat center top',backgroundSize:'cover','min-height':'100vh'}"
-      >
-        <div class="zmiti-index-logo">
-          <img :src="imgs.logo" alt>
-        </div>
-        <h1></h1>
-        <div class="zmiti-detail-title" v-if="titleImg">
-          <img :src="titleImg" alt>
-        </div>
-        <div class="zmiti-detail-title" v-if="title">{{title}}</div>
-        
-        <div class="zmiti-image" >
-            <button @click="handleLeftClick" v-show="index!=0" class="left-btn">&lt;</button>
-          <img :src="img" alt v-if="img">
-           <button @click="handleRightClick" v-show="index!=data.length-1"  class="right-btn">&gt;</button>
-        </div>
-       
-        <div class="zmiti-subtitle" v-if="subTitle">{{subTitle}}</div>
-        <!-- <div class="zmiti-image-text" v-if="des">
-          <div>{{des}}</div>
-        </div>-->
-        <div class="zmiti-comment"></div> 
-        <div class="link-btn-container" v-if="link">
-           <a class='link-btn' :href="link">进入查看</a> 
-        </div>
-        
-      </div>
-      <!-- <section class="zmiti-back">
-        <img :src="imgs.back" alt>
-      </section> -->
-     
+  <div
+    class="main"
+    :style="{background:'url('+imgs.detailBg+') no-repeat center top','background-size':'cover'}">
+    <div class="title">
+      <transition name="slide-fade">
+        <div v-if="showTitle" class="title-text">{{titleText}}</div>
+      </transition>
     </div>
-  </transition>
+
+    <div class="image-container">
+      <div class="image-bg" style="position:relative">
+        <img :src="imgs.imgBorder" style="width: 592px;">
+      </div>
+
+      <div class="image" :style="{'border-image':''}">
+        <div
+          class="camera"
+          :style="{width:(width)+'px',height:'395px'}">
+          <div
+            class="ani"
+            :style="{display: 'flex',position:'relative',left:cameraLeft+'px',width:(data.length*width)+'px'}">
+            <img
+              :style="{width:width+'px',height:'423px'}"
+              :src="d.img"
+              v-for="(d,i) in data"
+              :key="i">
+          </div>
+        </div>
+      </div>
+      <div @click="handleLeftClick" class="left-btn">
+        <img :src="imgs.lbtn" style="transform: rotate(0deg);" />
+      </div>
+      <div @click="handleRightClick" class="right-btn">
+        <img :src="imgs.rbtn" />
+      </div>
+    </div>
+    <div class="des">
+      <transition name="slide-fade">
+        <div v-if="showTitle"  style="font-size: 0.8em;">{{subTitleText}}</div>
+      </transition>
+    </div>
+    <div class="forward">
+        <img :src="imgs.entry" @click="navigate" />
+    </div>
+    <!-- <div class="bottom" :style="{background: 'url('+imgs.indexBgBottom2+')'}">
+        
+    </div> -->
+    <div class="logo">
+      <img :src="imgs.logo" alt>
+    </div>
+  </div>
 </template>
 
 <script>
 import config from "@/assets/js/Config.js";
 export default {
+  name: "info",
   data() {
     return {
       config,
-      index: 0
+      index: 0,
+      showTitle: true,
+      titleText: "",
+      subTitleText:"",
+      width: 566,
+      cameraLeft: 0
     };
   },
   computed: {
@@ -78,291 +99,176 @@ export default {
   methods: {
     handleLeftClick() {
       var _this = this;
+      var lastIndex=this.index
       this.index--;
-      if(this.index<0){
-          this.index=0
+      if (this.index < 0) {
+        this.index = 0;
+	    }
+	   
+      if(lastIndex!=this.index){
+        this.cameraLeft += this.width;
+      if (this.cameraLeft >= 0) {
+        this.cameraLeft = 0;
+      }
+        this.aniShow()
       }
     },
     handleRightClick() {
       var _this = this;
+      var lastIndex=this.index
       this.index++;
-      if(this.index>=this.data.length){
-          this.index=this.data.length-1
+      if (this.index >= this.data.length-1) {
+        this.index = this.data.length - 1;
+	    }
+      
+	   
+      if(lastIndex!=this.index){
+        this.cameraLeft -= this.width;
+      if (Math.abs(this.cameraLeft) >= this.data.length* this.width) {
+        this.cameraLeft = this.data.length * this.width*-1;
       }
-    }
+        this.aniShow()
+      }
+      
+    },
+    aniShow(){
+        this.showTitle = false;
+        setTimeout(() => {
+          this.titleText = this.title;
+          this.subTitleText=this.subTitle
+          this.showTitle = true;
+        }, 300);
+
+    },
+    handleClick() {
+     
+      
+      //    alert(this.cameraLeft)
+    },
+    navigate() {
+		window.location.href=this.link;
+	}
+  },
+  mounted() {
+    this.titleText = this.title;
+    this.subTitleText=this.subTitle
   }
 };
 </script>
-
-<style scope>
-.lt-full {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.zmiti-text-overflow {
-  overflow: hidden;
-  white-space: nowrap;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  -webkit-text-overflow: ellipsis;
-}
-
-.zmiti-play {
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
-  position: fixed;
-  z-index: 1000;
-  right: 0.5rem;
-  top: 0.5rem;
-}
-
-.zmiti-play.rotate {
-  -webkit-animation: rotate 5s linear infinite;
-  animation: rotate 5s linear infinite;
-}
-
-@-webkit-keyframes rotate {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+<style scope="this api replaced by slot-scope in 2.5.0+">
+  .title-text{
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+    width: 85%;
+    font-size: 1.3em;
+    -webkit-text-stroke: 1px #FFFFFF;
+    color: red;
   }
-}
-
-.zmiti-detail-main-ui {
-  background: #fff;
-  color: #504125;
-  z-index: -1;
-  opacity: 0;
-  overflow: hidden;
-}
-
-.zmiti-detail-main-ui.show {
-  z-index: 1230;
-  opacity: 1;
-}
-
-.zmiti-detail-main-ui > div {
-}
-
-.zmiti-detail-main-ui .zmiti-detail-title {
-  width: 70%;
-  margin: 0 auto;
-  font-size:0.5em;
-}
-
-.zmiti-detail-main-ui h1 {
-  height: 200px;
-}
-
-.zmiti-detail-main-ui .zmiti-video-C {
-  width: 750px;
-}
-
-.zmiti-detail-main-ui .zmiti-video-C video {
-  width: 100%;
-}
-
-.zmiti-detail-main-ui .zmiti-video-text,
-.zmiti-detail-main-ui .zmiti-image-text {
-  width: 80%;
-  margin: 20px auto;
-}
-
-.zmiti-detail-main-ui .zmiti-video-text div,
-.zmiti-detail-main-ui .zmiti-image-text div {
-  text-indent: 2em;
-}
-
-.zmiti-detail-main-ui .zmiti-video-text {
-  text-indent: 2em;
-}
-
-.zmiti-detail-main-ui .zmiti-index-logo {
-  position: absolute;
-  width: 160px;
-  right: 30px;
-  top: 20px;
-}
-
-.zmiti-detail-main-ui .zmiti-subtitle {
-  width: 90%;
-  margin: 0 auto;
-  text-align: left;
-  height: auto;
-  color: #754c24;
-  font-weight: 900;
-  font-size: 26px;
-  height: auto;
-  text-indent: 52px;
-  margin-bottom: 26px;
-}
-
-.zmiti-detail-main-ui .zmiti-comment {
-  margin-top: 120px;
-  position: relative;
-  background: #fff;
-}
-
-.zmiti-detail-main-ui .zmiti-comment:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 40px;
-  z-index: -1;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.zmiti-detail-main-ui .zmiti-comment:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 40px;
-  z-index: -1;
-  left: 0;
-  bottom: -5px;
-  background: #fff;
-}
-
-.zmiti-detail-main-ui .zmiti-comment h2 {
-  display: -webkit-box;
-  -webkit-box-align: center;
-  -webkit-box-pack: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-pack: justify;
-  width: 90%;
-  font-weight: normal;
-  margin: 0 auto;
-  font-size: 30px;
-  height: 80px;
-}
-
-.zmiti-detail-main-ui .zmiti-comment h2 > div:nth-of-type(1) {
-  color: #a0a0a0;
-}
-
-.zmiti-detail-main-ui .zmiti-comment h2 span {
-  color: #4a586c;
-}
-
-.zmiti-detail-main-ui .zmiti-comment h2 img {
-  width: 30px;
-}
-
-.zmiti-detail-main-ui .zmiti-comment .zmiti-comment-item {
-  display: -webkit-box;
-  -webkit-box-align: center;
-  -webkit-box-pack: center;
-  -webkit-box-orient: horizontal;
-  width: 90%;
-  margin: 20px auto;
-  -webkit-box-align: start;
-}
-
-.zmiti-detail-main-ui .zmiti-comment .zmiti-comment-item > div {
-  margin: 0 10px;
-}
-
-.zmiti-detail-main-ui .zmiti-comment .zmiti-comment-item > div:nth-of-type(1) {
-  -webkit-box-flex: 1;
-}
-
-.zmiti-detail-main-ui .zmiti-comment .zmiti-comment-item > div:nth-of-type(2) {
-  -webkit-box-flex: 11;
-  color: #282727;
-}
-
-.zmiti-detail-main-ui
-  .zmiti-comment
-  .zmiti-comment-item
-  > div:nth-of-type(2)
-  > div {
-  font-size: 28px;
-  line-height: 40px;
-}
-
-.zmiti-detail-main-ui
-  .zmiti-comment
-  .zmiti-comment-item
-  > div:nth-of-type(2)
-  > div:nth-of-type(1) {
-  color: #a0a0a0;
-  font-size: 24px;
-  margin-top: -5px;
-}
-
-.zmiti-detail-main-ui .zmiti-comment .zmiti-more {
-  border-top: 1px solid #e9e4d8;
-  text-align: center;
-  height: 100px;
-  color: #787878;
-  line-height: 100px;
-}
-
-.zmiti-detail-main-ui .zmiti-image-text {
-  font-size: 28px;
-  line-height: 42px;
-}
-
-.zmiti-detail-main-ui .zmiti-image {
-  width: 80%;
-  margin: 40px auto 20px;
-  background: #ead7a4;
-  padding: 10px;
-  position: relative;
-  /* height: 30vh; */
-  /* max-height: 30vh;
-  max-width: 80vw; */
-}
-
-.zmiti-detail-main-ui .zmiti-image:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-}
-
-.zmiti-back {
-  width: 100px;
-  height: 100px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
-}
-
-.right-btn{
-    position: absolute;
-    right: -10%;
-    top: 45%;
-    width: 8%;
-    height: 8%;
-}
-
 .left-btn{
-    position: absolute;
-    left: -10%;
-    top: 45%;
-    width: 8%;
-    height: 8%;
+	width: 58px;
+    height: 66px;
+    position: relative;
+    /* background-color: red; */
+    top: -250px;
+    left: 10px;
+}
+.right-btn{
+  position: absolute;
+    z-index: 1;
+    width: 56px;
+    right: 10px;
+    top: 350px;
+    height: 66px;
+}
+.image-bg {
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  margin-top: 6px;
+}
+.image-container {
+  height: 458px;
+}
+.slide-fade-enter-active {
+  transition: all 0.8s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  opacity: 0;
 }
 
-.link-btn-container{
-    width: 100vw;
-    position: fixed;
-    margin: 0 auto;
-    text-align: center;
-    bottom: 10vh;
+.ani {
+  transition: all 0.8s ease;
 }
-.link-btn{
-    font-size: 0.6em;
-    color:#754c24;
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  font-size: 10px;
+}
+.title {
+  padding: 100px 50px 0px 50px;
+    height: 75px;
+    font-size: 3em;
+    margin: 0 auto 20px auto;
+    color: black;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: center;
+    overflow: hidden;
+    width: 500px;
+    position: relative;
+}
+
+.image {
+  margin-top: -410px;
+  /* background-color: gray;
+  opacity: 0.5; */
+      height: 395px;
+}
+
+.des {
+
+  height: 250px;
+    font-size: 3em;
+    padding: 0px 65px;
+    text-indent: 2em;
+}
+
+.forward {
+
+  height: 120px;
+  text-align: center;
+}
+
+.forward img{
+	    width: 35%;
+    margin-top: -43px;
+    
+}
+
+.logo {
+  
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 150px;
+}
+
+.camera {
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 125px;
 }
 </style>

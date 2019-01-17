@@ -139,11 +139,15 @@ export default{
 		},
 		mounted: function mounted() {
 			this.initPoints();
-			if(window.canPlayAudio){
-				var audio=document.getElementById("bgMusic")
+			// var playId=window.setInterval(()=>{
+			// 	if(window.canPlayAudio){
+			// 	var audio=document.getElementById("bgMusic")
 				
-				audio.play();
-			}
+			// 	audio.play();
+			// 	window.clearInterval(playId)
+			// }
+			// })
+			
 		}
     }
     
@@ -281,6 +285,22 @@ export default{
 	animation: scale 1s linear infinite alternate;
 }
 
+@-webkit-keyframes scale {
+	from {
+		-webkit-transform: scale(0.96) translateZ(1px); 
+	}
+	to {
+		-webkit-transform: scale(1.04) translateZ(1px); 
+	} 
+}
+@keyframes scale {
+	from {
+		-webkit-transform: scale(0.96) translateZ(1px); 
+	}
+	to {
+		-webkit-transform: scale(1.04) translateZ(1px); 
+	} 
+}
 @-webkit-keyframes rotate1 {
 	to {
 		-webkit-transform: rotate(360deg) scale(2);

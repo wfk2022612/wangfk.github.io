@@ -19,6 +19,7 @@
 import config from '@/assets/js/Config.js'
 
 export default {
+	name:"loading",
     data(){
         return {
             config:config,
