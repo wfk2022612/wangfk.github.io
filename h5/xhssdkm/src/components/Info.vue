@@ -5,6 +5,7 @@
     <div class="title">
       <transition name="slide-fade">
         <div v-if="showTitle" class="title-text">{{titleText}}</div>
+        <!-- <canvas v-if="showTitle" class="title-text">{{titleText}}</canvas> -->
       </transition>
     </div>
 
@@ -163,7 +164,7 @@ export default {
     width: 85%;
     font-size: 1.3em;
     -webkit-text-stroke: 1px #FFFFFF;
-    color: red;
+    color: #bf0200;
   }
 .left-btn{
 	width: 58px;
@@ -186,6 +187,10 @@ export default {
   width: 100vw;
   text-align: center;
   margin-top: 6px;
+}
+.image-bg img{
+      display: inline-block;
+        box-shadow: 2px 2px 10px black;
 }
 .image-container {
   height: 458px;

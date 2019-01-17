@@ -8,7 +8,9 @@
 
   <script>
   // import Loading from '@/components/Loading'
-  
+  import FastClick from 'fastclick'
+
+
   export default {
     name: 'App',
     data(){
@@ -21,6 +23,7 @@
     },
     mounted(){
       // this.$ref["music"].play()
+      FastClick.attach(document.body);
     },
     components:{
       // Loading
