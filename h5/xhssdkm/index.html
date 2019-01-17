@@ -22,21 +22,21 @@
         // })
 
         // 微信自动播放
-        if (window.WeixinJSBridge) {
-          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-            audio.play();
-            audio.pause()
-            window.canPlayAudio=true;
-          }, false);
-        }
-        document.addEventListener("WeixinJSBridgeReady", function () {
-          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-            audio.play();
-            audio.pause()
-            // audio.pause()
-            window.canPlayAudio=true;
-          });
-        }, false);
+        // if (window.WeixinJSBridge) {
+        //   WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        //     audio.play();
+        //     audio.pause()
+        //     window.canPlayAudio=true;
+        //   }, false);
+        // }
+        // document.addEventListener("WeixinJSBridgeReady", function () {
+        //   WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        //     audio.play();
+        //     audio.pause()
+        //     // audio.pause()
+        //     window.canPlayAudio=true;
+        //   });
+        // }, false);
       })
 
 
