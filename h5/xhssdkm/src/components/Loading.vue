@@ -37,13 +37,16 @@ export default {
         }
     },
     mounted(){
-
-        var imgList=[];
+		console.log('loading mounted')
+		var imgList=[];
+	 
         for(var p in this.imgs){
-            if((/^\/static\/.+/g).test(this.imgs[p])){
+            if(!(/^data:/ig).test(this.imgs[p])){
                 imgList.push(this.imgs[p])
                 console.log(this.imgs[p])
-            }
+            }else{
+				console.log(this.imgs[p]+" loaded ")
+			}
         }
         
         if(imgList.length>0){
@@ -61,7 +64,9 @@ export default {
 				// },100)
                 
             })
-        }
+        }else{
+			this.$router.push("./cover")
+		}
     },
     methods:{
         loading(arr, fn, fnEnd) {
