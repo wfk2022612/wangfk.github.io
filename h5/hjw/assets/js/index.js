@@ -200,6 +200,7 @@
 
 			var src = _componentsLibUtilJs2['default'].getQueryString('src');
 			var num = _componentsLibUtilJs2['default'].getQueryString('num');
+			var isSkipLoadding = _componentsLibUtilJs2['default'].getQueryString('skiploadding');
 
 			this.isShare = src && !isNaN(num);
 
@@ -225,12 +226,18 @@
 				}, 1000);
 			}
 
-			s.loading(arr, function (scale) {
-				s.width = scale * 100 | 0;
-			}, function () {
+			if(isSkipLoadding){
 				s.show = true;
 				s.loaded = true;
-			});
+			}else{
+				s.loading(arr, function (scale) {
+					s.width = scale * 100 | 0;
+				}, function () {
+					s.show = true;
+					s.loaded = true;
+				});
+			}
+			
 
 			window.$ = _jquery2['default'];
 
@@ -25754,7 +25761,7 @@
 	var _libAssets = __webpack_require__(13);
 
 	var audios = [];
-debugger
+
 	for (var music in _libAssets.musics) {
 		audios.push(_libAssets.musics[music]);
 	}
