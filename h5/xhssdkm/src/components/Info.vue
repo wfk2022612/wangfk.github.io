@@ -1,59 +1,41 @@
 <template>
-  <div
-    class="main"
-    :style="{background:'url('+imgs.detailBg+') no-repeat center top','background-size':'cover'}">
-    <div class="title">
-      <transition name="slide-fade">
-        <div v-if="showTitle" class="title-text">{{titleText}}</div>
-        <!-- <canvas v-if="showTitle" class="title-text">{{titleText}}</canvas> -->
-      </transition>
-    </div>
-
-    <div class="image-container">
-      <div class="image-bg" style="position:relative">
-        <img :src="imgs.imgBorder" style="width: 592px;">
+  <div class="main">
+    <div class="main-ui">
+      <div class="top">
+        <transition name="fade">
+          <div class="title" v-if="showTitle">{{titleText}}</div>
+        </transition>
       </div>
-
-      <div class="image" :style="{'border-image':''}">
-        <div
-          class="camera"
-          :style="{width:(width)+'px',height:'395px'}">
-          <div
-            class="ani"
-            :style="{display: 'flex',position:'relative',left:cameraLeft+'px',width:(data.length*width)+'px'}">
-            <img
-              :style="{width:width+'px',height:'423px'}"
-              :src="d.img"
-              v-for="(d,i) in data"
-              :key="i">
+      <div class="picture">
+        <div class="lbtn" @click="leftClick">
+          <img src="../assets/images/left-btn.png">
+        </div>
+        <div class="rbtn" @click="rightClick">
+          <img src="../assets/images/right-btn.png">
+        </div>
+        <div class="image">
+          <div class="image-container" :style="{left:cameraLeft+'px'}">
+            <img ref="img" v-for="content in config.contents" :src="content.img" :key="content.src">
           </div>
         </div>
       </div>
-      <div @click="handleLeftClick" class="left-btn">
-        <img :src="imgs.lbtn" style="transform: rotate(0deg);" />
+      <div class="des">
+        <transition name="fade">
+          <div v-if="showTitle">{{subTitleText}}</div>
+        </transition>
       </div>
-      <div @click="handleRightClick" class="right-btn">
-        <img :src="imgs.rbtn" />
-      </div>
     </div>
-    <div class="des">
-      <transition name="slide-fade">
-        <div v-if="showTitle"  style="font-size: 0.8em;">{{subTitleText}}</div>
-      </transition>
+    <div class="bottom">
+     <a :href="link" ><img src="../assets/images/entry.png"></a>
     </div>
-    <div class="forward">
-        <img :src="imgs.entry" @click="navigate" />
-    </div>
-    <!-- <div class="bottom" :style="{background: 'url('+imgs.indexBgBottom2+')'}">
-        
-    </div> -->
     <div class="logo">
-      <img :src="imgs.logo" alt>
+      <img class="logo-img" src="../assets/images/logo2.png" />
     </div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import config from "@/assets/js/Config.js";
 export default {
   name: "info",
@@ -63,8 +45,8 @@ export default {
       index: 0,
       showTitle: true,
       titleText: "",
-      subTitleText:"",
-      width: 566,
+      subTitleText: "",
+      width: 570,
       cameraLeft: 0
     };
   },
@@ -98,182 +80,218 @@ export default {
     }
   },
   methods: {
-    handleLeftClick() {
+    leftClick() {
       var _this = this;
-      var lastIndex=this.index
+      var lastIndex = this.index;
       this.index--;
       if (this.index < 0) {
         this.index = 0;
-	    }
-	   
-      if(lastIndex!=this.index){
-        this.cameraLeft += this.width;
-      if (this.cameraLeft >= 0) {
-        this.cameraLeft = 0;
       }
-        this.aniShow()
-      }
-    },
-    handleRightClick() {
-      var _this = this;
-      var lastIndex=this.index
-      this.index++;
-      if (this.index >= this.data.length-1) {
-        this.index = this.data.length - 1;
-	    }
-      
-	   
-      if(lastIndex!=this.index){
-        this.cameraLeft -= this.width;
-      if (Math.abs(this.cameraLeft) >= this.data.length* this.width) {
-        this.cameraLeft = this.data.length * this.width*-1;
-      }
-        this.aniShow()
-      }
-      
-    },
-    aniShow(){
-        this.showTitle = false;
-        setTimeout(() => {
-          this.titleText = this.title;
-          this.subTitleText=this.subTitle
-          this.showTitle = true;
-        }, 300);
 
+      if (lastIndex != this.index) {
+        this.cameraLeft += this.width;
+        if (this.cameraLeft >= 0) {
+          this.cameraLeft = 0;
+        }
+        this.aniShow();
+      }
     },
-    handleClick() {
-     
-      
-      //    alert(this.cameraLeft)
+    rightClick() {
+        
+      var _this = this;
+      var lastIndex = this.index;
+      this.index++;
+      if (this.index >= this.data.length - 1) {
+        this.index = this.data.length - 1;
+      }
+
+      if (lastIndex != this.index) {
+        this.cameraLeft -= this.width;
+        if (Math.abs(this.cameraLeft) >= this.data.length * this.width) {
+          this.cameraLeft = this.data.length * this.width * -1;
+        }
+        this.aniShow();
+      }
+    },
+    aniShow() {
+      this.showTitle = false;
+      setTimeout(() => {
+        this.titleText = this.title;
+        this.subTitleText = this.subTitle;
+        this.showTitle = true;
+      }, 300);
     },
     navigate() {
-		window.location.href=this.link;
-	}
+      window.location.href = this.link;
+    }
   },
   mounted() {
     this.titleText = this.title;
-    this.subTitleText=this.subTitle
+    this.subTitleText = this.subTitle;
   }
 };
 </script>
-<style lang="scss" scope="this api replaced by slot-scope in 2.5.0+">
-.title-text{
-    font-weight: bold;
-    position: absolute;
-    bottom: 0px;
-    width: 85%;
-    font-size: 1.3em;
-    -webkit-text-stroke: 1px #FFFFFF;
-    color: #bf0200;
-  }
-.left-btn{
-	width: 58px;
-    height: 66px;
-    position: relative;
-    /* background-color: red; */
-    top: -250px;
-    left: 10px;
-}
-.right-btn{
-  position: absolute;
-    z-index: 1;
-    width: 56px;
-    right: 10px;
-    top: 350px;
-    height: 66px;
-}
-.image-bg {
-  position: absolute;
-  width: 100vw;
-  text-align: center;
-  margin-top: 6px;
-}
-.image-bg img{
-      display: inline-block;
-        box-shadow: 2px 2px 10px black;
-}
-.image-container {
-  height: 458px;
-}
-.slide-fade-enter-active {
-  transition: all 0.8s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */ {
-  opacity: 0;
-}
 
-.ani {
-  transition: all 0.8s ease;
+<style lang="scss" scoped>
+
+$fontsize: 75;
+$design: 750;
+
+@function rem($px) {
+  @return $px/$fontsize * 1rem;
 }
 
 .main {
-  width: 100vw;
+  width: rem($design);
+  background: url(../assets/images/detail-bg.jpg) no-repeat center top;
+  background-size: cover;
   height: 100vh;
-  font-size: 10px;
-}
-.title {
-  padding: 100px 50px 0px 50px;
-    height: 75px;
-    font-size: 3em;
-    margin: 0 auto 20px auto;
-    color: black;
-    font-weight: bold;
-    margin-top: 0;
-    text-align: center;
-    overflow: hidden;
-    width: 500px;
-    position: relative;
-}
-
-.image {
-  margin-top: -410px;
-  /* background-color: gray;
-  opacity: 0.5; */
-      height: 395px;
-}
-
-.des {
-
-  height: 250px;
-    font-size: 3em;
-    padding: 0px 65px;
-    text-indent: 2em;
-}
-
-.forward {
-
-  height: 120px;
-  text-align: center;
-}
-
-.forward img{
-  width: 50%;
-  margin-top: -43px;
-    
-}
-
-.logo {
-  
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-  width: 150px;
-}
-
-.camera {
   overflow: hidden;
-  margin: 0 auto;
-  margin-top: 5px;
+  overflow-y: auto;
+
+  .main-ui {
+    .top {
+      height: rem(200);
+      //width: rem(750);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 0 rem(100);
+        
+      .title {
+        // height: rem(170);
+        width: rem(550);
+        margin: 0 auto;
+        font-size: rem(40);
+        font-weight: bold;
+        // background-color: green;
+        // opacity: 0.5;
+        color: #bf0200;
+        -webkit-text-stroke: 1px white;
+        position: absolute;
+        bottom: 0;
+        transition: all 0.8s;
+      }
+    }
+
+    .picture {
+      width: rem($design);
+      height: rem(450);
+
+      position: relative;
+      padding-top: rem(12);
+
+      .lbtn {
+        position: absolute;
+        // background-color: aqua;
+        width: rem(61);
+        height: rem(72);
+        top: rem(180);
+        left: rem(10);
+        img {
+          width: rem(61);
+          height: rem(72);
+        }
+      }
+
+      .rbtn {
+        position: absolute;
+        // background-color: darkgoldenrod;
+        width: rem(61);
+        height: rem(72);
+        top: rem(180);
+        right: rem(10);
+
+        img {
+          width: rem(61);
+          height: rem(72);
+        }
+      }
+
+      .image {
+        position: relative;
+        height: rem(390);
+        width: rem(570);
+        background-color: brown;
+        margin: {
+          top: rem(12);
+          left: auto;
+          right: auto;
+        }
+        overflow: hidden;
+        box-shadow: rem(1) rem(3) rem(10) rem(1);
+
+        img {
+          position: relative;
+          z-index: 0;
+          display: block;
+          width: rem(570);
+          height: rem(390);
+          float: left;
+        }
+
+        .image-container {
+          height: rem(390);
+          width: rem(570 * 12);
+          position: relative;
+          transition: all 0.8s;
+        }
+      }
+
+      .image:before {
+        content: "";
+        border: rem(10) darkmagenta solid;
+        width: rem(550);
+        height: rem(370);
+        position: absolute;
+        display: block;
+        top: rem(0);
+        left: rem(0);
+        box-shadow: 0 0 rem(30);
+        border-image: url(../assets/images/img-bg-border.png) 10 round;
+        z-index: 1;
+      }
+    }
+
+    .des {
+      height: rem(280);
+      //   background-color: yellow;
+      //   opacity: 0.5;
+      width: rem(590);
+      margin: 0 auto;
+
+      text-indent: rem(45);
+
+      div {
+        font-size: rem(25);
+        transition: all 0.8s;
+      }
+    }
+  }
+  .bottom {
+    height: rem(110);
+    text-align: center;
+    bottom: rem(200);
+    img {
+      width: rem(375);
+      margin-top: rem(-70);
+    }
+  }
+  .logo {
+    position: absolute;
+    bottom: rem(5);
+    right: rem(5);
+
+    img {
+      width: rem(131);
+      height: rem(147);
+    }
+  }
 }
 
-.bottom{
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 125px;
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
+
 </style>

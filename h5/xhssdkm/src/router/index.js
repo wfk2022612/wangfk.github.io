@@ -5,6 +5,7 @@ import Loading from '@/components/Loading'
 import Cover from '@/components/Cover'
 import Info from '@/components/Info'
 
+
 Vue.use(Router)
 
 export default new Router({

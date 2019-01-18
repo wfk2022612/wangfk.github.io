@@ -23,7 +23,7 @@
     },
     mounted(){
       // this.$ref["music"].play()
-      FastClick.attach(document.body);
+      // FastClick.attach(document.body);
     },
     components:{
       // Loading
@@ -49,7 +49,7 @@
 html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
 	padding: 0;
 	margin: 0;
-  font-size:10vw;
+  font-size:75px;
 }
 
 a {
@@ -67,13 +67,11 @@ html, body {
 
 body {
 	font-family: "Helvetica Neue", 'Helvetica', "Microsoft YaHei", '\\5FAE\\8F6F\\96C5\\9ED1', arial, sans-serif;
-	font-size: 30px;
 }
 
 img {
 	border: none;
 	vertical-align: middle;
-	width: 100%;
 	height: auto;
 }
 

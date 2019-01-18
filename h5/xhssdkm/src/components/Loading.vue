@@ -56,6 +56,7 @@ export default {
 				},()=>{
 				console.log("load finish")
 				this.$router.push("./cover")
+				// this.$router.push("./info")
 				// var checkPlayState=window.setInterval(()=>{
 				// 	if(window.audioCanPaly){
 				// 		this.$router.push("./cover")
