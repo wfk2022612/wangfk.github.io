@@ -156,8 +156,8 @@ export default {
   }
 };
 </script>
-<style scope="this api replaced by slot-scope in 2.5.0+">
-  .title-text{
+<style lang="scss" scope="this api replaced by slot-scope in 2.5.0+">
+.title-text{
     font-weight: bold;
     position: absolute;
     bottom: 0px;
@@ -251,8 +251,8 @@ export default {
 }
 
 .forward img{
-	    width: 35%;
-    margin-top: -43px;
+  width: 50%;
+  margin-top: -43px;
     
 }
 

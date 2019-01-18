@@ -8,7 +8,7 @@
 
   <script>
   // import Loading from '@/components/Loading'
-  import FastClick from 'fastclick'
+  // import FastClick from 'fastclick'
 
 
   export default {
