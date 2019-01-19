@@ -268,7 +268,7 @@ export default{
 	width: 180px;
 	position: absolute;
 	bottom: 40px;
-	right: 40px;
+	right: 0px;
 	z-index: 9;
 }
 

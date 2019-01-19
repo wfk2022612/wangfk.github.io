@@ -189,8 +189,8 @@ $design: 750;
         top: rem(180);
         left: rem(10);
         img {
-          width: rem(61);
-          height: rem(72);
+          width: rem(53);
+          height: rem(47);
         }
       }
 
@@ -203,8 +203,8 @@ $design: 750;
         right: rem(10);
 
         img {
-          width: rem(61);
-          height: rem(72);
+          width: rem(53);
+          height: rem(47);
         }
       }
 
@@ -254,7 +254,7 @@ $design: 750;
     }
 
     .des {
-      height: rem(280);
+      height: rem(250);
       //   background-color: yellow;
       //   opacity: 0.5;
       width: rem(590);
@@ -279,13 +279,9 @@ $design: 750;
   }
   .logo {
     position: absolute;
-    bottom: rem(5);
-    right: rem(5);
-
-    img {
-      width: rem(131);
-      height: rem(147);
-    }
+    bottom: 40px;
+    right: 0px;
+    width: 180px;
   }
 }
 
