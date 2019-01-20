@@ -1,6 +1,30 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,user-scalable=no"><title>唱响新时代英雄赞歌</title><script src=//cdn.bootcss.com/jquery/1.10.2/jquery.min.js></script><link href=./static/css/app.ab9ef51014facf47b83ffae0951ffc9b.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.748b758d760814f9bfe5.js></script><script type=text/javascript src=./static/js/app.81b6ddec6645694aebb8.js></script></body><script>$(function(){
-      $("#app").one("click",function(){
-       var bgMusic= document.getElementById("bgMusic");
-       if(bgMusic.paused)bgMusic.play()
-      })
-    })</script></html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,user-scalable=no"><title>唱响新时代英雄赞歌</title><script src=//cdn.bootcss.com/jquery/1.10.2/jquery.min.js></script><link href=./static/css/app.b42a0a8cc8c25aef4028ca3c59ccd931.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.748b758d760814f9bfe5.js></script><script type=text/javascript src=./static/js/app.8f0aaa207c650264a694.js></script></body><script>$(function () {
+    $("#app").one("click", function () {
+      var bgMusic = document.getElementById("bgMusic");
+      if (bgMusic.paused) bgMusic.play()
+    })
+  })
+
+  function audioAutoPlay(id) {
+    var audio = document.getElementById(id);
+
+    var play = function () {
+      document.removeEventListener("WeixinJSBridgeReady", play);
+      document.removeEventListener("YixinJSBridgeReady", play);
+
+      audio.play();
+      audio.pause();
+      // document.removeEventListener("touchstart", play, false);
+    };
+
+    audio.play();
+    audio.pause();
+
+    //weixin
+    document.addEventListener("WeixinJSBridgeReady", play, false);
+    //yixin
+    document.addEventListener('YixinJSBridgeReady', play, false);
+
+    // document.addEventListener("touchstart", play, false);
+  }
+  audioAutoPlay('bgMusic');</script></html>

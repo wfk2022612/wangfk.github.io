@@ -79,9 +79,6 @@ export default{
 			},
 
 			entry() {
-				var audio=document.getElementById("bgMusic")
-				audio.play();
-				localStorage.setItem("autoplay","autoplay")
 				var _this = this;
 				this.showIndexMask = true;
                 this.showVideo = false;
@@ -140,14 +137,6 @@ export default{
 		},
 		mounted: function mounted() {
 			this.initPoints();
-			// var playId=window.setInterval(()=>{
-			// 	if(window.canPlayAudio){
-			// 	var audio=document.getElementById("bgMusic")
-				
-			// 	audio.play();
-			// 	window.clearInterval(playId)
-			// }
-			// })
 			
 		}
     }
