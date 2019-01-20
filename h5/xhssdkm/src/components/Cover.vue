@@ -137,17 +137,15 @@ export default {
   },
   mounted: function mounted() {
 	this.initPoints();
-	var audio = document.getElementById("bgMusic");
-	audio.currentTime=0
-	audio.muted=false
-	audio.play()
-
-	var canplayId = setInterval(() => {
+	var playId = setInterval(() => {
       if (window.canplay === true) {
         var audio = document.getElementById("bgMusic");
+        if (audio.muted == true) {
+          audio.currentTime = 0;
+        }
         audio.muted = false;
         audio.play();
-        window.clearInterval(canplayId);
+        window.clearInterval(playId);
       }
     }, 100);
 	

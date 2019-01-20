@@ -126,13 +126,15 @@ export default {
     }
     this.titleText = this.title;
     this.subTitleText = this.subTitle;
-
-    var canplayId = setInterval(() => {
+    var playId = setInterval(() => {
       if (window.canplay === true) {
         var audio = document.getElementById("bgMusic");
+        if (audio.muted == true) {
+          audio.currentTime = 0;
+        }
         audio.muted = false;
         audio.play();
-        window.clearInterval(canplayId);
+        window.clearInterval(playId);
       }
     }, 100);
   }
