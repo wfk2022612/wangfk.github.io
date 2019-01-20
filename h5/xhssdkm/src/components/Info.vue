@@ -91,7 +91,7 @@ export default {
       if (this.index < 0) {
         this.index = 0;
       }
-      // this.$router.replace(`/info/${this.index}`);
+      this.$router.replace(`/info/${this.index}`);
       if (lastIndex != this.index) {
         this.aniShow();
       }
@@ -103,7 +103,7 @@ export default {
       if (this.index >= this.data.length - 1) {
         this.index = this.data.length - 1;
       }
-      // this.$router.replace(`/info/${this.index}`);
+      this.$router.replace(`/info/${this.index}`);
       if (lastIndex != this.index) {
         this.aniShow();
       }
@@ -121,9 +121,9 @@ export default {
     }
   },
   mounted() {
-    // if (this.$route.params["index"]) {
-    //   this.index = this.$route.params["index"];
-    // }
+    if (this.$route.params["index"]) {
+      this.index = this.$route.params["index"];
+    }
     this.titleText = this.title;
     this.subTitleText = this.subTitle;
 
