@@ -188,6 +188,7 @@ $design: 750;
         height: rem(72);
         top: rem(180);
         left: rem(10);
+        text-align: right;
         img {
           width: rem(53);
           height: rem(47);
@@ -201,6 +202,7 @@ $design: 750;
         height: rem(72);
         top: rem(180);
         right: rem(10);
+        text-align: left;
 
         img {
           width: rem(53);
@@ -212,7 +214,7 @@ $design: 750;
         position: relative;
         height: rem(390);
         width: rem(570);
-        background-color: brown;
+        // background-color: brown;
         margin: {
           top: rem(12);
           left: auto;
@@ -240,7 +242,7 @@ $design: 750;
 
       .image:before {
         content: "";
-        border: rem(10) darkmagenta solid;
+        border: rem(10) transparent solid;
         width: rem(550);
         height: rem(370);
         position: absolute;
@@ -248,7 +250,7 @@ $design: 750;
         top: rem(0);
         left: rem(0);
         box-shadow: 0 0 rem(30);
-        border-image: url(../assets/images/img-bg-border.png) 10 round;
+        border-image: url(../assets/images/img-bg-border.png) 10 stretch;
         z-index: 1;
       }
     }

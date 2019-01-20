@@ -1,56 +1,20 @@
 <template>
-  <div id="app">
-    <router-view @loaded="loaded"/>
-    <audio ref="music" preload="preload" id="bgMusic" :src="audioSrc" autoplay loop></audio>
+  <div id="app" class="app">
+    <router-view/>
+    <audio preload="preload" id="bgMusic" src="@/assets/music/bg.mp3"  loop></audio>
   </div>
 </template>
 
-<script>
-export default {
-  name: "App",
-  data() {
-    return {};
-  },
-  created() {},
-  components: {
-    // Loading
-  },
-  computed: {
-    audioSrc() {
-      return require("@/assets/music/bg.mp3");
-    }
-  },
-  methods: {
-    loaded() {
-      console.log("loaded");
-    }
-  }
-};
-</script>
-  <style>
-html,
-body,
-div,
-p,
-ul,
-li,
-ol,
-dl,
-dt,
-dd,
-header,
-footer,
-video,
-h1,
-h2,
-h3,
-h4,
-canvas,
-section,
-figure {
+<style>
+* {
   padding: 0;
   margin: 0;
+}
+
+html {
   font-size: 75px;
+  font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei",
+    "\\5FAE\\8F6F\\96C5\\9ED1", arial, sans-serif;
 }
 
 a {
@@ -63,17 +27,13 @@ li {
 
 html,
 body {
-  height: 100%;
+  height: 100vh;
   -webkit-tap-highlight-color: transparent;
-}
-
-body {
-  font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei",
-    "\\5FAE\\8F6F\\96C5\\9ED1", arial, sans-serif;
 }
 
 img {
   border: none;
   vertical-align: middle;
-  height: auto;}
+  height: auto;
+}
 </style>
