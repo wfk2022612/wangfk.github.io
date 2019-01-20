@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,user-scalable=no"><title>唱响新时代英雄赞歌</title><link href=./static/css/app.f91d2112b8a0ae2faaceeeb34c3d6f53.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.748b758d760814f9bfe5.js></script><script type=text/javascript src=./static/js/app.189ed0fce720706c6b97.js></script></body><script src=//cdn.bootcss.com/jquery/1.10.2/jquery.min.js></script><script src=//res.wx.qq.com/open/js/jweixin-1.0.0.js type=text/javascript charset=utf-8></script><script>function is_weixn() {
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,user-scalable=no"><title>唱响新时代英雄赞歌</title><link href=./static/css/app.84fe82a241b9c3de06d3781e1f4ad716.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.748b758d760814f9bfe5.js></script><script type=text/javascript src=./static/js/app.600046c62402cae1f12e.js></script></body><script src=//cdn.bootcss.com/jquery/1.10.2/jquery.min.js></script><script src=//res.wx.qq.com/open/js/jweixin-1.0.0.js type=text/javascript charset=utf-8></script><script>function is_weixn() {
     var ua = navigator.userAgent.toLowerCase();
     if (ua.match(/MicroMessenger/i) == "micromessenger") {
       return true;
@@ -10,39 +10,45 @@
 
   $(function () {
     // $("#app").one("click", function () {
-    //   var audio = document.getElementById("bgMusic")
+    var audio = document.getElementById("bgMusic")
     //   audio.play()
     // })
 
     // 微信自动播放
     if (window.WeixinJSBridge) {
       WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-        audio.muted=true
+        audio.muted = true
         audio.play();
+        window.canplay=true;
       }, false);
     }
     document.addEventListener("WeixinJSBridgeReady", function () {
       WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-        audio.muted=true
+        audio.muted = true
         audio.play();
+        window.canplay=true;
       });
     }, false);
 
     function autoPlayAudio() {
-      wx.config({
-        // 配置信息, 即使不正确也能使用 wx.ready
-        debug: false,
-        appId: '',
-        timestamp: 1,
-        nonceStr: '',
-        signature: '',
-        jsApiList: []
-      });
-      wx.ready(function () {
-        var globalAudio = document.getElementById("bgMusic");
-        globalAudio.muted=true
-        globalAudio.play();
-      });
+      if (wx) {
+        wx.config({
+          // 配置信息, 即使不正确也能使用 wx.ready
+          debug: false,
+          appId: '',
+          timestamp: 1,
+          nonceStr: '',
+          signature: '',
+          jsApiList: []
+        });
+        wx.ready(function () {
+          var globalAudio = document.getElementById("bgMusic");
+          globalAudio.muted = true
+          globalAudio.play();
+          window.canplay=true;
+        });
+      }
+
     };
     // 解决ios音乐不自动播放的问题
     autoPlayAudio();

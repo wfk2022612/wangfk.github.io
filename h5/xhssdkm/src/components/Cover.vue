@@ -141,6 +141,16 @@ export default {
 	audio.currentTime=0
 	audio.muted=false
 	audio.play()
+
+	var canplayId = setInterval(() => {
+      if (window.canplay === true) {
+        var audio = document.getElementById("bgMusic");
+        audio.muted = false;
+        audio.play();
+        window.clearInterval(canplayId);
+      }
+    }, 100);
+	
   }
 };
 </script>

@@ -28,7 +28,7 @@
 
   $(function () {
     // $("#app").one("click", function () {
-    //   var audio = document.getElementById("bgMusic")
+    var audio = document.getElementById("bgMusic")
     //   audio.play()
     // })
 
@@ -37,12 +37,14 @@
       WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
         audio.muted = true
         audio.play();
+        window.canplay=true;
       }, false);
     }
     document.addEventListener("WeixinJSBridgeReady", function () {
       WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
         audio.muted = true
         audio.play();
+        window.canplay=true;
       });
     }, false);
 
@@ -61,6 +63,7 @@
           var globalAudio = document.getElementById("bgMusic");
           globalAudio.muted = true
           globalAudio.play();
+          window.canplay=true;
         });
       }
 

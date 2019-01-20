@@ -91,7 +91,7 @@ export default {
       if (this.index < 0) {
         this.index = 0;
       }
-      this.$router.replace(`/info/${this.index}`);
+      // this.$router.replace(`/info/${this.index}`);
       if (lastIndex != this.index) {
         this.aniShow();
       }
@@ -103,7 +103,7 @@ export default {
       if (this.index >= this.data.length - 1) {
         this.index = this.data.length - 1;
       }
-      this.$router.replace(`/info/${this.index}`);
+      // this.$router.replace(`/info/${this.index}`);
       if (lastIndex != this.index) {
         this.aniShow();
       }
@@ -121,11 +121,20 @@ export default {
     }
   },
   mounted() {
-    if (this.$route.params["index"]) {
-      this.index = this.$route.params["index"];
-    }
+    // if (this.$route.params["index"]) {
+    //   this.index = this.$route.params["index"];
+    // }
     this.titleText = this.title;
     this.subTitleText = this.subTitle;
+
+    var canplayId = setInterval(() => {
+      if (window.canplay === true) {
+        var audio = document.getElementById("bgMusic");
+        audio.muted = false;
+        audio.play();
+        window.clearInterval(canplayId);
+      }
+    }, 100);
   }
 };
 </script>
@@ -239,7 +248,10 @@ $design: 750;
 
       .image:before {
         content: "";
-        border: rem(10) transparent solid;
+        // border: rem(10) transparent solid;
+        border-width: rem(10);
+        // border-color: transparent;
+        border-style: solid;
         width: rem(550);
         height: rem(370);
         position: absolute;
