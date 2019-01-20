@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <router-view/>
+    <router-view  />
     <audio preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop></audio>
   </div>
 </template>
@@ -9,11 +9,19 @@
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      // audioLoaded:false
+    };
   },
   computed: {
     audioSrc() {
       return require("@/assets/music/bg.mp3");
+    }
+  },
+  methods:{
+    loaded(){
+      console.log("audio loaded")
+      // this.audioLoaded=true
     }
   }
 };
@@ -30,6 +38,7 @@ html {
   font-size: 75px;
   font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei",
     "\\5FAE\\8F6F\\96C5\\9ED1", arial, sans-serif;
+  /* background:#158ae4 */
 }
 
 a {

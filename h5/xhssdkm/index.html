@@ -27,22 +27,43 @@
 
 
   $(function () {
-    $("#app").one("click", function () {
-      var audio = document.getElementById("bgMusic")
-      audio.play()
-    })
+    // $("#app").one("click", function () {
+    //   var audio = document.getElementById("bgMusic")
+    //   audio.play()
+    // })
 
     // 微信自动播放
     if (window.WeixinJSBridge) {
       WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        audio.muted=true
         audio.play();
       }, false);
     }
     document.addEventListener("WeixinJSBridgeReady", function () {
       WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        audio.muted=true
         audio.play();
       });
     }, false);
+
+    function autoPlayAudio() {
+      wx.config({
+        // 配置信息, 即使不正确也能使用 wx.ready
+        debug: false,
+        appId: '',
+        timestamp: 1,
+        nonceStr: '',
+        signature: '',
+        jsApiList: []
+      });
+      wx.ready(function () {
+        var globalAudio = document.getElementById("bgMusic");
+        globalAudio.muted=true
+        globalAudio.play();
+      });
+    };
+    // 解决ios音乐不自动播放的问题
+    autoPlayAudio();
   })
 
 
