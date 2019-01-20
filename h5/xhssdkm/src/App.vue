@@ -1,10 +1,23 @@
 <template>
   <div id="app" class="app">
     <router-view/>
-    <audio ref="audio" preload="preload" id="bgMusic" src="@/assets/music/bg.mp3" autoplay="autuplay" loop>
-    </audio>
+    <audio preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop></audio>
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {};
+  },
+  computed: {
+    audioSrc() {
+      return require("@/assets/music/bg.mp3");
+    }
+  }
+};
+</script>
 
 
 <style>

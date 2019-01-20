@@ -3,52 +3,50 @@
 
 <head>
   <meta charset="utf-8">
-  <!-- <meta name="viewport" content="width=device-width, user-scalable=no">  -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1,
+      maximum-scale=1, user-scalable=no"> -->
   <meta name="viewport" content="width=750,user-scalable=no" />
   <title>唱响新时代英雄赞歌</title>
-  <script src="//cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 </head>
 
 <body>
   <div id="app"></div>
   <!-- built files will be auto injected -->
 </body>
-
-<!-- <script src="./static/js/createjs.min.js"></script> -->
-<!-- <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"
-    type="text/javascript" charset="utf-8"></script> -->
+<script src="//cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
 <script>
+  function is_weixn() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
   $(function () {
     $("#app").one("click", function () {
-      var bgMusic = document.getElementById("bgMusic");
-      if (bgMusic.paused) bgMusic.play()
+      var audio = document.getElementById("bgMusic")
+      audio.play()
     })
+
+    // 微信自动播放
+    if (window.WeixinJSBridge) {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        audio.play();
+      }, false);
+    }
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        audio.play();
+      });
+    }, false);
   })
 
-  function audioAutoPlay(id) {
-    var audio = document.getElementById(id);
 
-    var play = function () {
-      document.removeEventListener("WeixinJSBridgeReady", play);
-      document.removeEventListener("YixinJSBridgeReady", play);
 
-      audio.play();
-      audio.pause();
-      // document.removeEventListener("touchstart", play, false);
-    };
-
-    audio.play();
-    audio.pause();
-
-    //weixin
-    document.addEventListener("WeixinJSBridgeReady", play, false);
-    //yixin
-    document.addEventListener('YixinJSBridgeReady', play, false);
-
-    // document.addEventListener("touchstart", play, false);
-  }
-  audioAutoPlay('bgMusic');
 
 </script>
 
