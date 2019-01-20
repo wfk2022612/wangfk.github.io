@@ -78,8 +78,8 @@ export default {
     },
 
     entry() {
-    //   var audio = document.getElementById("bgMusic");
-    //   audio.play();
+      var audio = document.getElementById("bgMusic");
+      audio.play();
       var _this = this;
       this.showIndexMask = true;
       this.showVideo = false;
