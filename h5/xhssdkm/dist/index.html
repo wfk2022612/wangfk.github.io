@@ -1,30 +1,28 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,user-scalable=no"><title>唱响新时代英雄赞歌</title><script src=//cdn.bootcss.com/jquery/1.10.2/jquery.min.js></script><link href=./static/css/app.b42a0a8cc8c25aef4028ca3c59ccd931.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.748b758d760814f9bfe5.js></script><script type=text/javascript src=./static/js/app.e7b24ac4a87323b87f7f.js></script></body><script>$(function () {
-    $("#app").one("click", function () {
-      var bgMusic = document.getElementById("bgMusic");
-      if (bgMusic.paused) bgMusic.play()
-    })
-  })
-
-  function audioAutoPlay(id) {
-    var audio = document.getElementById(id);
-
-    var play = function () {
-      document.removeEventListener("WeixinJSBridgeReady", play);
-      document.removeEventListener("YixinJSBridgeReady", play);
-
-      audio.play();
-      audio.pause();
-      // document.removeEventListener("touchstart", play, false);
-    };
-
-    audio.play();
-    audio.pause();
-
-    //weixin
-    document.addEventListener("WeixinJSBridgeReady", play, false);
-    //yixin
-    document.addEventListener('YixinJSBridgeReady', play, false);
-
-    // document.addEventListener("touchstart", play, false);
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,user-scalable=no"><title>唱响新时代英雄赞歌</title><link href=./static/css/app.b42a0a8cc8c25aef4028ca3c59ccd931.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.748b758d760814f9bfe5.js></script><script type=text/javascript src=./static/js/app.5807b6b8ad4b0203bcef.js></script></body><script src=//cdn.bootcss.com/jquery/1.10.2/jquery.min.js></script><script src=http://res.wx.qq.com/open/js/jweixin-1.0.0.js type=text/javascript charset=utf-8></script><script>function is_weixn() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+      return true;
+    } else {
+      return false;
+    }
   }
-  audioAutoPlay('bgMusic');</script></html>
+
+
+  $(function () {
+    $("#app").one("click", function () {
+      var audio = document.getElementById("bgMusic")
+      audio.play()
+    })
+
+    // 微信自动播放
+    if (window.WeixinJSBridge) {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        audio.play();
+      }, false);
+    }
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        audio.play();
+      });
+    }, false);
+  })</script></html>
