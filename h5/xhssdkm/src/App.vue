@@ -1,9 +1,12 @@
 <template>
   <div id="app" class="app">
     <router-view/>
-    <audio preload="preload" id="bgMusic" src="@/assets/music/bg.mp3"  loop></audio>
+    <audio ref="audio" id="bgMusic"   autoplay loop>
+    <source src="@/assets/music/bg.mp3" />
+    </audio>
   </div>
 </template>
+
 
 <style>
 * {

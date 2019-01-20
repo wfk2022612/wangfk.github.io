@@ -37,17 +37,44 @@ export default {
         }
     },
     mounted(){
+		// localStorage.setItem("autoplay",null)
 		console.log('loading mounted')
+
+		// console.log(window.createjs)
+		// var manifest=[];
+		// var queue = new createjs.LoadQueue(true);
+		// queue.installPlugin(createjs.Sound);
+		//  queue.on("progress ", (e)=>{
+		// 	 debugger
+		// 	this.progress=Math.round(e.progress *100)
+		//  });
+ 		// queue.on("complete", (e)=>{
+		// 	 debugger
+		// 	this.$router.push("./cover")
+		//  });
+
 		var imgList=[];
 	 
         for(var p in this.imgs){
             if(!(/^data:/ig).test(this.imgs[p])){
-                imgList.push(this.imgs[p])
+				imgList.push(this.imgs[p])
+				// manifest.push({id:'imgs.'+p,src:this.imgs[p]})
                 console.log(this.imgs[p])
             }else{
 				console.log(this.imgs[p]+" loaded ")
 			}
-        }
+		}
+
+		// for(var p in this.config.medias){
+		// 	if(!(/^data:/ig).test(this.config.medias[p])){
+		// 		imgList.push(this.config.medias[p])
+		// 		manifest.push({id:'medias.'+p,src:this.config.medias[p]})
+        //         console.log(this.config.medias[p])
+        //     }else{
+		// 		console.log(this.config.medias[p]+" loaded ")
+		// 	}
+		// }
+		// queue.loadManifest(manifest);
         
         if(imgList.length>0){
             this.loading(imgList,(p)=>{

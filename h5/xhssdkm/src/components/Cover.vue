@@ -81,6 +81,7 @@ export default{
 			entry() {
 				var audio=document.getElementById("bgMusic")
 				audio.play();
+				localStorage.setItem("autoplay","autoplay")
 				var _this = this;
 				this.showIndexMask = true;
                 this.showVideo = false;
@@ -200,6 +201,8 @@ export default{
 	background: #4081dd;
 	opacity: 0;
 	z-index: -1;
+	background:url(../assets/images/index-bg1.jpg) no-repeat center top;
+	background-size:cover
 }
 
 .zmiti-index-main-ui.show {

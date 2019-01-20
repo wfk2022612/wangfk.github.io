@@ -9,7 +9,7 @@ import Info from '@/components/Info'
 Vue.use(Router)
 
 export default new Router({
-  
+  //mode: 'history',
   routes: [
     {
       path: '/',
@@ -22,7 +22,7 @@ export default new Router({
       component: Cover
     },
     {
-      path: '/info',
+      path: '/info/:index?',
       name: 'Info',
       component: Info
     }

@@ -26,10 +26,12 @@
       </div>
     </div>
     <div class="bottom">
-     <a :href="link" ><img src="../assets/images/entry.png"></a>
+      <a :href="link">
+        <img src="../assets/images/entry.png">
+      </a>
     </div>
     <div class="logo">
-      <img class="logo-img" src="../assets/images/logo2.png" />
+      <img class="logo-img" src="../assets/images/logo2.png">
     </div>
   </div>
 </template>
@@ -46,8 +48,7 @@ export default {
       showTitle: true,
       titleText: "",
       subTitleText: "",
-      width: 570,
-      cameraLeft: 0
+      width: 570
     };
   },
   computed: {
@@ -77,6 +78,9 @@ export default {
     },
     link() {
       return this.current.link;
+    },
+    cameraLeft() {
+      return this.width * this.index * -1;
     }
   },
   methods: {
@@ -87,29 +91,20 @@ export default {
       if (this.index < 0) {
         this.index = 0;
       }
-
+      this.$router.replace(`/info/${this.index}`);
       if (lastIndex != this.index) {
-        this.cameraLeft += this.width;
-        if (this.cameraLeft >= 0) {
-          this.cameraLeft = 0;
-        }
         this.aniShow();
       }
     },
     rightClick() {
-        
       var _this = this;
       var lastIndex = this.index;
       this.index++;
       if (this.index >= this.data.length - 1) {
         this.index = this.data.length - 1;
       }
-
+      this.$router.replace(`/info/${this.index}`);
       if (lastIndex != this.index) {
-        this.cameraLeft -= this.width;
-        if (Math.abs(this.cameraLeft) >= this.data.length * this.width) {
-          this.cameraLeft = this.data.length * this.width * -1;
-        }
         this.aniShow();
       }
     },
@@ -126,6 +121,9 @@ export default {
     }
   },
   mounted() {
+    if (this.$route.params["index"]) {
+      this.index = this.$route.params["index"];
+    }
     this.titleText = this.title;
     this.subTitleText = this.subTitle;
   }
@@ -133,7 +131,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 $fontsize: 75;
 $design: 750;
 
@@ -157,7 +154,7 @@ $design: 750;
       overflow: hidden;
       text-align: center;
       padding: 0 rem(100);
-        
+
       .title {
         // height: rem(170);
         width: rem(550);
@@ -291,5 +288,4 @@ $design: 750;
 .fade-leave-to {
   opacity: 0;
 }
-
 </style>

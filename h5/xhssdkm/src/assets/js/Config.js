@@ -48,7 +48,7 @@ var imgs = {
   // imgBorder: require('@/assets/images/img-bg.png'),
   imgBorder2: require('@/assets/images/img-bg-border.png'),
   rbtn: require('@/assets/images/right-btn.png'),
-  lbtn: require('@/assets/images/left-btn.png') 
+  lbtn: require('@/assets/images/left-btn.png')
   // indexBgBottom: require('@/assets/images/index-bg-bottom.jpg'),
   // indexBgBottom2: require('@/assets/images/index-bg-bottom.png')
 }
@@ -120,7 +120,7 @@ var contents = [
   },
   {
     img: imgs.c11,
-    title: '郝井文：敢于亮剑的空天勇士',
+    title: '郝井文：战鹰，为祖国奋飞',
     subTitle: '郝井文是空军航空兵某旅旅长，空军特级飞行员。入伍24年来，他始终牢记职责使命，苦练精飞、矢志打赢，成长为一名精英飞行员和优秀指挥员，充分展示了人民军队听党指挥、能打胜仗、作风优良的良好风貌和时代风采。',
     link: 'http://h5.zhongguowangshi.com/h5/hjw/index.html'
   }
