@@ -8,7 +8,7 @@ import Info from '@/components/Info'
 
 Vue.use(Router)
 
-export default new Router({
+var router= new Router({
   //mode: 'history',
   routes: [
     {
@@ -28,3 +28,5 @@ export default new Router({
     }
   ]
 })
+
+export default router;

@@ -1,27 +1,23 @@
 <template>
-  <div
-    @click="entry"
-    class="lt-full zmiti-index-main-ui"
-    :style="{background:'url('+imgs.indexBg+') no-repeat center top',backgroundSize:'cover'}"
-    :class="{'show':show}"
-  >
-    <transition name="index">
-      <div class="zmiti-index" v-if="!showIndexMask">
-        <div class="zmiti-title">
-          <img @touchstart="imgStart" :src="imgs.title1">
-        </div>
-        <div class="zmiti-index-img" :style="{WebkitTransform:'translateX('+transX+'px)'}">
-          <img :src="imgs.index" alt>
-        </div>
-        <div class="zmiti-entry">
-          <img :src="imgs.entry" alt>
-        </div>
+	<div @click="entry" class="lt-full zmiti-index-main-ui">
+		<transition name="index">
+			<div class="zmiti-index" v-if="!showIndexMask">
+				<div class="zmiti-title">
+					<img @touchstart="imgStart" :src="imgs.title1">
+				</div>
+				<div class="zmiti-index-img"
+					:style="{WebkitTransform:'translateX('+transX+'px)'}">
+					<img :src="imgs.index" alt>
+				</div>
+				<div class="zmiti-entry">
+					<img :src="imgs.entry" alt>
+				</div>
 
-        <canvas :width="viewW" height="500" ref="canvas"></canvas>
-      </div>
-    </transition>
+				<canvas :width="viewW" height="500" ref="canvas"></canvas>
+			</div>
+		</transition>
 
-    <!-- <transition name='video'>
+		<!-- <transition name='video'>
             <div class="zmiti-video lt-full" v-show='showVideo'>
                 <video
                     id="my_video" ref='video'
@@ -36,15 +32,16 @@
 
             </div>
     </transition>-->
-    <div class="zmiti-index-logo">
-      <img :src="imgs.logo" alt>
-    </div>
-  </div>
+		<div class="zmiti-index-logo">
+			<img :src="imgs.logo" alt>
+		</div>
+	</div>
 </template>
 
 <script>
 import config from "@/assets/js/Config.js";
 import Point from "@/assets/js/Point.js";
+import utils from '@/assets/js/Utils.js';
 
 export default {
   name: "cover",
@@ -78,8 +75,7 @@ export default {
     },
 
     entry() {
-      var audio = document.getElementById("bgMusic");
-      audio.play();
+
       var _this = this;
       this.showIndexMask = true;
       this.showVideo = false;
@@ -137,22 +133,10 @@ export default {
   },
   mounted: function mounted() {
 	this.initPoints();
-	var playId = setInterval(() => {
-      if (window.canplay === true) {
-        var audio = document.getElementById("bgMusic");
-        if (audio.muted == true) {
-          audio.currentTime = 0;
-        }
-        audio.muted = false;
-        audio.play();
-        window.clearInterval(playId);
-      }
-    }, 100);
-	
+	utils.playAudio("bgMusic")
   }
 };
 </script>
-
 <style scoped>
 .lt-full {
   width: 100%;
@@ -198,15 +182,10 @@ export default {
   left: 50% !important;
   margin-left: -375px;
   background: #4081dd;
-  opacity: 0;
-  z-index: -1;
-  background: url(../assets/images/index-bg1.jpg) no-repeat center top;
-  background-size: cover;
-}
-
-.zmiti-index-main-ui.show {
   opacity: 1;
   z-index: 200;
+  background: url(../assets/images/index-bg1.jpg) no-repeat center top;
+  background-size: cover;
 }
 
 .zmiti-index-main-ui .zmiti-title {

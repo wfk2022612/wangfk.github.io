@@ -16,6 +16,7 @@
 
 <script>
 import config from "@/assets/js/Config.js";
+import utils from '@/assets/js/Utils.js';
 
 export default {
   name: "loading",
@@ -38,6 +39,8 @@ export default {
     // localStorage.setItem("autoplay",null)
     console.log("loading mounted");
 
+    utils.pauseAudio("bgMusic")
+
     // console.log(window.createjs)
     // var manifest=[];
     // var queue = new createjs.LoadQueue(true);
@@ -52,8 +55,7 @@ export default {
     //  });
 
 
-        var audio = document.getElementById("bgMusic");
-        audio.muted = true;
+        
 
 
 

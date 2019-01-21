@@ -15,7 +15,8 @@
         </div>
         <div class="image">
           <div class="image-container" :style="{left:cameraLeft+'px'}">
-            <img ref="img" v-for="content in config.contents" :src="content.img" :key="content.src">
+            <img ref="img" v-for="content in config.contents" :src="content.img"
+              :key="content.src">
           </div>
         </div>
       </div>
@@ -39,6 +40,8 @@
 <script>
 /* eslint-disable */
 import config from "@/assets/js/Config.js";
+import utils from '@/assets/js/Utils.js';
+
 export default {
   name: "info",
   data() {
@@ -126,21 +129,13 @@ export default {
     }
     this.titleText = this.title;
     this.subTitleText = this.subTitle;
-    var playId = setInterval(() => {
-      if (window.canplay === true) {
-        var audio = document.getElementById("bgMusic");
-        if (audio.muted == true) {
-          audio.currentTime = 0;
-        }
-        audio.muted = false;
-        audio.play();
-        window.clearInterval(playId);
-      }
-    }, 100);
+
+    utils.playAudio("bgMusic");
+
+    
   }
 };
 </script>
-
 <style lang="scss" scoped>
 $fontsize: 75;
 $design: 750;
