@@ -16,22 +16,6 @@
 				<canvas :width="viewW" height="500" ref="canvas"></canvas>
 			</div>
 		</transition>
-
-		<!-- <transition name='video'>
-            <div class="zmiti-video lt-full" v-show='showVideo'>
-                <video
-                    id="my_video" ref='video'
-                    style="object-fit: fill; width: 100%; height: 100%;"
-                    preload="load" playsinline="true" webkit-playsinline="true"
-                    x-webkit-airplay="allow" airplay="allow"
-                    x5-video-player-type="h5"
-                    :x5VideoPlayerFullscreen="fullscreen"
-                    x5-video-orientation="portrait"
-                    :loop='false'
-                    :src="vidoeUrl"></video>
-
-            </div>
-    </transition>-->
 		<div class="zmiti-index-logo">
 			<img :src="imgs.logo" alt>
 		</div>

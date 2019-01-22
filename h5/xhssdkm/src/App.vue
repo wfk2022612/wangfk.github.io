@@ -1,11 +1,26 @@
 <template>
   <div id="app" class="app">
-    <router-view/>
+      <div class="flipbook-viewport">
+          <div class="container">
+            <div class="flipbook">
+              <div>
+                  <Cover />
+              </div>
+              <div>
+                 <Info />
+              </div>
+             
+            </div>
+          </div>
+        </div>
+    
     <audio preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop></audio>
   </div>
 </template>
 
 <script>
+  import Cover from '@/components/Cover'
+  import Info from '@/components/Info'
 export default {
   name: "App",
   data() {
@@ -25,7 +40,12 @@ export default {
     }
   },
   mounted() {
-    
+    console.log('app mounted')
+    console.log('jquery'+jQuery)
+  },
+  components:{
+    Cover,
+    Info
   }
 };
 </script>
