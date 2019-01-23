@@ -7,17 +7,26 @@
         </transition>
       </div>
       <div class="picture">
-        <div class="lbtn" @click="leftClick">
+        <!-- <div class="lbtn" @click="leftClick">
           <img src="../assets/images/left-btn.png">
         </div>
         <div class="rbtn" @click="rightClick">
           <img src="../assets/images/right-btn.png">
-        </div>
-        <div class="image">
-          <div class="image-container" :style="{left:cameraLeft+'px'}">
+        </div> -->
+        <!-- <div class="image"> -->
+          <!-- <div class="image-container" :style="{left:cameraLeft+'px'}">
             <img ref="img" v-for="content in config.contents" :src="content.img"
               :key="content.src">
-          </div>
+          </div> -->
+          <div class="flipbook-viewport">
+            <div class="container">
+              <div id="flipbook" class="flipbook">
+                <img ref="img" v-for="content in config.contents"
+                  :src="content.img"
+                  :key="content.src">
+              </div>
+            </div>
+          <!-- </div> -->
         </div>
       </div>
       <div class="des">
@@ -132,7 +141,32 @@ export default {
 
     utils.playAudio("bgMusic");
 
+
+    $("#flipbook").turn({
+			// // Width
+
+			width:$("#flipbook").parent().parent().width(),
+			
+			// Height
+
+			height:$("#flipbook").parent().parent().height(),
+
+			// Elevation
+
+			elevation: 50,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: false,
+      display:'single',
+      // direction:'rtl',
+      duration:100
     
+	});
   }
 };
 </script>
@@ -243,7 +277,7 @@ $design: 750;
         }
       }
 
-      .image:before {
+      /* .image:before {
         content: "";
         // border: rem(10) transparent solid;
         border-width: rem(10);
@@ -258,7 +292,7 @@ $design: 750;
         box-shadow: 0 0 rem(30);
         border-image: url(../assets/images/img-bg-border.png) 10 stretch;
         z-index: 1;
-      }
+      } */
     }
 
     .des {

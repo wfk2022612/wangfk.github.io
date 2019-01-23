@@ -2,18 +2,17 @@
   <div id="app" class="app">
       <div class="flipbook-viewport">
           <div class="container">
-            <div class="flipbook">
+            <div id="appFlipbook" class="flipbook">
               <div>
                   <Cover />
               </div>
               <div>
                  <Info />
               </div>
-             
             </div>
           </div>
         </div>
-    
+        <!-- <Info /> -->
     <audio preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop></audio>
   </div>
 </template>
@@ -42,6 +41,35 @@ export default {
   mounted() {
     console.log('app mounted')
     console.log('jquery'+jQuery)
+
+    $('#appFlipbook').turn({
+			// Width
+
+			width:$("html").width(),
+			
+			// Height
+
+			height:$("html").height(),
+
+			// Elevation
+
+			elevation: 50,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: false,
+			display:'single',
+    when:{
+      end(){
+        $("#appFlipbook").turn("disable",true);
+      }
+    }
+  });
+  
   },
   components:{
     Cover,
