@@ -1,25 +1,23 @@
 <template>
   <div class="main">
-    <div class="main-ui">
+    
+  
+    <!-- <div class="main-ui" v-if="false">
+      airplay="allow"
+      
+      
       <div class="top">
         <transition name="fade">
           <div class="title" v-if="showTitle">{{titleText}}</div>
         </transition>
       </div>
       <div class="picture">
-        <div class="lbtn" @click="leftClick">
-          <img src="../assets/images/left-btn.png">
-        </div>
-        <div class="rbtn" @click="rightClick">
-          <img src="../assets/images/right-btn.png">
-        </div>
         <div class="image">
-          <div class="image-container" :style="{left:cameraLeft+'px'}">
-            <img ref="img" v-for="content in config.contents" :src="content.img"
-              :key="content.src">
-          </div>
+          <img ref="img" :src="img">
+          <img class="img-border" src="@/assets/images/img-bg-border.png">
         </div>
       </div>
+      <Pager :total=12 :current=1 v-on:pagechanged="pageChanged" ></Pager>
       <div class="des">
         <transition name="fade">
           <div v-if="showTitle">{{subTitleText}}</div>
@@ -27,21 +25,24 @@
       </div>
     </div>
     <div class="bottom">
-      <a :href="link">
-        <img src="../assets/images/entry.png">
+      <a class='link-btn' :href="link">
+        先进事迹
       </a>
     </div>
     <div class="logo">
       <img class="logo-img" src="../assets/images/logo2.png">
     </div>
+    <div class="link-team">
+      <img class="link-team-img" src="../assets/images/zztd.png">
+    </div> -->
   </div>
 </template>
 
 <script>
 /* eslint-disable */
 import config from "@/assets/js/Config.js";
-import utils from '@/assets/js/Utils.js';
-
+import utils from "@/assets/js/Utils.js";
+import Pager from "@/components/Pager";
 export default {
   name: "info",
   data() {
@@ -51,8 +52,12 @@ export default {
       showTitle: true,
       titleText: "",
       subTitleText: "",
-      width: 570
+      width: 570,
+      fullscreen:true
     };
+  },
+  components:{
+    Pager
   },
   computed: {
     imgs() {
@@ -121,6 +126,11 @@ export default {
     },
     navigate() {
       window.location.href = this.link;
+    },
+    pageChanged(current){
+      
+      this.index=current-1;
+      this.aniShow();
     }
   },
   mounted() {
@@ -129,10 +139,9 @@ export default {
     }
     this.titleText = this.title;
     this.subTitleText = this.subTitle;
+   
+    utils.pauseMusic("bgMusic");
 
-    utils.playAudio("bgMusic");
-
-    
   }
 };
 </script>
@@ -143,11 +152,15 @@ $design: 750;
 @function rem($px) {
   @return $px/$fontsize * 1rem;
 }
-
+@font-face
+{
+font-family: cckt;
+src: url('../assets/fonts/simkai.ttf')
+}
 .main {
   width: rem($design);
   background: url(../assets/images/detail-bg.jpg) no-repeat center top;
-  background-size: cover;
+  background-size: 100vw 100vh;
   height: 100vh;
   overflow: hidden;
   overflow-y: auto;
@@ -170,9 +183,10 @@ $design: 750;
         // background-color: green;
         // opacity: 0.5;
         color: #bf0200;
-        -webkit-text-stroke: 1px white;
+        // -webkit-text-stroke: 1px white;
         position: absolute;
         bottom: 0;
+        font-family: cckt;
         transition: all 0.8s;
       }
     }
@@ -215,50 +229,49 @@ $design: 750;
 
       .image {
         position: relative;
-        height: rem(390);
-        width: rem(570);
+        height: rem(397);
+        width: rem(577);
         // background-color: brown;
         margin: {
           top: rem(12);
           left: auto;
           right: auto;
         }
-        overflow: hidden;
-        box-shadow: rem(1) rem(3) rem(10) rem(1);
 
         img {
           position: relative;
           z-index: 0;
           display: block;
-          width: rem(570);
-          height: rem(390);
+          width: rem(577);
+          height: rem(397);
           float: left;
         }
 
-        .image-container {
-          height: rem(390);
-          width: rem(570 * 12);
-          position: relative;
-          transition: all 0.8s;
+        .img-border {
+          position: absolute;
+          width: 667px;
+          height: 487px;
+          left: -45px;
+          top: -31px;
         }
       }
 
-      .image:before {
-        content: "";
-        // border: rem(10) transparent solid;
-        border-width: rem(10);
-        // border-color: transparent;
-        border-style: solid;
-        width: rem(550);
-        height: rem(370);
-        position: absolute;
-        display: block;
-        top: rem(0);
-        left: rem(0);
-        box-shadow: 0 0 rem(30);
-        border-image: url(../assets/images/img-bg-border.png) 10 stretch;
-        z-index: 1;
-      }
+      // .image:before {
+      //   content: "";
+      //   // border: rem(10) transparent solid;
+      //   border-width: rem(10);
+      //   // border-color: transparent;
+      //   border-style: solid;
+      //   width: rem(550);
+      //   height: rem(370);
+      //   position: absolute;
+      //   display: block;
+      //   top: rem(0);
+      //   left: rem(0);
+      //   box-shadow: 0 0 rem(30);
+      //   border-image: url() 10 stretch;
+      //   z-index: 1;
+      // }
     }
 
     .des {
@@ -267,11 +280,11 @@ $design: 750;
       //   opacity: 0.5;
       width: rem(590);
       margin: 0 auto;
-
-      text-indent: rem(45);
+      font-family: cckt;
+      text-indent: rem(60);
 
       div {
-        font-size: rem(25);
+        font-size: rem(30);
         transition: all 0.8s;
       }
     }
@@ -291,10 +304,34 @@ $design: 750;
     right: 0px;
     width: 180px;
   }
+  .link-btn {
+    background-image: url(../assets/images/btn-lg.png);
+    width: rem(307);
+    height: rem(71);
+    display: block;
+    font-size: rem(40);
+    text-align: center;
+    line-height: rem(70);
+    overflow: hidden;
+    color: white;
+    margin: 0 auto;
+  }
+
+  .link-team {
+    // position: absolute;
+    bottom: 40px;
+    left: rem(30);
+    width: rem(216);
+    height: rem(30);
+    padding-left: rem(30);
+    // margin-top:rem(80); 
+  }
 }
 
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
 }
+
+
 </style>

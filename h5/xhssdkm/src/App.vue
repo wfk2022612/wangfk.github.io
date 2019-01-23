@@ -1,11 +1,40 @@
 <template>
   <div id="app" class="app">
-    <router-view/>
+      <div class="flipbook-viewport">
+          <div class="container">
+            <div id="appFlipbook" class="flipbook">
+              <div>
+                  <Cover />
+              </div>
+          
+              <div>
+                 <Info />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <Info /> -->
     <audio preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop></audio>
+    <video
+      id="myVideo"
+      ref="video"
+      style="object-fit: fill; width: 100%; height: 100%;"
+      preload="preload"
+      playsinline="true"
+      webkit-playsinline="true"
+      x-webkit-airplay="allow"
+      x5-video-player-type="h5"
+      x5-video-player-fullscreen="true"
+      x5-video-orientation="portrait"
+      src="../assets/movie/movie.ogg"
+    ></video> 
   </div>
 </template>
 
 <script>
+  import Cover from '@/components/Cover'
+  import Info from '@/components/Info' 
+   import VideoPage from '@/components/VideoPage'
 export default {
   name: "App",
   data() {
@@ -25,7 +54,43 @@ export default {
     }
   },
   mounted() {
-    
+    console.log('app mounted')
+    console.log('jquery'+jQuery)
+
+    $('#appFlipbook').turn({
+			// Width
+
+			width:$("html").width(),
+			
+			// Height
+
+			height:$("html").height(),
+
+			// Elevation
+
+			elevation: 50,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: false,
+			display:'single',
+    when:{
+      end(){
+        $("#appFlipbook").turn("disable",true);
+        // $("#myVideo").play();
+      }
+    }
+  });
+  
+  },
+  components:{
+    Cover,
+    Info,
+    VideoPage
   }
 };
 </script>
@@ -56,6 +121,7 @@ html,
 body {
   height: 100vh;
   -webkit-tap-highlight-color: transparent;
+  background-color: white;
 }
 
 img {

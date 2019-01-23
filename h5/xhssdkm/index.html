@@ -7,15 +7,19 @@
       maximum-scale=1, user-scalable=no"> -->
     <meta name="viewport" content="width=750,user-scalable=no" />
     <title>唱响新时代英雄赞歌</title>
+    <!-- <link href="./static/css/basic.css" rel='stylesheet' /> -->
     <script src="//cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+  <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+  <script src="//cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="./static/js/turn.js"></script>
   </head>
 
   <body>
+      
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-
+  
   <script>
   function is_weixn() {
     var ua = navigator.userAgent.toLowerCase();
@@ -36,14 +40,21 @@
 
 
   var audio = document.getElementById("bgMusic")
+  var myVideo=document.getElementById("myVideo")
 
   $(function () {
+    console.log('jquery.ready ')
+
     if(is_weixn()){
       // 微信自动播放
       if (window.WeixinJSBridge) {
         WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
           audio.muted = true
           audio.play();
+
+          myVideo.muted=true;
+          myVideo.play();
+
           window.canplay=true;
           console.log('getNetworkType canplay'+canplay)
         }, false);
@@ -52,6 +63,10 @@
         WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
           audio.muted = true
           audio.play();
+
+          myVideo.muted=true;
+          myVideo.play();
+
           window.canplay=true;
           console.log('getNetworkType canplay'+canplay)
         });
@@ -71,6 +86,10 @@
           wx.ready(function () {
             audio.muted = true
             audio.play();
+
+            myVideo.muted=true;
+            myVideo.play();
+
             window.canplay=true;
             console.log('getNetworkType canplay'+canplay)
           });
@@ -81,10 +100,15 @@
     }else if(isIOS()||isAndroid()){
       audio.muted = true
       audio.autoplay="autoplay"
+
+      myVideo.muted=true;
+      myVideo.autoplay="autoplay"
+
       $("#app").one("click", function () {
         console.log('app one click')
         
         audio.play();
+        myVideo.play()
         window.canplay=true;
         console.log('getNetworkType canplay'+canplay)
       });
@@ -94,8 +118,41 @@
     //   audio.muted = true
     //   window.canplay=true;
     // }
+    
+	
+  
   });
 
+
+
+  function loadApp() {
+
+// Create the flipbook
+
+// $('.flipbook').turn({
+//     // Width
+
+//     width:922,
+    
+//     // Height
+
+//     height:600,
+
+//     // Elevation
+
+//     elevation: 50,
+    
+//     // Enable gradients
+
+//     gradients: true,
+    
+//     // Auto center this flipbook
+
+//     autoCenter: false,
+//     display:'single'
+
+// });
+}
 
 
 
