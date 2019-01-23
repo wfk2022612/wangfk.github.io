@@ -22578,7 +22578,7 @@
 					</div>
 			</transition>
 			<div class="zmiti-index-logo"><img :src="imgs.logo" alt=""></div>
-			<div v-if="showHomeButton" class="zmiti-back" style="top:250px;z-index:99999;border-radius: 100%;background-color:#ebd7a7;" @touchstart='homeClick'><img :src="imgs.home" /></div>
+			<div v-if="showHomeButton" class="zmiti-back" style="bottom:50px;right:325px;z-index:99999;border-radius: 100%;background-color:#ebd7a7;" @touchstart='homeClick'><img :src="imgs.home" /></div>
 		</div>
 		*/
 	}
@@ -25120,7 +25120,7 @@
             <div>新华社新媒体中心</div>
             <div>出品</div>
         </div>
-        <div v-if="showHomeButton" class="zmiti-back" style="bottom:250px;right:70px;z-index:99999;border-radius: 100%;background-color:#ebd7a7;"><img :src="imgs.home" /></div>
+        
     </div>
 </transition>
 */
@@ -25159,7 +25159,7 @@
                 <li @touchstart='tabIndex = 2' @touchend='tabIndex = -1' :class="{'active':tabIndex === 2}" v-tap='[entryDetail,"ganyufengxian"]'>不辱使命</li>
             </ul>
         </nav>
-        <div v-if="showHomeButton" class="zmiti-back" style="bottom:200px;right:60px;z-index:99999;border-radius: 100%;background-color:#ebd7a7;"><img :src="imgs.home" /></div>
+       
         <div class="zmiti-team-entry" v-tap='[showTeamPage]'>制作团队</div>
         <div class="zmiti-mask" v-if='showMasks' @touchstart='showMasks = false'>
             <img :src="imgs.arrow">
@@ -25685,7 +25685,6 @@
             <div class="zmiti-comment"></div>
         </div>
 				<section class="zmiti-back" v-tap='[hidePage]'><img :src="imgs.back" alt=""></section>
-				<div class="zmiti-back" style="bottom:150px;z-index:99999;border-radius: 100% ;background-color:#ebd7a7;height:0;" ><img :src="imgs.home" /></div>
 		</div>
 		
 </transition> */
