@@ -125,7 +125,8 @@
 			loaded: false,
 			nickname: '',
 			headimgurl: '',
-			playStyle: {}
+			playStyle: {},
+			showHomeButton:false
 		},
 		el: '#app',
 		/*<audio ref='audio' src='./assets/music/bg.mp3'  loop></audio>
@@ -137,7 +138,7 @@
 	 	<Music :obserable='obserable'></Music>
 	 	<Main :pv='pv' :nickname='nickname' :headimgurl='headimgurl'  v-if='show && !isShare'  :obserable='obserable'></Main>
 	 	*/
-		template: '<div>\n\t\t<Index :pv=\'pv\' :nickname=\'nickname\' :headimgurl=\'headimgurl\'   v-if=\'show && !isShare\'  :obserable=\'obserable\'></Index>\n\t\t<Introduce :pv=\'pv\' v-if=\'show && !isShare\'  :obserable=\'obserable\'></Introduce>\n\t\t<Detail :pv=\'pv\' v-if=\'show && !isShare\'  :obserable=\'obserable\'></Detail>\n\t\t<Friend :pv=\'pv\' v-if=\'show && !isShare\'  :obserable=\'obserable\'></Friend>\n\t\t<div  v-if=\'!loaded\' :style=\'{background:"#158ae4"}\' class=\'zmiti-loading lt-full\'>\n\t\t\t<div class=\'zmiti-loading-ui\'>\n\t\t\t\t <a href="#">\n\t\t\t  \t\t<section class=\'zmiti-head\' :style="{background:\'url(./assets/images/logo.png) no-repeat center / cover\'}"></section>\n\t\t\t        <div class="line1"></div>\n\t\t\t        <div class="line2"></div>\n\t\t\t        <div class="line3"></div>\n\t\t\t\t\t<div class=\'zmiti-progress\'>{{width}}%</div>\n\t\t\t    </a>\n\t\t\t</div>\n\t\t</div>\n\n\t\n\t</div>',
+		template: '<div><Index :pv=\'pv\' :nickname=\'nickname\' :headimgurl=\'headimgurl\'   v-if=\'show && !isShare\' :showHomeButton="showHomeButton" :obserable=\'obserable\'></Index>\n\t\t<Introduce :pv=\'pv\' v-if=\'show && !isShare\' :showHomeButton="showHomeButton" :obserable=\'obserable\'></Introduce>\n\t\t<Detail :pv=\'pv\' v-if=\'show && !isShare\' :showHomeButton="showHomeButton" :obserable=\'obserable\'></Detail>\n\t\t<Friend :pv=\'pv\' v-if=\'show && !isShare\' :showHomeButton="showHomeButton" :obserable=\'obserable\'></Friend>\n\t\t<div  v-if=\'!loaded\' :style=\'{background:"#158ae4"}\' class=\'zmiti-loading lt-full\'>\n\t\t\t<div class=\'zmiti-loading-ui\'>\n\t\t\t\t <a href="#">\n\t\t\t  \t\t<section class=\'zmiti-head\' :style="{background:\'url(./assets/images/logo.png) no-repeat center / cover\'}"></section>\n\t\t\t        <div class="line1"></div>\n\t\t\t        <div class="line2"></div>\n\t\t\t        <div class="line3"></div>\n\t\t\t\t\t<div class=\'zmiti-progress\'>{{width}}%</div>\n\t\t\t    </a>\n\t\t\t</div>\n\t\t</div>\n\n\t\n\t</div>',
 		methods: {
 
 			loading: function loading(arr, fn, fnEnd) {
@@ -201,6 +202,12 @@
 			var src = _componentsLibUtilJs2['default'].getQueryString('src');
 			var num = _componentsLibUtilJs2['default'].getQueryString('num');
 			var isSkipLoadding = _componentsLibUtilJs2['default'].getQueryString('skiploadding');
+			var redirectUrl=_componentsLibUtilJs2['default'].getQueryString('redirect');
+			
+			if(redirectUrl){
+				redirectUrl=decodeURIComponent(redirectUrl)
+				this.showHomeButton=true;
+			}
 
 			this.isShare = src && !isNaN(num);
 
@@ -252,6 +259,12 @@
 			//zmitiUtil.getOauthurl(obserable);
 			_componentsLibUtilJs2['default'].wxConfig(document.title, window.desc);
 			this.updatePv();
+
+			obserable.on('homeClick',function(){
+				// alert(redirectUrl)
+				window.location.href=location.protocol+'//'+location.host+''+redirectUrl;
+			})
+
 			return;
 			/*$.ajax({
 	  	type:'post',
@@ -12119,7 +12132,7 @@
 	//
 	// <script>
 	'use strict';
-
+	'index.vue';
 	Object.defineProperty(exports, '__esModule', {
 		value: true
 	});
@@ -12139,7 +12152,7 @@
 	var _point2 = _interopRequireDefault(_point);
 
 	exports['default'] = {
-		props: ['obserable', 'nickname', 'pv'],
+		props: ['obserable', 'nickname', 'pv','showHomeButton'],
 		name: 'zmitiindex',
 		data: function data() {
 			return {
@@ -12163,6 +12176,14 @@
 
 			imgStart: function imgStart(e) {
 				e.preventDefault();
+			},
+
+			homeClick:function(e){
+				debugger
+				e.preventDefault();
+				this.obserable.trigger({
+					type: 'homeClick'
+				});
 			},
 
 			entry: function entry() {
@@ -22533,8 +22554,35 @@
 /***/ }),
 /* 17 */
 /***/ (function(module, exports) {
-
-	module.exports = "\r\n\t<div v-tap='[entry]'  class=\"lt-full zmiti-index-main-ui \" :style=\"{background:'url('+imgs.indexBg+') no-repeat center top',backgroundSize:'cover'}\"  :class=\"{'show':show}\">\r\n\t\t<transition name='index'>\r\n\t\t\t<div class=\"zmiti-index\" v-if='!showIndexMask'>\r\n\t\t\t\t<div class=\"zmiti-title\">\r\n\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.title1\">\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-index-img\" :style=\"{WebkitTransform:'translateX('+transX+'px)'}\">\r\n\t\t\t\t\t<img :src=\"imgs.index\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-entry\" >\r\n\t\t\t\t\t<img :src=\"imgs.entry\" alt=\"\">\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<canvas :width=\"viewW\" height=\"500\" ref='canvas'>\r\n\r\n\t\t\t\t</canvas>\r\n\t\t\t</div>\r\n\t\t</transition>\r\n\r\n\t\t<transition name='video'>\r\n\t\t\t<div class=\"zmiti-video lt-full\" v-show='showVideo' >\r\n\t\t\t\t<video \r\n\t\t\t\t\tid=\"my_video\" ref='video' \r\n\t\t\t\t\tstyle=\"object-fit: fill; width: 100%; height: 100%;\" preload=\"load\" playsinline=\"true\" webkit-playsinline=\"true\" x-webkit-airplay=\"allow\" airplay=\"allow\" x5-video-player-type=\"h5\" :x5VideoPlayerFullscreen=\"fullscreen\" x5-video-orientation=\"portrait\" \r\n\t\t\t\t\t:loop='false'\r\n\t\t\t\t:src=\"vidoeUrl\"></video>\r\n\t\t\t\t\r\n\t\t\t</div>\r\n\t\t</transition>\r\n\r\n\t\t<div class=\"zmiti-index-logo\">\r\n\t\t\t<img :src=\"imgs.logo\" alt=\"\">\r\n\t\t</div>\r\n\t</div>\r\n";
+	// 首页
+	function template(){
+		/*
+		<div v-tap='[entry]' class="lt-full zmiti-index-main-ui":style="{background:'url('+imgs.indexBg+') no-repeat center top',backgroundSize:'cover'}" :class="{'show':show}">
+			<transition name='index'>
+					<div class="zmiti-index" v-if='!showIndexMask'>
+							<div class="zmiti-title">
+									<img @touchstart='imgStart' :src="imgs.title1">
+							</div>
+							<div class="zmiti-index-img" :style="{WebkitTransform:'translateX('+transX+'px)'}">
+									<img :src="imgs.index" alt="">
+							</div>
+							<div class="zmiti-entry">
+									<img :src="imgs.entry" alt="">
+							</div>
+							<canvas :width="viewW" height="500" ref='canvas'></canvas>
+					</div>
+			</transition>
+			<transition name='video'>
+					<div class="zmiti-video lt-full" v-show='showVideo'>
+							<video id="my_video" ref='video' style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" :x5VideoPlayerFullscreen="fullscreen" x5-video-orientation="portrait" :loop='false':src="vidoeUrl"></video>
+					</div>
+			</transition>
+			<div class="zmiti-index-logo"><img :src="imgs.logo" alt=""></div>
+			<div v-if="showHomeButton" class="zmiti-back" style="bottom:50px;right:325px;z-index:99999;border-radius: 100%;background-color:#ebd7a7;" @touchstart='homeClick'><img :src="imgs.home" /></div>
+		</div>
+		*/
+	}
+	module.exports =(/\/\*([\s\S]*?)\*\//g).exec(template.toString())[1].replace(/[\t\r\n]/g,'');// "\r\n\t<div v-tap='[entry]'  class=\"lt-full zmiti-index-main-ui \" :style=\"{background:'url('+imgs.indexBg+') no-repeat center top',backgroundSize:'cover'}\"  :class=\"{'show':show}\">\r\n\t\t<transition name='index'>\r\n\t\t\t<div class=\"zmiti-index\" v-if='!showIndexMask'>\r\n\t\t\t\t<div class=\"zmiti-title\">\r\n\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.title1\">\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-index-img\" :style=\"{WebkitTransform:'translateX('+transX+'px)'}\">\r\n\t\t\t\t\t<img :src=\"imgs.index\" alt=\"\">\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-entry\" >\r\n\t\t\t\t\t<img :src=\"imgs.entry\" alt=\"\">\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<canvas :width=\"viewW\" height=\"500\" ref='canvas'>\r\n\r\n\t\t\t\t</canvas>\r\n\t\t\t</div>\r\n\t\t</transition>\r\n\r\n\t\t<transition name='video'>\r\n\t\t\t<div class=\"zmiti-video lt-full\" v-show='showVideo' >\r\n\t\t\t\t<video \r\n\t\t\t\t\tid=\"my_video\" ref='video' \r\n\t\t\t\t\tstyle=\"object-fit: fill; width: 100%; height: 100%;\" preload=\"load\" playsinline=\"true\" webkit-playsinline=\"true\" x-webkit-airplay=\"allow\" airplay=\"allow\" x5-video-player-type=\"h5\" :x5VideoPlayerFullscreen=\"fullscreen\" x5-video-orientation=\"portrait\" \r\n\t\t\t\t\t:loop='false'\r\n\t\t\t\t:src=\"vidoeUrl\"></video>\r\n\t\t\t\t\r\n\t\t\t</div>\r\n\t\t</transition>\r\n\r\n\t\t<div class=\"zmiti-index-logo\">\r\n\t\t\t<img :src=\"imgs.logo\" alt=\"\">\r\n\t\t</div>\r\n\t</div>\r\n";
 	
 /***/ }),
 /* 18 */
@@ -22614,7 +22662,7 @@
 	//
 	// <script>
 	'use strict';
-
+ 
 	Object.defineProperty(exports, '__esModule', {
 		value: true
 	});
@@ -22640,9 +22688,9 @@
 	var _teamIndex = __webpack_require__(23);
 
 	var _teamIndex2 = _interopRequireDefault(_teamIndex);
-
+//个人介绍
 	exports['default'] = {
-		props: ['obserable', 'pv', 'randomPv', 'nickname', 'headimgurl'],
+		props: ['obserable', 'pv', 'randomPv', 'nickname', 'headimgurl','showHomeButton'],
 		name: 'zmitiindex',
 		data: function data() {
 			return {
@@ -24844,7 +24892,7 @@
 /***/ }),
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
-
+// 团队
 	var __vue_script__, __vue_template__
 	__vue_script__ = __webpack_require__(24)
 	__vue_template__ = __webpack_require__(27)
@@ -24956,7 +25004,7 @@
 	var _libUtil2 = _interopRequireDefault(_libUtil);
 
 	exports['default'] = {
-		props: ['obserable'],
+		props: ['obserable','showHomeButton'],
 		name: 'zmitiindex',
 		data: function data() {
 			return {
@@ -25033,14 +25081,97 @@
 /***/ }),
 /* 27 */
 /***/ (function(module, exports) {
+// 团队
+	function template(){
+/*
+<transition name="team">
+    <div v-tap='[hideTeam]' v-show='showTeam' class="lt-full zmiti-team-main-ui" :style="{background:'url('+imgs.teamBg+') no-repeat center center',backgroundSize:'cover'}">
+        <div class="zmiti-team-main">
+            <div>
+                <aside>出品人</aside> 
+                <aside>
+                    <span>陈凯星</span>、<span>王存理</span> 
+                </aside>
+            </div>
+            <div>
+                <aside>总监制</aside> 
+                <aside>
+                    <span>葛素表</span>
+                </aside>
+            </div>
+            <div>
+                <aside>策<label for="">策</label>划</aside> 
+                <aside>
+                    <span>陈知春</span>
+                </aside>
+            </div>
+            <div>
+                <aside>监<label for="">人</label>制</aside> 
+                <aside>
+                    <span>牟　帆</span>
+                </aside>
+            </div>
+            <div>
+                <aside>文<label for="">人</label>案</aside> 
+                <aside>
+                    <span>刘雨菲</span>
+                </aside>
+            </div>
+            <div>新华社新媒体中心</div>
+            <div>出品</div>
+        </div>
+        
+    </div>
+</transition>
+*/
 
-	module.exports = "\r\n\t<transition name=\"team\">\r\n\t\t<div v-tap='[hideTeam]' v-show='showTeam' class=\"lt-full zmiti-team-main-ui\" :style=\"{background:'url('+imgs.teamBg+') no-repeat center center',backgroundSize:'cover'}\">\r\n\t\t\t<div class=\"zmiti-team-main\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t出品人\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>陈凯星</span>、<span>王存理</span> \r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t总监制\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>葛素表</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t策<label for=\"\">策</label>划\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>陈知春</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t监<label for=\"\">人</label>制\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>牟　帆</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t文<label for=\"\">人</label>案\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>刘雨菲</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t<div>\r\n\t\t\t\t\t新华社新媒体中心\r\n\t\t\t\t</div><div>\r\n\t\t\t\t\t出品\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</transition>\r\n";
+	}
+	module.exports = (/\/\*([\s\S]*?)\*\//g).exec(template.toString())[1].replace(/[]/g,'');//"\r\n\t<transition name=\"team\">\r\n\t\t<div v-tap='[hideTeam]' v-show='showTeam' class=\"lt-full zmiti-team-main-ui\" :style=\"{background:'url('+imgs.teamBg+') no-repeat center center',backgroundSize:'cover'}\">\r\n\t\t\t<div class=\"zmiti-team-main\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t出品人\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>陈凯星</span>、<span>王存理</span> \r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t总监制\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>葛素表</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t策<label for=\"\">策</label>划\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>陈知春</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t监<label for=\"\">人</label>制\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>牟　帆</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t文<label for=\"\">人</label>案\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>刘雨菲</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t<div>\r\n\t\t\t\t\t新华社新媒体中心\r\n\t\t\t\t</div><div>\r\n\t\t\t\t\t出品\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</transition>\r\n";
 
 /***/ }),
 /* 28 */
 /***/ (function(module, exports) {
 
-	module.exports = "\r\n\t<transition name='main'>\r\n\t\r\n\t\t<div class=\"lt-full zmiti-introduce-main-ui \" :class=\"{'show':show}\" :style=\"{background:'url('+imgs.introduceBg+') no-repeat center center',backgroundSize:'cover'}\"  ref='page'>\r\n\t\t\t<div class=\"zmiti-logo\">\r\n\t\t\t\t<img :src=\"imgs.logo\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t\t<div class=\"zmiti-introduce-main\">\r\n\t\t\t\t<div class=\"zmiti-introduce-title\">\r\n\t\t\t\t\t<img :src=\"imgs.introTitle\" alt=\"\">\r\n\t\t\t\t\t<div>{{texts.zlmIntro}}</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-introduce-content\">\r\n\t\t\t\t\t<h2 class=\"zmiti-introduce-name\">\r\n\t\t\t\t\t\t{{texts.zlmName}}\r\n\t\t\t\t\t</h2>\r\n\t\t\t\t\t<div class=\"zmiti-introduce-wrap\" ref='zmiti-introduce-wrap'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<div v-for='(content,i) in texts.zlmIntroContent' :key=\"i\">\r\n\t\t\t\t\t\t\t\t{{content}}\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\r\n\t\t\t<nav class=\"zmiti-nav\">\r\n\t\t\t\t<ul>\r\n\t\t\t\t\t<li @touchstart='tabIndex = 0' @touchend='tabIndex = -1' :class=\"{'active':tabIndex === 0}\"  v-tap='[entryDetail,\"aigangjingye\"]'>备战之思</li>\r\n\t\t\t\t\t<li @touchstart='tabIndex = 1' @touchend='tabIndex = -1' :class=\"{'active':tabIndex === 1}\" v-tap='[entryDetail,\"yongyuchuangxin\"]'>紧贴实战</li>\r\n\t\t\t\t\t<li @touchstart='tabIndex = 2' @touchend='tabIndex = -1' :class=\"{'active':tabIndex === 2}\" v-tap='[entryDetail,\"ganyufengxian\"]'>不辱使命</li>\r\n\t\t\t\t</ul>\r\n\t\t\t</nav>\r\n\r\n\t\t\t<div class=\"zmiti-team-entry\" v-tap='[showTeamPage]'>制作团队</div>\r\n\r\n\t\t\t<div class=\"zmiti-mask\" v-if='showMasks' @touchstart='showMasks = false'>\r\n\t\t\t\t<img :src=\"imgs.arrow\">\r\n\t\t\t</div>\r\n\t\t\t<div>\r\n\t\t\t\t<Team :obserable='obserable'></Team>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\r\n\t</transition>\r\n";
+	// 个人介绍
+	function template(){
+		/* 
+	<transition name='main'>
+    <div class="lt-full zmiti-introduce-main-ui " :class="{'show':show}" :style="{background:'url('+imgs.introduceBg+') no-repeat center center',backgroundSize:'cover'}"  ref='page'>
+        <div class="zmiti-logo"><img :src="imgs.logo" alt=""></div>
+        <div class="zmiti-introduce-main">
+            <div class="zmiti-introduce-title">
+                <img :src="imgs.introTitle" alt="">
+                    <div>{{texts.zlmIntro}}</div>
+            </div>
+            <div class="zmiti-introduce-content">
+                <h2 class="zmiti-introduce-name">{{texts.zlmName}}</h2>
+                <div class="zmiti-introduce-wrap" ref='zmiti-introduce-wrap'>
+                    <div>
+                        <div v-for='(content,i) in texts.zlmIntroContent' :key="i">{{content}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="zmiti-nav">
+            <ul>
+                <li @touchstart='tabIndex = 0' @touchend='tabIndex = -1' :class="{'active':tabIndex === 0}"  v-tap='[entryDetail,"aigangjingye"]'>备战之思</li>
+                <li @touchstart='tabIndex = 1' @touchend='tabIndex = -1' :class="{'active':tabIndex === 1}" v-tap='[entryDetail,"yongyuchuangxin"]'>紧贴实战</li>
+                <li @touchstart='tabIndex = 2' @touchend='tabIndex = -1' :class="{'active':tabIndex === 2}" v-tap='[entryDetail,"ganyufengxian"]'>不辱使命</li>
+            </ul>
+        </nav>
+       
+        <div class="zmiti-team-entry" v-tap='[showTeamPage]'>制作团队</div>
+        <div class="zmiti-mask" v-if='showMasks' @touchstart='showMasks = false'>
+            <img :src="imgs.arrow">
+        </div>
+        <div>
+            <Team :showHomeButton="showHomeButton" :obserable='obserable'></Team>
+        </div>
+    </div>
+</transition>
+		*/
+	}
+	module.exports =(/\/\*([\s\S]*?)\*\//g).exec(template.toString())[1].replace(/[\t\r\n]/g,'');// "\r\n\t<transition name='main'>\r\n\t\r\n\t\t<div class=\"lt-full zmiti-introduce-main-ui \" :class=\"{'show':show}\" :style=\"{background:'url('+imgs.introduceBg+') no-repeat center center',backgroundSize:'cover'}\"  ref='page'>\r\n\t\t\t<div class=\"zmiti-logo\">\r\n\t\t\t\t<img :src=\"imgs.logo\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t\t<div class=\"zmiti-introduce-main\">\r\n\t\t\t\t<div class=\"zmiti-introduce-title\">\r\n\t\t\t\t\t<img :src=\"imgs.introTitle\" alt=\"\">\r\n\t\t\t\t\t<div>{{texts.zlmIntro}}</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-introduce-content\">\r\n\t\t\t\t\t<h2 class=\"zmiti-introduce-name\">\r\n\t\t\t\t\t\t{{texts.zlmName}}\r\n\t\t\t\t\t</h2>\r\n\t\t\t\t\t<div class=\"zmiti-introduce-wrap\" ref='zmiti-introduce-wrap'>\r\n\t\t\t\t\t\t<div>\r\n\t\t\t\t\t\t\t<div v-for='(content,i) in texts.zlmIntroContent' :key=\"i\">\r\n\t\t\t\t\t\t\t\t{{content}}\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\r\n\t\t\t<nav class=\"zmiti-nav\">\r\n\t\t\t\t<ul>\r\n\t\t\t\t\t<li @touchstart='tabIndex = 0' @touchend='tabIndex = -1' :class=\"{'active':tabIndex === 0}\"  v-tap='[entryDetail,\"aigangjingye\"]'>备战之思</li>\r\n\t\t\t\t\t<li @touchstart='tabIndex = 1' @touchend='tabIndex = -1' :class=\"{'active':tabIndex === 1}\" v-tap='[entryDetail,\"yongyuchuangxin\"]'>紧贴实战</li>\r\n\t\t\t\t\t<li @touchstart='tabIndex = 2' @touchend='tabIndex = -1' :class=\"{'active':tabIndex === 2}\" v-tap='[entryDetail,\"ganyufengxian\"]'>不辱使命</li>\r\n\t\t\t\t</ul>\r\n\t\t\t</nav>\r\n\r\n\t\t\t<div class=\"zmiti-team-entry\" v-tap='[showTeamPage]'>制作团队</div>\r\n\r\n\t\t\t<div class=\"zmiti-mask\" v-if='showMasks' @touchstart='showMasks = false'>\r\n\t\t\t\t<img :src=\"imgs.arrow\">\r\n\t\t\t</div>\r\n\t\t\t<div>\r\n\t\t\t\t<Team :obserable='obserable'></Team>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\r\n\t</transition>\r\n";
 
 /***/ }),
 /* 29 */
@@ -25185,7 +25316,7 @@
 
 	exports['default'] = {
 
-		props: ['obserable', 'pv', 'randomPv', 'nickname', 'headimgurl'],
+		props: ['obserable', 'pv', 'randomPv', 'nickname', 'headimgurl','showHomeButton'],
 
 		name: 'zmitiindex',
 
@@ -25410,7 +25541,7 @@
 
 	exports['default'] = {
 
-		props: ['obserable', 'pv', 'randomPv', 'nickname', 'headimgurl'],
+		props: ['obserable', 'pv', 'randomPv', 'nickname', 'headimgurl','showHomeButton'],
 
 		name: 'zmitiindex',
 
@@ -25531,7 +25662,7 @@
 /***/ }),
 /* 38 */
 /***/ (function(module, exports) {
-
+// 详情页面
 	var template =function (){
 /*<transition name='main'>
     <div class="lt-full zmiti-detail-main-ui " :class="{'show':show}" ref='page'>
@@ -25553,8 +25684,9 @@
             </div>
             <div class="zmiti-comment"></div>
         </div>
-        <section class="zmiti-back" v-tap='[hidePage]'><img :src="imgs.back" alt=""></section>
-    </div>
+				<section class="zmiti-back" v-tap='[hidePage]'><img :src="imgs.back" alt=""></section>
+		</div>
+		
 </transition> */
 	}
 
@@ -25627,7 +25759,7 @@
 
 	exports['default'] = {
 
-		props: ['obserable', 'pv', 'randomPv', 'nickname', 'headimgurl'],
+		props: ['obserable', 'pv', 'randomPv', 'nickname', 'headimgurl','showHomeButton'],
 
 		name: 'zmitiindex',
 

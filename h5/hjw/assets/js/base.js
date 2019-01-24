@@ -40,6 +40,7 @@
     c22: './assets/images/c22.jpg',
     c31: './assets/images/c31.jpg',
     c32: './assets/images/c32.jpg',
+    home: './assets/images/home.png'
 }
 
 var texts = {

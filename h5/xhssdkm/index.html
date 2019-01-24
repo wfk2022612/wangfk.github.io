@@ -7,15 +7,19 @@
       maximum-scale=1, user-scalable=no"> -->
     <meta name="viewport" content="width=750,user-scalable=no" />
     <title>唱响新时代英雄赞歌</title>
+    <!-- <link href="./static/css/basic.css" rel='stylesheet' /> -->
     <script src="//cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+  <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+  <script src="//cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="./static/js/turn.js"></script>
   </head>
 
   <body>
+      
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-
+  
   <script>
   function is_weixn() {
     var ua = navigator.userAgent.toLowerCase();
@@ -36,67 +40,120 @@
 
 
   var audio = document.getElementById("bgMusic")
+  var myVideo=document.getElementById("my_video")
 
   $(function () {
-    if(is_weixn()){
-      // 微信自动播放
-      if (window.WeixinJSBridge) {
-        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-          audio.muted = true
-          audio.play();
-          window.canplay=true;
-          console.log('getNetworkType canplay'+canplay)
-        }, false);
-      }
-      document.addEventListener("WeixinJSBridgeReady", function () {
-        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-          audio.muted = true
-          audio.play();
-          window.canplay=true;
-          console.log('getNetworkType canplay'+canplay)
-        });
-      }, false);
+    console.log('jquery.ready ')
 
-      function autoPlayAudio() {
-        if (wx) {
-          wx.config({
-            // 配置信息, 即使不正确也能使用 wx.ready
-            debug: false,
-            appId: '',
-            timestamp: 1,
-            nonceStr: '',
-            signature: '',
-            jsApiList: []
-          });
-          wx.ready(function () {
-            audio.muted = true
-            audio.play();
-            window.canplay=true;
-            console.log('getNetworkType canplay'+canplay)
-          });
-        }
-      };
-      // 解决ios音乐不自动播放的问题
-      autoPlayAudio();
-    }else if(isIOS()||isAndroid()){
-      audio.muted = true
-      audio.autoplay="autoplay"
-      $("#app").one("click", function () {
-        console.log('app one click')
-        
-        audio.play();
-        window.canplay=true;
-        console.log('getNetworkType canplay'+canplay)
-      });
-    }
-    // else {
-    //   audio.autoplay="autoplay"
-    //   audio.muted = true
-    //   window.canplay=true;
+      console.log('jquery ready'+jQuery)
+      // $("#app").one("click",function(){
+      //   console.log("#app one click")
+      //   if(!myVideo.canplay){
+      //     console.log('myVideo.canplay=false')
+      //     myVideo.canplay=true;
+      //      myVideo.play();
+      //      myVideo.pause();
+      //   }
+      // })
+
+
+    // if(is_weixn()){
+    //   // 微信自动播放
+    //   if (window.WeixinJSBridge) {
+    //     WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+         
+
+    //       document.getElementById("my_video").play();
+
+
+    //       console.log('getNetworkType1 ')
+    //     }, false);
+    //   }
+    //   document.addEventListener("WeixinJSBridgeReady", function () {
+    //     WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+         
+    //       document.getElementById("my_video").play();
+
+
+    //       console.log('getNetworkType2 '+document.getElementById("my_video"))
+    //     });
+    //   }, false);
+
+    //   function autoPlayAudio() {
+    //     if (wx) {
+    //       wx.config({
+    //         // 配置信息, 即使不正确也能使用 wx.ready
+    //         debug: false,
+    //         appId: '',
+    //         timestamp: 1,
+    //         nonceStr: '',
+    //         signature: '',
+    //         jsApiList: []
+    //       });
+    //       wx.ready(function () {
+
+    //         document.getElementById("my_video").play();
+
+            
+    //         console.log('getNetworkType3 ')
+    //       });
+    //     }
+    //   };
+    //   // 解决ios音乐不自动播放的问题
+    //   autoPlayAudio();
     // }
+    // else if(isIOS()||isAndroid()){
+    //   audio.muted = true
+    //   audio.autoplay="autoplay"
+
+    //   myVideo.muted=true;
+    //   myVideo.autoplay="autoplay"
+
+    //   $("#app").one("click", function () {
+    //     console.log('app one click')
+        
+    //     audio.play();
+    //     myVideo.play()
+    //     window.canplay=true;
+    //     console.log('getNetworkType canplay'+canplay)
+    //   });
+    // }
+
+    
+	
+  
   });
 
 
+
+  function loadApp() {
+
+// Create the flipbook
+
+// $('.flipbook').turn({
+//     // Width
+
+//     width:922,
+    
+//     // Height
+
+//     height:600,
+
+//     // Elevation
+
+//     elevation: 50,
+    
+//     // Enable gradients
+
+//     gradients: true,
+    
+//     // Auto center this flipbook
+
+//     autoCenter: false,
+//     display:'single'
+
+// });
+}
 
 
 </script>

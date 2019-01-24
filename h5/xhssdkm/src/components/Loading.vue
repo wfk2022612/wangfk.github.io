@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="handleClick">
     <div class="zmiti-loading lt-full">
       <div class="zmiti-loading-ui">
         <a href="#">
@@ -91,7 +91,10 @@ export default {
         },
         () => {
           console.log("load finish");
-          this.$router.push("./cover");
+          
+             this.$router.push("./videopage");
+       
+         
           // this.$router.push("./info")
           // var checkPlayState=window.setInterval(()=>{
           // 	if(window.audioCanPaly){
@@ -102,7 +105,9 @@ export default {
         }
       );
     } else {
-      this.$router.push("./cover");
+      
+             this.$router.push("./videopage");
+     
     }
   },
   methods: {
@@ -130,6 +135,15 @@ export default {
         img.src = arr[i];
       }
       loadimg();
+    },
+    handleClick(){
+     let video= document.getElementById("my_video")
+     debugger
+     if(video){
+       video.play()
+     video.pause()
+     }
+     
     }
   }
 };

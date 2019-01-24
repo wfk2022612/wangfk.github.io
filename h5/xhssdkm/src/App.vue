@@ -1,31 +1,21 @@
 <template>
   <div id="app" class="app">
-    <router-view/>
-    <audio preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop></audio>
+      <router-view />
+      <audio preload="preload" id="bgMusic" :src="audioSrc" style="display:none" loop></audio>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "App",
-  data() {
-    return {
-      // audioLoaded:false
-    };
-  },
   computed: {
     audioSrc() {
       return require("@/assets/music/bg.mp3");
     }
   },
-  methods: {
-    loaded() {
-      console.log("audio loaded");
-      // this.audioLoaded=true
-    }
-  },
   mounted() {
-    
+    console.log('app mounted')
   }
 };
 </script>
@@ -55,12 +45,31 @@ li {
 html,
 body {
   height: 100vh;
-  -webkit-tap-highlight-color: transparent;
+  overflow:hidden;
+	background-color:#fcfcfc;
+	margin:0;
+	padding:0;
 }
 
 img {
   border: none;
   vertical-align: middle;
   height: auto;
+}
+
+#app{
+  z-index: 10;
+  position: absolute;
+  background-color:#fcfcfc;
+width:100vw;
+height:100vh;
+}
+
+#app video{
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+    position: absolute;
+    top: 0;
 }
 </style>
