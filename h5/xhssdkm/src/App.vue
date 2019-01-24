@@ -1,79 +1,21 @@
 <template>
   <div id="app" class="app">
-      <div class="flipbook-viewport">
-          <div class="container">
-            <div id="appFlipbook" class="flipbook">
-              <div>
-                  <Cover />
-              </div>
-              <div>
-                 <Info />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <Info /> -->
-    <audio preload="preload" id="bgMusic" :src="audioSrc" autoplay="autoplay" loop></audio>
+      <router-view />
+      <audio preload="preload" id="bgMusic" :src="audioSrc" style="display:none" loop></audio>
   </div>
 </template>
 
 <script>
-  import Cover from '@/components/Cover'
-  import Info from '@/components/Info'
+
 export default {
   name: "App",
-  data() {
-    return {
-      // audioLoaded:false
-    };
-  },
   computed: {
     audioSrc() {
       return require("@/assets/music/bg.mp3");
     }
   },
-  methods: {
-    loaded() {
-      console.log("audio loaded");
-      // this.audioLoaded=true
-    }
-  },
   mounted() {
     console.log('app mounted')
-    console.log('jquery'+jQuery)
-
-    $('#appFlipbook').turn({
-			// Width
-
-			width:$("html").width(),
-			
-			// Height
-
-			height:$("html").height(),
-
-			// Elevation
-
-			elevation: 50,
-			
-			// Enable gradients
-
-			gradients: true,
-			
-			// Auto center this flipbook
-
-			autoCenter: false,
-			display:'single',
-    when:{
-      end(){
-        $("#appFlipbook").turn("disable",true);
-      }
-    }
-  });
-  
-  },
-  components:{
-    Cover,
-    Info
   }
 };
 </script>
@@ -103,12 +45,31 @@ li {
 html,
 body {
   height: 100vh;
-  -webkit-tap-highlight-color: transparent;
+  overflow:hidden;
+	background-color:#fcfcfc;
+	margin:0;
+	padding:0;
 }
 
 img {
   border: none;
   vertical-align: middle;
   height: auto;
+}
+
+#app{
+  z-index: 10;
+  position: absolute;
+  background-color:#fcfcfc;
+width:100vw;
+height:100vh;
+}
+
+#app video{
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+    position: absolute;
+    top: 0;
 }
 </style>
