@@ -1,7 +1,10 @@
 <template>
   <div class="main-ui">
     <div class="head"></div>
-    <div class="sub-title">
+    <div class="team">
+      <img src="../assets/images/team.png" >
+    </div>
+    <!-- <div class="sub-title">
       时代楷模融媒体作品
     </div>
     <div class="title">
@@ -18,7 +21,7 @@
       <div>文<label>划</label>案：刘雨菲</div>
       <div>新华社媒体中心</div>
       <div>出品</div>
-    </div>
+    </div> -->
     <div class="logo">
         <img src="../assets/images/logo.png" />
     </div>
@@ -68,6 +71,17 @@ src: url('../assets/fonts/simfang.ttf')
 
   .head{
     height:rem(90);
+  }
+
+  .team{
+text-align: center;
+    width: 100vw;
+    height:rem(600);
+  }
+
+  .team img{
+    width: rem(654);
+    height: rem(641);
   }
 
 .sub-title{

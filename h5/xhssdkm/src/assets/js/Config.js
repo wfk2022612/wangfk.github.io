@@ -48,7 +48,8 @@ var imgs = {
   // imgBorder: require('@/assets/images/img-bg.png'),
   imgBorder2: require('@/assets/images/img-bg-border.png'),
   rbtn: require('@/assets/images/right-btn.png'),
-  lbtn: require('@/assets/images/left-btn.png')
+  lbtn: require('@/assets/images/left-btn.png'),
+  team: require('@/assets/images/team.png')
   // indexBgBottom: require('@/assets/images/index-bg-bottom.jpg'),
   // indexBgBottom2: require('@/assets/images/index-bg-bottom.png')
 }
