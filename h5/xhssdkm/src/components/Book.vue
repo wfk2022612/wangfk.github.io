@@ -22,11 +22,22 @@ import Cover from '@/components/Cover';
 import Info from '@/components/Info';
 
 export default{
+	data(){
+		return {
+			bookPersionIndex:null
+		}
+
+	},
     mounted() {
+		var _this=	this
 		utils.play("bgMusic")
 
+		var bookPersionIndex=null;
+		if(this.$route.params["index"]>=0){
+			bookPersionIndex=this.$route.params["index"]
+		}
 		$(function(){
-			$('.flipbook').turn({
+			var turnOption={
 			// Width
 
 			width:$("html").width(),
@@ -38,6 +49,7 @@ export default{
 			// Elevation
 
 			elevation: 50,
+			//page:isFinite(bookPersionIndex)?2:null,
 			
 			// Enable gradients
 
@@ -47,19 +59,19 @@ export default{
 
 			autoCenter: false,
 			display:'single',
-    when:{
-      end(){
-        // $("#appFlipbook").turn("disable",true);
-      },
-      turning: function(event, page, pageObject) {
-          
-            // // Implementation
-            // console.log(event)
-            // console.log(page)
-            // console.log(pageObject)
-        }
-    }
-  });
+	}
+
+	if(bookPersionIndex){
+		turnOption.page=2
+	}
+
+			$('.flipbook').turn(turnOption);
+	
+	// if(bookPersionIndex){
+		
+	// 	$('.flipbook').turn("page", 2)
+	// }
+
 		})
         
     },
@@ -70,7 +82,7 @@ export default{
 }
 
 </script>
-<style scoped>
+<style>
 .book{
 	background-color: white;
 	width:100vw;

@@ -30,6 +30,9 @@ export default {
         this.$emit("pagechanged",this.pageCurrent)
       }
     }
+  },
+  mounted(){
+    
   }
 };
 </script>
@@ -43,6 +46,8 @@ $design: 550;
 .pager {
   font-size:rem(20);
   margin: rem(5) auto rem(20) auto;
+  position: relative;
+  z-index:10;
   ul {
     display: flex;
     justify-content: center;

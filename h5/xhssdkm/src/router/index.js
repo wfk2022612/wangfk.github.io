@@ -29,7 +29,7 @@ var router= new Router({
       component: Info
     },
     {
-      path: '/book',
+      path: '/book/:index?',
       name: 'Book',
       component: Book
     },

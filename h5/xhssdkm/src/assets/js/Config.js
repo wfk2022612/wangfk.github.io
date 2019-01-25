@@ -48,7 +48,9 @@ var imgs = {
   // imgBorder: require('@/assets/images/img-bg.png'),
   imgBorder2: require('@/assets/images/img-bg-border.png'),
   rbtn: require('@/assets/images/right-btn.png'),
-  lbtn: require('@/assets/images/left-btn.png')
+  lbtn: require('@/assets/images/left-btn.png'),
+  team: require('@/assets/images/team.png'),
+  videobg: require('@/assets/images/playbtn.png')
   // indexBgBottom: require('@/assets/images/index-bg-bottom.jpg'),
   // indexBgBottom2: require('@/assets/images/index-bg-bottom.png')
 }
@@ -85,7 +87,7 @@ var contents = [
   {
     img: imgs.c5,
     title: '张玉滚',
-    subTitle: '张玉滚是河南省南阳市镇平县高丘镇黑虎庙小学校长。17年来，他扎根深山，矢志不渝奋斗在乡村教育一线，先后教过500多名孩子，培养出16名大学生。当地人把他的事迹编成歌曲传唱，感动了无数人。',
+    subTitle: '张玉滚是河南省南阳市镇平县高丘镇黑虎庙小学校长。17年来，他扎根深山，矢志不渝奋斗在乡村教育一线，默默奉献着自己的青春年华。当地人把他的事迹编成歌曲传唱，感动了无数人。',
     link: 'http://h5.zhongguowangshi.com/h5/zyg/index.html'
   },
   {

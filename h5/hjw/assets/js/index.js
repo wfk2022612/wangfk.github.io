@@ -206,7 +206,10 @@
 			
 			if(redirectUrl){
 				redirectUrl=decodeURIComponent(redirectUrl)
-				this.showHomeButton=true;
+				
+				if((/^https?:\/\/h5\.zhongguowangshi\.com\/?/ig.test(redirectUrl))){
+					this.showHomeButton=true;
+				}
 			}
 
 			this.isShare = src && !isNaN(num);
@@ -262,7 +265,8 @@
 
 			obserable.on('homeClick',function(){
 				// alert(redirectUrl)
-				window.location.href=location.protocol+'//'+location.host+''+redirectUrl;
+				//window.location.href=location.protocol+'//'+location.host+''+redirectUrl;
+				window.location.href=location.protocol+'//localhost:8012/'+redirectUrl;
 			})
 
 			return;
@@ -12179,7 +12183,6 @@
 			},
 
 			homeClick:function(e){
-				debugger
 				e.preventDefault();
 				this.obserable.trigger({
 					type: 'homeClick'
