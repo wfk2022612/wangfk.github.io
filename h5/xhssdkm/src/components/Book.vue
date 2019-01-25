@@ -22,8 +22,20 @@ import Cover from '@/components/Cover';
 import Info from '@/components/Info';
 
 export default{
+	data(){
+		return {
+			bookPersionIndex:null
+		}
+
+	},
     mounted() {
+		var _this=	this
 		utils.play("bgMusic")
+
+		var bookPersionIndex=null;
+		if(this.$route.params["index"]>=0){
+			bookPersionIndex=this.$route.params["index"]
+		}
 
 		$(function(){
 			$('.flipbook').turn({
@@ -36,6 +48,8 @@ export default{
 			height:$("html").height(),
 
 			// Elevation
+
+			page:bookPersionIndex>=0?2:1,
 
 			elevation: 50,
 			

@@ -30,6 +30,9 @@ export default {
         this.$emit("pagechanged",this.pageCurrent)
       }
     }
+  },
+  mounted(){
+    
   }
 };
 </script>
