@@ -70,7 +70,7 @@ export default{
 }
 
 </script>
-<style scoped>
+<style>
 .book{
 	background-color: white;
 	width:100vw;

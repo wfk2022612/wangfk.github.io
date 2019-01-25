@@ -175,7 +175,7 @@ src: url('../assets/fonts/simkai.ttf')
 
   .main-ui {
     .top {
-      height: rem(120);
+      height: rem(130);
       //width: rem(750);
       position: relative;
       overflow: hidden;
@@ -201,10 +201,10 @@ src: url('../assets/fonts/simkai.ttf')
 
     .picture {
       width: rem($design);
-      height: rem(450);
+      height: rem(415);
 
       position: relative;
-      padding-top: rem(12);
+      padding-top: rem(0);
 
       .lbtn {
         position: absolute;
@@ -258,9 +258,9 @@ src: url('../assets/fonts/simkai.ttf')
         .img-border {
           position: absolute;
           width: 667px;
-          height: 487px;
+          height: 489px;
           left: -45px;
-          top: -31px;
+          top: -33px;
         }
       }
     }
