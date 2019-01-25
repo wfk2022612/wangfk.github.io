@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,user-scalable=no"><title>唱响新时代英雄赞歌</title><link href=./static/css/app.335a4486cdd308a5721a8cf5e1f28eb8.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.748b758d760814f9bfe5.js></script><script type=text/javascript src=./static/js/app.ce7f9fcf5a1ee3e5bf2b.js></script></body><script src=//cdn.bootcss.com/jquery/1.10.2/jquery.min.js></script><script src=//res.wx.qq.com/open/js/jweixin-1.0.0.js type=text/javascript charset=utf-8></script><script>function is_weixn() {
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=750,user-scalable=no"><title>唱响新时代英雄赞歌</title><script src=./static/js/jquery.min.js></script><script src=//res.wx.qq.com/open/js/jweixin-1.0.0.js type=text/javascript charset=utf-8></script><script src=./static/js/turn.js></script><link href=./static/css/app.a57c816420bc9aa94c1535a591a8a168.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.748b758d760814f9bfe5.js></script><script type=text/javascript src=./static/js/app.45f38f68e31040f751ab.js></script></body><script>function is_weixn() {
     var ua = navigator.userAgent.toLowerCase();
     if (ua.match(/MicroMessenger/i) == "micromessenger") {
       return true;
@@ -7,49 +7,96 @@
     }
   }
 
+  function isIOS(){
+    return /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)
+  }
+
+  function isAndroid(){
+    return /(Android)/i.test(navigator.userAgent)
+  }
+
+
+  var audio = document.getElementById("bgMusic")
+  var myVideo=document.getElementById("my_video")
 
   $(function () {
-    // $("#app").one("click", function () {
-    var audio = document.getElementById("bgMusic")
-    //   audio.play()
-    // })
+    console.log('jquery.ready ')
 
-    // 微信自动播放
-    if (window.WeixinJSBridge) {
-      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-        audio.muted = true
-        audio.play();
-        window.canplay=true;
-      }, false);
-    }
-    document.addEventListener("WeixinJSBridgeReady", function () {
-      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-        audio.muted = true
-        audio.play();
-        window.canplay=true;
-      });
-    }, false);
+      console.log('jquery ready'+jQuery)
+      // $("#app").one("click",function(){
+      //   console.log("#app one click")
+      //   if(!myVideo.canplay){
+      //     console.log('myVideo.canplay=false')
+      //     myVideo.canplay=true;
+      //      myVideo.play();
+      //      myVideo.pause();
+      //   }
+      // })
 
-    function autoPlayAudio() {
-      if (wx) {
-        wx.config({
-          // 配置信息, 即使不正确也能使用 wx.ready
-          debug: false,
-          appId: '',
-          timestamp: 1,
-          nonceStr: '',
-          signature: '',
-          jsApiList: []
-        });
-        wx.ready(function () {
-          var globalAudio = document.getElementById("bgMusic");
-          globalAudio.muted = true
-          globalAudio.play();
-          window.canplay=true;
-        });
-      }
 
-    };
-    // 解决ios音乐不自动播放的问题
-    autoPlayAudio();
-  })</script></html>
+    // if(is_weixn()){
+    //   // 微信自动播放
+    //   if (window.WeixinJSBridge) {
+    //     WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+         
+
+    //       document.getElementById("my_video").play();
+
+
+    //       console.log('getNetworkType1 ')
+    //     }, false);
+    //   }
+    //   document.addEventListener("WeixinJSBridgeReady", function () {
+    //     WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+         
+    //       document.getElementById("my_video").play();
+
+
+    //       console.log('getNetworkType2 '+document.getElementById("my_video"))
+    //     });
+    //   }, false);
+
+    //   function autoPlayAudio() {
+    //     if (wx) {
+    //       wx.config({
+    //         // 配置信息, 即使不正确也能使用 wx.ready
+    //         debug: false,
+    //         appId: '',
+    //         timestamp: 1,
+    //         nonceStr: '',
+    //         signature: '',
+    //         jsApiList: []
+    //       });
+    //       wx.ready(function () {
+
+    //         document.getElementById("my_video").play();
+
+            
+    //         console.log('getNetworkType3 ')
+    //       });
+    //     }
+    //   };
+    //   // 解决ios音乐不自动播放的问题
+    //   autoPlayAudio();
+    // }
+    // else if(isIOS()||isAndroid()){
+    //   audio.muted = true
+    //   audio.autoplay="autoplay"
+
+    //   myVideo.muted=true;
+    //   myVideo.autoplay="autoplay"
+
+    //   $("#app").one("click", function () {
+    //     console.log('app one click')
+        
+    //     audio.play();
+    //     myVideo.play()
+    //     window.canplay=true;
+    //     console.log('getNetworkType canplay'+canplay)
+    //   });
+    // }
+
+    
+	
+  
+  });</script></html>
