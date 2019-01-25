@@ -105,7 +105,7 @@
         
         this.index = current - 1;
         this.$router.replace(`/book/${this.index}`)
-        debugger
+        
         this.aniShow();
       },
       showTeam() {
