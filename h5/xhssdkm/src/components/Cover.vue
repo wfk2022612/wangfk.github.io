@@ -1,31 +1,23 @@
 <template>
-	<div @click="entry" class="lt-full zmiti-index-main-ui">
-		<transition name="index">
-			<div class="zmiti-index" v-if="!showIndexMask">
-				<div class="zmiti-title">
-					<img @touchstart="imgStart" :src="imgs.title1">
-				</div>
-				<div class="zmiti-index-img"
-					:style="{WebkitTransform:'translateX('+transX+'px)'}">
-					<img :src="imgs.index" alt>
-				</div>
-				<!-- <div class="zmiti-entry">
+  <div @click="entry" class="main-ui">
+    <transition name="index">
+      <!-- <div class="zmiti-entry">
 					<img :src="imgs.entry" alt>
 				</div> -->
+      <canvas :width="viewW" height="500" ref="canvas"></canvas>
 
-				<canvas :width="viewW" height="500" ref="canvas"></canvas>
-			</div>
-		</transition>
-		<div class="zmiti-index-logo">
-			<img :src="imgs.logo" alt>
-		</div>
-	</div>
+    </transition>
+    <div class="logo">
+      <img :src="imgs.logo" alt>
+    </div>
+  </div>
 </template>
 
 <script>
 import config from "@/assets/js/Config.js";
 import Point from "@/assets/js/Point.js";
 import utils from '@/assets/js/Utils.js';
+
 
 export default {
   name: "cover",
@@ -118,123 +110,32 @@ export default {
   },
   mounted: function mounted() {
 	this.initPoints();
-	utils.playAudio("bgMusic")
+	utils.play("bgMusic")
   }
 };
 </script>
-<style scoped>
-.lt-full {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
+<style lang="scss" scoped>
+    $fontsize: 75;
+    $design: 750;
+    
+    @function rem($px) {
+      @return $px/$fontsize * 1rem;
+    }
+    @font-face
+    {
+    font-family: cckt;
+    src: url('../assets/fonts/simkai.ttf')
+    }
 
-.zmiti-text-overflow {
-  overflow: hidden;
-  white-space: nowrap;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  -webkit-text-overflow: ellipsis;
-}
-
-.zmiti-play {
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
-  position: fixed;
-  z-index: 1000;
-  right: 0.5rem;
-  top: 0.5rem;
-}
-
-.zmiti-play.rotate {
-  -webkit-animation: rotate 5s linear infinite;
-  animation: rotate 5s linear infinite;
-}
-
-@-webkit-keyframes rotate {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.zmiti-index-main-ui {
-  overflow: hidden;
-  width: 10rem;
-  left: 50% !important;
-  margin-left: -375px;
-  background: #4081dd;
-  opacity: 1;
-  z-index: 200;
-  background: url(../assets/images/index-bg1.jpg) no-repeat center top;
-  background-size: cover;
-}
-
-.zmiti-index-main-ui .zmiti-title {
-  position: absolute;
+.main-ui{
+  background-image: url(../assets/images/index-bg1.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
   width: 100vw;
-  left: 50%;
-  top: 24vh;
-  z-index: 10;
-  -webkit-transform: translate3d(-50%, 0, 0);
-  transform: translate3d(-50%, 0, 0);
+  height:100vh;
 }
 
-.zmiti-index-main-ui .zmiti-index-img {
-  position: absolute;
-  bottom: 0;
-  left: -200px;
-  z-index: 8;
-  height: 70vh;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: transform 0.2s;
-}
-
-.zmiti-index-main-ui .zmiti-index-img img {
-  width: auto;
-  height: 100%;
-}
-
-.zmiti-index-main-ui .zmiti-index.index-enter-active,
-.zmiti-index-main-ui .zmiti-index.index-leave-active {
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-.zmiti-index-main-ui .zmiti-index.index-enter,
-.zmiti-index-main-ui .zmiti-index.index-leave-to {
-  opacity: 0;
-}
-
-.zmiti-index-main-ui .zmiti-index canvas {
-  position: absolute;
-  bottom: 100px;
-  z-index: 10;
-}
-
-.zmiti-index-main-ui .zmiti-mask {
-  z-index: 6;
-}
-
-.zmiti-index-main-ui .zmiti-mask.mask-enter-active,
-.zmiti-index-main-ui .zmiti-mask.mask-leave-active {
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-.zmiti-index-main-ui .zmiti-mask.mask-enter,
-.zmiti-index-main-ui .zmiti-mask.mask-leave-to {
-  opacity: 0;
-}
-
-.zmiti-index-main-ui .zmiti-video {
-  z-index: 10;
-}
-
-.zmiti-index-main-ui .zmiti-index-logo {
+.logo {
   width: 180px;
   position: absolute;
   bottom: 40px;
@@ -242,7 +143,7 @@ export default {
   z-index: 9;
 }
 
-.zmiti-index-main-ui .zmiti-entry {
+.entry {
   width: 5rem;
   text-align: center;
   line-height: 0.9rem;
@@ -279,116 +180,17 @@ export default {
   }
 }
 
-.zmiti-loading {
-  z-index: 1000;
-}
-
-.zmiti-loading .zmiti-loading-ui {
-  width: 6rem;
-  left: 2rem;
-  position: absolute;
-  top: 6rem;
-}
-
-.zmiti-loading .zmiti-loading-ui .zmiti-loading-bar {
-  width: 2rem;
-  border-radius: 10px;
-  position: relative;
-  margin: 0 auto;
-}
-
-.zmiti-loading .zmiti-loading-ui .zmiti-loading-bar:before {
-  content: "";
-  border-radius: 10px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
-}
-
-.zmiti-loading .zmiti-loading-ui .zmiti-loading-bar .zmiti-target {
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background: #fff;
-  left: 50%;
-  top: 0.4rem;
-  position: absolute;
-  margin-left: -0.2rem;
-  -webkit-animation: scale linear 2s infinite alternate;
-  animation: scale linear 2s infinite alternate;
-}
-
-.zmiti-loading .zmiti-loading-ui .zmiti-progress {
-  margin-top: 0.5rem;
-  text-align: center;
-  color: #fff;
-  font-family: Georgia;
-  font-size: 0.7rem;
-}
-
-/* Basic sample */
-
-
-.flipbook-viewport{
-	overflow:hidden;
-	width:100%;
-	height:100%;
-}
-
-.flipbook-viewport .container{
-	position:absolute;
-	/* top:50%;
-	left:50%; */
-	margin:auto;
-}
-
-.flipbook-viewport .flipbook{
-	/* width:922px;
-	height:600px;
-	left:-461px;
-	top:-300px; */
-}
-
-.flipbook-viewport .page{
-	/* width:461px;
-	height:600px; */
-	background-color:white;
-	background-repeat:no-repeat;
-	background-size:100% 100%;
-}
-
-.flipbook .page{
-	-webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
-	-moz-box-shadow:0 0 20px rgba(0,0,0,0.2);
-	-ms-box-shadow:0 0 20px rgba(0,0,0,0.2);
-	-o-box-shadow:0 0 20px rgba(0,0,0,0.2);
-	box-shadow:0 0 20px rgba(0,0,0,0.2);
-}
-
-.flipbook-viewport .page img{
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	margin:0;
-}
-
-.flipbook-viewport .shadow{
-	-webkit-transition: -webkit-box-shadow 0.5s;
-	-moz-transition: -moz-box-shadow 0.5s;
-	-o-transition: -webkit-box-shadow 0.5s;
-	-ms-transition: -ms-box-shadow 0.5s;
-
-	-webkit-box-shadow:0 0 20px #ccc;
-	-moz-box-shadow:0 0 20px #ccc;
-	-o-box-shadow:0 0 20px #ccc;
-	-ms-box-shadow:0 0 20px #ccc;
-	box-shadow:0 0 20px #ccc;
-}
+.link-btn {
+    background-image: url(../assets/images/btn-lg.png);
+    width: rem(307);
+    height: rem(71);
+    display: block;
+    font-size: rem(40);
+    text-align: center;
+    line-height: rem(70);
+    overflow: hidden;
+    color: white;
+    margin: 0 auto;
+  }
 
 </style>

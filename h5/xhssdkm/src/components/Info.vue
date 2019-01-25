@@ -1,48 +1,48 @@
 <template>
-  <div class="main">
-    
-  
-    <!-- <div class="main-ui" v-if="false">
-      airplay="allow"
-      
-      
-      <div class="top">
-        <transition name="fade">
-          <div class="title" v-if="showTitle">{{titleText}}</div>
-        </transition>
-      </div>
-      <div class="picture">
-        <div class="image">
-          <img ref="img" :src="img">
-          <img class="img-border" src="@/assets/images/img-bg-border.png">
+  <div>
+    <div class="main" v-show="!showTeamPage">
+      <div class="main-ui">
+        <div class="top">
+          <transition name="fade">
+            <div class="title" v-if="showTitle">{{titleText}}</div>
+          </transition>
+        </div>
+        <div class="picture">
+          <div class="image">
+            <img ref="img" :src="img">
+            <img class="img-border" src="@/assets/images/img-bg-border.png">
+          </div>
+        </div>
+        <Pager :total=11 :current=1 v-on:pagechanged="pageChanged"></Pager>
+        <div class="des">
+          <transition name="fade">
+            <div v-if="showTitle">{{subTitleText}}</div>
+          </transition>
         </div>
       </div>
-      <Pager :total=12 :current=1 v-on:pagechanged="pageChanged" ></Pager>
-      <div class="des">
-        <transition name="fade">
-          <div v-if="showTitle">{{subTitleText}}</div>
-        </transition>
+      <div class="bottom">
+        <a class='link-btn' :href="link">
+          先进事迹
+        </a>
+      </div>
+      <div class="logo">
+        <img class="logo-img" src="../assets/images/logo2.png">
+      </div>
+      <div @click="showTeam" class="link-team">
+        <img class="link-team-img" src="../assets/images/zztd.png">
       </div>
     </div>
-    <div class="bottom">
-      <a class='link-btn' :href="link">
-        先进事迹
-      </a>
+    <TeamPage v-show="showTeamPage" v-on:backclick="handleBackClick"/>
     </div>
-    <div class="logo">
-      <img class="logo-img" src="../assets/images/logo2.png">
-    </div>
-    <div class="link-team">
-      <img class="link-team-img" src="../assets/images/zztd.png">
-    </div> -->
-  </div>
-</template>
+  </template>
 
-<script>
+  <script>
 /* eslint-disable */
 import config from "@/assets/js/Config.js";
 import utils from "@/assets/js/Utils.js";
 import Pager from "@/components/Pager";
+import TeamPage from '@/components/TeamPage';
+
 export default {
   name: "info",
   data() {
@@ -53,11 +53,13 @@ export default {
       titleText: "",
       subTitleText: "",
       width: 570,
-      fullscreen:true
+      fullscreen:true,
+      showTeamPage:false
     };
   },
   components:{
-    Pager
+    Pager,
+    TeamPage
   },
   computed: {
     imgs() {
@@ -131,6 +133,13 @@ export default {
       
       this.index=current-1;
       this.aniShow();
+    },
+    showTeam(){
+      this.showTeamPage=true;
+    },
+    handleBackClick(){
+      
+      this.showTeamPage=false;
     }
   },
   mounted() {
@@ -140,12 +149,11 @@ export default {
     this.titleText = this.title;
     this.subTitleText = this.subTitle;
    
-    utils.pauseMusic("bgMusic");
 
   }
 };
 </script>
-<style lang="scss" scoped>
+  <style lang="scss" scoped>
 $fontsize: 75;
 $design: 750;
 
@@ -167,7 +175,7 @@ src: url('../assets/fonts/simkai.ttf')
 
   .main-ui {
     .top {
-      height: rem(200);
+      height: rem(120);
       //width: rem(750);
       position: relative;
       overflow: hidden;
@@ -255,23 +263,6 @@ src: url('../assets/fonts/simkai.ttf')
           top: -31px;
         }
       }
-
-      // .image:before {
-      //   content: "";
-      //   // border: rem(10) transparent solid;
-      //   border-width: rem(10);
-      //   // border-color: transparent;
-      //   border-style: solid;
-      //   width: rem(550);
-      //   height: rem(370);
-      //   position: absolute;
-      //   display: block;
-      //   top: rem(0);
-      //   left: rem(0);
-      //   box-shadow: 0 0 rem(30);
-      //   border-image: url() 10 stretch;
-      //   z-index: 1;
-      // }
     }
 
     .des {
@@ -304,6 +295,7 @@ src: url('../assets/fonts/simkai.ttf')
     right: 0px;
     width: 180px;
   }
+  
   .link-btn {
     background-image: url(../assets/images/btn-lg.png);
     width: rem(307);

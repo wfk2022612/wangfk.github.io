@@ -1,7 +1,8 @@
 <template>
   <nav class="pager">
     <ul>
-      <li v-for="p in total" :key="p" :class="{current:p==pageCurrent}" @click="setCurrent(p)">{{p}}</li>
+      <li v-for="p in total" :key="p" :class="{current:p==pageCurrent}"
+        @click="setCurrent(p)">{{p}}</li>
     </ul>
   </nav>
 </template>
@@ -32,7 +33,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 $fontsize: 75;
 $design: 550;
@@ -68,5 +68,3 @@ $design: 550;
   }
 }
 </style>
-
-

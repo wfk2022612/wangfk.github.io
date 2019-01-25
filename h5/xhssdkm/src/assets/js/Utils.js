@@ -1,23 +1,43 @@
 var utils = {
-    playAudio(audioId) {
-        var playId = setInterval(() => {
-            if (this.play(audioId)) {
-                window.clearInterval(playId)
-            }
-        }, 100)
-    },
     play(audioId) {
         var audio = document.getElementById(audioId)
         if (audio) {
-            if (window.canplay === true) {
-                if (audio.muted === true) {
+            if (window.WeixinJSBridge) {
+                window.WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                    if (audio.paused) {
+                        audio.currentTime = 0
+                    }
+                    audio.muted = false
+                    audio.play()
+                    console.log('invoke getNetworkType audio play')
+                }, false)
+            } else {
+                if (audio.paused) {
                     audio.currentTime = 0
                 }
                 audio.muted = false
                 audio.play()
-                console.log('audio play')
-                return true
+                console.log('invoke getNetworkType2 audio play')
             }
+
+            return true
+        }
+
+    },
+    pause(audioId) {
+        var audio = document.getElementById(audioId)
+        if (audio) {
+            if (window.WeixinJSBridge) {
+                window.WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                    audio.pause()
+                    console.log('invoke getNetworkType audio pause')
+                }, false)
+            }
+            else {
+                audio.pause()
+                console.log('invoke getNetworkType2 audio pause')
+            }
+            return true
         }
     },
     pauseAudio(audioId) {
