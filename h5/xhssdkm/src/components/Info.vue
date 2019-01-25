@@ -22,7 +22,7 @@
       </div>
       <div class="bottom">
         <a class='link-btn' :href="link">
-          先进事迹
+          英雄足迹
         </a>
       </div>
       <div class="logo">
