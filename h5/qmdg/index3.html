@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=750,user-scalable=no" />
+  <title>其美多吉：雪线邮路，我一生的路</title>
+
+  <script src="./assets/js/jsmpeg.min.js"></script>
+  <style>
+  *{
+    border:none;
+    margin: 0;
+    padding: 0;
+  }
+
+ html, body{
+    height: 100vh;
+    width:100vw;;
+    background:black;
+  }
+
+  </style>
+</head>
+<body style="background:black">
+<!-- <div class="jsmpeg" style="width:100vw;height:100vh" data-url="./assets/video/out.ts" data-loop="true" data-autoplay="true"></div> -->
+<canvas style="width:100vw;height:100vh;background-color: transparent;" id="video"></canvas>
+<script>
+
+function play(player){
+  console.log("play")
+}
+function pause(player){
+  console.log("pause")
+}
+
+  function ended(player) {
+    player.destroy()
+    console.log("ended")
+  }
+
+var video=document.getElementById("video")
+
+  var player = new JSMpeg.Player('./assets/video/out.ts', {
+    canvas:video, loop: false, autoplay: true , audio:true, 
+    onPlay:play,onPause:pause,onEnded:ended
+    });
+</script>
+</body>
+</html>
