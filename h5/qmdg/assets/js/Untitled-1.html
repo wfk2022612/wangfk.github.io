@@ -1,0 +1,103 @@
+<div class="zmiti-back" style="bottom:140px;z-index:99999;border-radius: 100%
+    100%;background-color:wheat;"><img :src="imgs.home" /></div>
+<div v-if="showHomeButton" class="zmiti-back" style="top:250px;z-index:99999;border-radius: 100%;background-color:wheat;"><img :src="imgs.home" /></div>
+(/\/\*([\s\S]*?)\*\//g).exec(template.toString())[1].replace(/[]/g,'');//
+
+
+<div v-tap='[entry]' class="lt-full zmiti-index-main-ui":style="{background:'url('+imgs.indexBg+') no-repeat center top',backgroundSize:'cover'}" :class="{'show':show}">
+    <transition name='index'>
+        <div class="zmiti-index" v-if='!showIndexMask'>
+            <div class="zmiti-title">
+                <img @touchstart='imgStart' :src="imgs.title1">
+            </div>
+            <div class="zmiti-index-img" :style="{WebkitTransform:'translateX('+transX+'px)'}">
+                <img :src="imgs.index" alt="">
+            </div>
+            <div class="zmiti-entry">
+                <img :src="imgs.entry" alt="">
+            </div>
+            <canvas :width="viewW" height="500" ref='canvas'></canvas>
+        </div>
+    </transition>
+    <transition name='video'>
+        <div class="zmiti-video lt-full" v-show='showVideo'>
+            <video id="my_video" ref='video' style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" :x5VideoPlayerFullscreen="fullscreen" x5-video-orientation="portrait" :loop='false':src="vidoeUrl"></video>
+        </div>
+    </transition>
+    <div class="zmiti-index-logo"><img :src="imgs.logo" alt=""></div>
+</div>
+
+<transition name='main'>
+    <div class="lt-full zmiti-introduce-main-ui " :class="{'show':show}" :style="{background:'url('+imgs.introduceBg+') no-repeat center center',backgroundSize:'cover'}"  ref='page'>
+        <div class="zmiti-logo"><img :src="imgs.logo" alt=""></div>
+        <div class="zmiti-introduce-main">
+            <div class="zmiti-introduce-title">
+                <img :src="imgs.introTitle" alt="">
+                    <div>{{texts.zlmIntro}}</div>
+            </div>
+            <div class="zmiti-introduce-content">
+                <h2 class="zmiti-introduce-name">{{texts.zlmName}}</h2>
+                <div class="zmiti-introduce-wrap" ref='zmiti-introduce-wrap'>
+                    <div>
+                        <div v-for='(content,i) in texts.zlmIntroContent' :key="i">{{content}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="zmiti-nav">
+            <ul>
+                <li @touchstart='tabIndex = 0' @touchend='tabIndex = -1' :class="{'active':tabIndex === 0}"  v-tap='[entryDetail,"aigangjingye"]'>备战之思</li>
+                <li @touchstart='tabIndex = 1' @touchend='tabIndex = -1' :class="{'active':tabIndex === 1}" v-tap='[entryDetail,"yongyuchuangxin"]'>紧贴实战</li>
+                <li @touchstart='tabIndex = 2' @touchend='tabIndex = -1' :class="{'active':tabIndex === 2}" v-tap='[entryDetail,"ganyufengxian"]'>不辱使命</li>
+            </ul>
+        </nav>
+        <div v-if="showHomeButton" class="zmiti-back" style="top:250px;z-index:99999;border-radius: 100%;background-color:wheat;"><img :src="imgs.home" /></div>
+        <div class="zmiti-team-entry" v-tap='[showTeamPage]'>制作团队</div>
+        <div class="zmiti-mask" v-if='showMasks' @touchstart='showMasks = false'>
+            <img :src="imgs.arrow">
+        </div>
+        <div>
+            <Team :obserable='obserable'></Team>
+        </div>
+    </div>
+</transition>
+
+<transition name="team">
+    <div v-tap='[hideTeam]' v-show='showTeam' class="lt-full zmiti-team-main-ui" :style="{background:'url('+imgs.teamBg+') no-repeat center center',backgroundSize:'cover'}">
+        <div class="zmiti-team-main">
+            <div>
+                <aside>出品人</aside> 
+                <aside>
+                    <span>陈凯星</span>、<span>王存理</span> 
+                </aside>
+            </div>
+            <div>
+                <aside>总监制</aside> 
+                <aside>
+                    <span>葛素表</span>
+                </aside>
+            </div>
+            <div>
+                <aside>策<label for="">策</label>划</aside> 
+                <aside>
+                    <span>陈知春</span>
+                </aside>
+            </div>
+            <div>
+                <aside>监<label for="">人</label>制</aside> 
+                <aside>
+                    <span>牟　帆</span>
+                </aside>
+            </div>
+            <div>
+                <aside>文<label for="">人</label>案</aside> 
+                <aside>
+                    <span>刘雨菲</span>
+                </aside>
+            </div>
+            <div>新华社新媒体中心</div>
+            <div>出品</div>
+        </div>
+        <div v-if="showHomeButton" class="zmiti-back" style="top:250px;z-index:99999;border-radius: 100%;background-color:wheat;"><img :src="imgs.home" /></div>
+    </div>
+</transition>
