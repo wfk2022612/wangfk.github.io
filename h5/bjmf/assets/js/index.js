@@ -25564,7 +25564,7 @@
 				this.data = {};
 				this.show = false;
 				var video = this.$refs['video'];
-				video.pause();
+				if(video) video.pause();
 			},
 			entryFriend: function entryFriend() {
 				var obserable = this.obserable;
@@ -25573,14 +25573,14 @@
 					type: 'showFriend'
 				});
 				var video = this.$refs['video'];
-				video.pause();
+				if (video) video.pause();
 			},
 			toggleVideo: function toggleVideo() {
 				var _this = this;
 
 				this.showVideo = true;
 				var video = this.$refs['video'];
-				video&&video.play();
+				if (video) video.play();
 
 				setTimeout(function () {
 					_this.scroll.refresh();
