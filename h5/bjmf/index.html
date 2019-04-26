@@ -16,11 +16,11 @@
         //xinhuanet
 
         if (location.pathname[location.pathname.length - 1] == "/") {
-            window.baseUrl = location.protocol + "//" + location.hostname + location.pathname;
+            window.baseUrl = location.protocol + "//" + location.hostname+(location.port==80?"":":"+location.port)  + location.pathname;
         } else {
             var path = location.pathname.split("/");
             path.pop();
-            window.baseUrl = location.protocol + "//" + location.hostname + path.join("/") + "/";
+            window.baseUrl = location.protocol + "//" + location.hostname+(location.port==80?"":":"+location.port) + path.join("/") + "/";
         }
         //window.baseUrl = window.protocol + '//h5.zhongguowangshi.com/h5/' + h5name;
         window.wxappid = 'wx5ec3d35069383211';
