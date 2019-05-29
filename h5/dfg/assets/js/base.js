@@ -1,7 +1,7 @@
 var imgs = {
   play: './assets/images/play.png',
   logo: './assets/images/logo2.png',
-  indexBg: './assets/images/index-bg1.jpg',
+  indexBg: './assets/images/index-bg1.png',
   introduceBg: './assets/images/introduce-bg.jpg',
   detailBg: './assets/images/detail-bg.jpg',
   teamBg: './assets/images/team-bg1.jpg',
