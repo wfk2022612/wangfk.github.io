@@ -16,7 +16,7 @@ var imgs = {
   point: './assets/images/point.png',
   back: './assets/images/back.png',
   //index: './assets/images/index.png',
-  videoPoster: "./assets/images/c11.jpg",
+  videoPoster: "./assets/images/test.jpg",
   //mask: './assets/images/mask.png',
 
   msg: './assets/images/msg1.png',
