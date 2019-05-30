@@ -44,7 +44,7 @@ var texts = {
 var aigangjingye = {//爱岗敬业
   title: imgs.detailTitle1,
   //videoPoster: imgs.videoPoster,
-  //videoUrl: './assets/video/5M.mp4',
+  videoUrl: './assets/video/ts.mp4',
   content: [
     '2018年10月11日下午，杜富国所在的扫雷大队4队在云南边境老山主峰西侧的雷场进行作业。组长杜富国和战友艾岩为一个作业组，他们是生死相依的战友加兄弟。在坡顶扫排爆破筒“翻犁”（爆破）过的土地上，他们发现了一枚露出部分弹体的爆炸物。杜富国初步判断，这是一颗当量大、危险性高的加重手榴弹。根据以往经验，下面可能埋藏着一个雷窝。',
     { img: imgs.c11, title: '杜富国（右）与战友艾岩进行搜排作业（2018年4月9日摄）。' },
