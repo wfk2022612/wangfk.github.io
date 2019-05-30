@@ -25580,12 +25580,13 @@
 
 				this.showVideo = true;
 				var video = this.$refs['video'];
-				if (video) video.play();
+				video[video.paused?'play':'pause']();
+				//if (video) video.play();
 
 				setTimeout(function () {
 					_this.scroll.refresh();
 				}, 1000);
-				video[video.paused?'play':'pause']();
+				
 			}
 		},
 
