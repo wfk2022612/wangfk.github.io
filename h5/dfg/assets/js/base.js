@@ -20,14 +20,14 @@ var imgs = {
   //mask: './assets/images/mask.png',
 
   msg: './assets/images/msg1.png',
-  title1: './assets/images/title1-2.png',
+  // title1: './assets/images/title1-2.png',
   c11: './assets/images/c11.jpg',
   c21: './assets/images/c21.jpg',
   c31: './assets/images/c31.jpg',
   
   heart: './assets/images/heart.jpg',
 
-  head: './assets/images/head.png',
+  // head: './assets/images/head.png',
   edit: './assets/images/edit.png',
 
 }
