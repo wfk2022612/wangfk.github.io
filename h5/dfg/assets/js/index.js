@@ -12199,25 +12199,25 @@
 				});
 
 				this.showIndexMask = true;
-				// this.showVideo = true;
+				this.showVideo = true;
 
-				// setTimeout(function () {
-				// 	_this.$refs['video'].addEventListener('play', function () {
-				// 		obserable.trigger({
-				// 			type: "toggleBgMusic",
-				// 			data: false
-				// 		});
-				// 	});
+				setTimeout(function () {
+					_this.$refs['video'].addEventListener('play', function () {
+						obserable.trigger({
+							type: "toggleBgMusic",
+							data: false
+						});
+					});
 
-				// 	_this.$refs['video'].addEventListener('ended', function () {
+					_this.$refs['video'].addEventListener('ended', function () {
 
-				// 		obserable.trigger({
-				// 			type: 'entryIntro'
-				// 		});
-				// 	});
+						obserable.trigger({
+							type: 'entryIntro'
+						});
+					});
 
-				// 	_this.$refs['video'].play();
-				// }, 200);
+					_this.$refs['video'].play();
+				}, 200);
 			},
 
 			initPoints: function initPoints() {
