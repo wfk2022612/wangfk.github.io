@@ -25585,7 +25585,7 @@
 				setTimeout(function () {
 					_this.scroll.refresh();
 				}, 1000);
-				// video[video.paused?'play':'pause']();
+				video[video.paused?'play':'pause']();
 			}
 		},
 
