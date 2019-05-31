@@ -16,7 +16,7 @@ var imgs = {
   point: './assets/images/point.png',
   back: './assets/images/back.png',
   //index: './assets/images/index.png',
-  //videoPoster: "./assets/images/video-poster.png",
+  videoPoster: "./assets/images/test.jpg",
   //mask: './assets/images/mask.png',
 
   msg: './assets/images/msg1.png',
@@ -34,7 +34,7 @@ var imgs = {
 
 var texts = {
   zlmIntro: '2019年5月22日，中央宣传部授予杜富国同志“时代楷模”荣誉称号。',
-  zlmName: '杜富国',
+  zlmName: '杜富国：为人民扫雷，为军旗增辉',
   zlmIntroContent: [
     '杜富国是陆军某扫雷排爆大队战士。入伍以来，他始终把忠诚和信仰刻在心中，把使命和责任扛在肩上，主动请缨征战雷场，苦练精练过硬本领，为人民利益和边境安宁挥洒热血，在平凡岗位干出了突出业绩。',
     '2018年10月11日，杜富国随队参加排雷作业时，危急时刻冲锋在前，为保护战友身受重伤，失去双眼和双手。杜富国同志曾先后获得“全国自强模范”“感动中国十大人物”、陆军“四有”新时代革命军人标兵等称号，荣立个人一等功。'
@@ -43,8 +43,8 @@ var texts = {
 
 var aigangjingye = {//爱岗敬业
   title: imgs.detailTitle1,
-  //videoPoster: imgs.videoPoster,
-  //videoUrl: './assets/video/5M.mp4',
+  videoPoster: imgs.videoPoster,
+  videoUrl: './assets/video/ts.mp4',
   content: [
     '2018年10月11日下午，杜富国所在的扫雷大队4队在云南边境老山主峰西侧的雷场进行作业。组长杜富国和战友艾岩为一个作业组，他们是生死相依的战友加兄弟。在坡顶扫排爆破筒“翻犁”（爆破）过的土地上，他们发现了一枚露出部分弹体的爆炸物。杜富国初步判断，这是一颗当量大、危险性高的加重手榴弹。根据以往经验，下面可能埋藏着一个雷窝。',
     { img: imgs.c11, title: '杜富国（右）与战友艾岩进行搜排作业（2018年4月9日摄）。' },

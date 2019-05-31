@@ -12198,7 +12198,7 @@
 					type: 'entryIntro'
 				});
 
-				this.showIndexMask = true;
+				// this.showIndexMask = true;
 				// this.showVideo = true;
 
 				// setTimeout(function () {
@@ -25111,7 +25111,7 @@
             <div>
                 <aside>文<label for="">人</label>案</aside> 
                 <aside>
-                    <span>刘雨菲</span>
+                    <span>田　珂</span>
                 </aside>
             </div>
             <div>新华社新媒体中心</div>
@@ -25123,7 +25123,7 @@
 */
 
 	}
-	module.exports = (/\/\*([\s\S]*?)\*\//g).exec(template.toString())[1].replace(/[]/g,'');//"\r\n\t<transition name=\"team\">\r\n\t\t<div v-tap='[hideTeam]' v-show='showTeam' class=\"lt-full zmiti-team-main-ui\" :style=\"{background:'url('+imgs.teamBg+') no-repeat center center',backgroundSize:'cover'}\">\r\n\t\t\t<div class=\"zmiti-team-main\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t出品人\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>陈凯星</span>、<span>王存理</span> \r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t总监制\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>葛素表</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t策<label for=\"\">策</label>划\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>陈知春</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t监<label for=\"\">人</label>制\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>牟　帆</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t文<label for=\"\">人</label>案\r\n\t\t\t\t\t</aside> \r\n\t\t\t\t\t<aside>\r\n\t\t\t\t\t\t<span>刘雨菲</span>\r\n\t\t\t\t\t</aside>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t<div>\r\n\t\t\t\t\t新华社新媒体中心\r\n\t\t\t\t</div><div>\r\n\t\t\t\t\t出品\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</transition>\r\n";
+	module.exports = (/\/\*([\s\S]*?)\*\//g).exec(template.toString())[1].replace(/[]/g,'');
 
 /***/ }),
 /* 28 */
@@ -25580,12 +25580,13 @@
 
 				this.showVideo = true;
 				var video = this.$refs['video'];
-				if (video) video.play();
+				video[video.paused?'play':'pause']();
+				//if (video) video.play();
 
 				setTimeout(function () {
 					_this.scroll.refresh();
 				}, 1000);
-				// video[video.paused?'play':'pause']();
+				
 			}
 		},
 
