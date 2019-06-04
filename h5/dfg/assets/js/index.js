@@ -12198,26 +12198,26 @@
 					type: 'entryIntro'
 				});
 
-				this.showIndexMask = true;
-				this.showVideo = true;
+				// this.showIndexMask = true;
+				// this.showVideo = true;
 
-				setTimeout(function () {
-					_this.$refs['video'].addEventListener('play', function () {
-						obserable.trigger({
-							type: "toggleBgMusic",
-							data: false
-						});
-					});
+				// setTimeout(function () {
+				// 	_this.$refs['video'].addEventListener('play', function () {
+				// 		obserable.trigger({
+				// 			type: "toggleBgMusic",
+				// 			data: false
+				// 		});
+				// 	});
 
-					_this.$refs['video'].addEventListener('ended', function () {
+				// 	_this.$refs['video'].addEventListener('ended', function () {
 
-						obserable.trigger({
-							type: 'entryIntro'
-						});
-					});
+				// 		obserable.trigger({
+				// 			type: 'entryIntro'
+				// 		});
+				// 	});
 
-					_this.$refs['video'].play();
-				}, 200);
+				// 	_this.$refs['video'].play();
+				// }, 200);
 			},
 
 			initPoints: function initPoints() {
@@ -25577,11 +25577,11 @@
 			},
 			toggleVideo: function toggleVideo() {
 				var _this = this;
-
+				
 				this.showVideo = true;
 				var video = this.$refs['video'];
-				video[video.paused?'play':'pause']();
-				//if (video) video.play();
+				
+				if (video) video[video.paused?'play':'pause']();
 
 				setTimeout(function () {
 					_this.scroll.refresh();
