@@ -25577,11 +25577,16 @@
 			},
 			toggleVideo: function toggleVideo() {
 				var _this = this;
-
+				
 				this.showVideo = true;
 				var video = this.$refs['video'];
+<<<<<<< HEAD
 				video[video.paused?'play':'pause']();
 				//if (video) video.play();
+=======
+				
+				if (video) video[video.paused?'play':'pause']();
+>>>>>>> 8d414bbe06322e716aa3cdc68b887b5c5289ab9a
 
 				setTimeout(function () {
 					_this.scroll.refresh();
