@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 非常懒</title>
+    <link>https://wfk2022612.github.io/post/</link>
+    <description>Recent content in Posts on 非常懒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2020 21:05:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://wfk2022612.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>codeanywhere</title>
+      <link>https://wfk2022612.github.io/post/codeanywhere/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/codeanywhere/</guid>
+      <description>xhs Container HTML5 Development Stack with Apache (running on port 3000), Node.js and npm preinstalled.
+This Codeanywhere Container comes with:
+2GB of Disc Storage 256MB RAM (+ 512 MB swap) Sudo access SSH access on host11.codeanyhost.com -p 20143 Access to all HTTP and Websocket ports The operating system running on this Container is Centos 7.2. Linux distributon (64 bit). CentOS uses the Yellowdog Updater, Modified (YUM) for updates, package and dependency management.</description>
+    </item>
+    
+    <item>
+      <title>heroku</title>
+      <link>https://wfk2022612.github.io/post/heroku/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/heroku/</guid>
+      <description>heroku login
+ email
+ password
+heroku apps
+heroku create xxx
+heroku open 打开</description>
+    </item>
+    
+    <item>
+      <title>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。</title>
+      <link>https://wfk2022612.github.io/post/ikvm.net%E7%9A%84%E6%98%AF%E5%BC%80%E6%BA%90%E7%9A%84%E5%9F%BA%E4%BA%8E.net-clr-%E7%9A%84java%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/ikvm.net%E7%9A%84%E6%98%AF%E5%BC%80%E6%BA%90%E7%9A%84%E5%9F%BA%E4%BA%8E.net-clr-%E7%9A%84java%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
+      <description>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。
+基于.NET的Java虚拟机意味着我们可以让Java程序跑在.NET上，可以通过虚拟机这个中介让Java程序和.NET应用程序一起协同工作。更难能可贵的是，IKVM同时支持微软的.NET Framework 和 Mono。
+IKVM的技术特性包括：
+ 1.可以静态和动态（运行时）把Java的字节代码转换为.NET 的IL形式；
+2.包括了一个Java的标准库，这个标准库已经静态编译成了.NET IL的形式；
+3.提供力JNI 接口，可以让Java程序通过.NET 或者 Mono 访问本地资源。
+4.提供了一个供Java调用.NET 类的Stub。
+IKVM现在可以提供对JDK 1.4很好的支持。IKVM目前不成熟的地方在以下几个方面：
+ 1.对AWT和Swing没有提供支持，在IKVM的开发计划中，这项优先级别不高。
+2.对Java的安全模型没有实现。一般来说我们可以在以下3种情况下使用IKVM：
+ 1.直接在IKVM下运行Java程序，比如：ikvm -jar myapp.jar
+2.用IKVM来把Java类库转换成.NET类库，比如：ikvmc -target:library mylib.jar ?可以生成： mylib.dll
+3.使用ikvmstub 来用Java开发.NET程序。</description>
+    </item>
+    
+    <item>
+      <title>nuget访问慢、无法下载nuget访问慢、无法下载</title>
+      <link>https://wfk2022612.github.io/post/nuget%E8%AE%BF%E9%97%AE%E6%85%A2%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/nuget%E8%AE%BF%E9%97%AE%E6%85%A2%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD/</guid>
+      <description>nuget访问慢、无法下载
+http://nuget.lzzy.net/ 广西柳州职业技术学员
+ 源码
+ https://github.com/Kation/NugetProxy
+http://nuget.lzzy.net/api/v2</description>
+    </item>
+    
+    <item>
+      <title>rar.exe</title>
+      <link>https://wfk2022612.github.io/post/rar.exe%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%89%B9%E5%A4%84%E7%90%86%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/rar.exe%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%89%B9%E5%A4%84%E7%90%86%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6/</guid>
+      <description>rar.exe命令行压缩文件[可用于批处理][备份文件]rar.exe命令行压缩文件[可用于批处理][备份文件]
+rar.exe 命令行参数
+[可用于批处理][备份文件]
+[语法]
+RAR &amp;lt;命令&amp;gt; [ -&amp;lt;开关&amp;gt; ] &amp;lt;压缩文件&amp;gt; [ &amp;lt;@列表文件&amp;hellip;&amp;gt; ]
+RAR [ &amp;lt;文件&amp;hellip;&amp;gt; ] [ &amp;lt;解压路径&amp;amp;gt; ]
+[命令]
+A 增加文件到压缩包,如果省略参数A也为添加文件,但不同的是添加当前路径文件到指定路径;另外如果-AD指定的目录带有\则不会添加子目录的文件:
+RAR A .\BACKUP\MYRAR -AD %WINDIR%\IME 添加IME目录的所有文件(包含子目录)到当前目录的\BACKU\目录的MYRAR.RAR中,其中开关-AD可以不用.
+RAR A .\BACKUP\MYRAR -AD %WINDIR%\IME&amp;amp;nbsp; 情况同上,只是添加时不包含子目录中的文件 RAR MYRAR %WINDIR%\SYSTEM 添加当前目录的所有文件(不包含子目录)到%WINDIR%\SYSTEM\MYRAR.RAR中,同时删除当前目录的文件
+RAR A MYRAR @BACK.LST 根据BACK.LST列出的文件列表来压缩文件(这个功能有时很有用,用来备份指定文件)
+RAR A -DF MYRAR C:\TEMP 添加TEMP目录的所有文件(包含子目录)到MYRAR.RAR中后删除文件
+RAR A -ED MYARR C:\TEMP E:\01 F:&amp;amp;nbsp; 同上,只是添加多个目录到压缩包中并排除空目录,
+D 从压缩文件包中删除指定文件
+RAR D MYRAR BOOT.INI 从压缩包MYRAR中删除BOOT.INI文件
+RAR D MYRAR 删除压缩包MYRAR中的所有文件,实际上是删除压缩包WINRAR</description>
+    </item>
+    
+    <item>
+      <title>SSR账号</title>
+      <link>https://wfk2022612.github.io/post/ssr%E8%B4%A6%E5%8F%B7/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/ssr%E8%B4%A6%E5%8F%B7/</guid>
+      <description>http://www.yesssr.com http://qianbai.ml http://www.ssrfx.com/index.php/2018/03/21/jp/
+http://webosss.com/tool/socket
+http://poro.me/auth/login 2G流量 需要邀请码 401035，470666，根据序号可以获取更多节点，但不知道是否可用
+http://ss.ishadowx.com/
+https://anythink.info/auth/register 良辰云-酸酸乳- 验证邮件 能收到验证邮件，没注册成功
+http://www.xiaoheijia.top/ 可注册，无法登陆
+https://xingxing.cf/ 可注册 1G 星之所在- 验证邮件
+https://ast.abyss.moe/auth/register 可以注册，需要邀请码，免费1G 宇航员-验证邮件
+https://www.ssr.bike/auth/register 没有免费流量
+https://vpn.myqdu.com/auth/register 可注册1G，签到流量多
+https://y1.chuyinss.online/code CY云加速 可注册 免费 100G 签到 1G
+https://www.kaer.tk/auth/register 小司机  http://www.pukapuka.me/ 台湾有验证码，不能用临时邮箱
+https://github.com/gfw-breaker/ssr-accounts 只有一个ssr地址，可用性比较高
+http://45.32.115.1/auth/register 需要邀请码
+https://prom-php.herokuapp.com/cloudfra_ssr.txt 订阅地址
+https://cloudfra.com/free-ss.html 云端框架 资源较实用 分享页面 ssr较多
+https://tzyun.cc/ 有验证码
+https://131vpn.cn/auth/register 有验证码
+http://www.haoss.club/ 关闭注册
+https://ss.zfuyun.top/auth/register 可注册3G，不能订阅，只有ssr地址http://top-yun.top/ 二维码
+https://91vps.win/2017/05/30/shadowsocks_share__trashed/ 资源分享类
+https://52ssr.cn/ 直接分享ssr链接
+https://qiliyun.club/auth/register https://tool.ssrshare.com/tool/free_ssr ssr分享量大</description>
+    </item>
+    
+    <item>
+      <title>three.js教程</title>
+      <link>https://wfk2022612.github.io/post/threejs/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/threejs/</guid>
+      <description>http://www.hiwebgl.com/?p=42
+http://hewebgl.com/article/articledir/1</description>
+    </item>
+    
+    <item>
+      <title>在线IDE</title>
+      <link>https://wfk2022612.github.io/post/%E5%9C%A8%E7%BA%BFide/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E5%9C%A8%E7%BA%BFide/</guid>
+      <description>https://www.tutorialspoint.com/nodejs_terminal_online.php</description>
+    </item>
+    
+    <item>
+      <title>支付宝收款</title>
+      <link>https://wfk2022612.github.io/post/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE/</guid>
+      <description>Markdown HTML
+https://github.com/Srar/AlipayF2F
+AlipayF2F-NodeJS 支付宝当面付NodeJS API. 如何使用 安装方式: npm install alipay-ftof express-example为express的example项目, 您可以将config.js.tpl复制为config.js然后修改好您的当面付配置信息后直接使用.
+5分钟快速了解 目前已实现的功能 createQRPay: 预创建二维码支付宝订单, 当扫码后才是真创建订单. verifyCallback: 支付宝回调验签. checkInvoiceStatus: 使用商户订单号查询订单状况. checkInvoiceStatusWithAlipayTradeNo: 使用使用支付宝订单号查询订单状况. refund: 使用商户订单号请求退款操作. (guanbo) refundWithAlipayTradeNo: 使用支付宝订单号请求退款操作. (guanbo) createBarCodePay: 使用支付宝用户付款码付款. (CloudnuY) 屁话多!如何使用? 您先需要准备一个Object对象内部存放alipay的配置如下:
+// config.js module.exports = { /* 以下信息可以在https://openhome.alipay.com/platform/appManage.htm查到, 不过merchantPrivateKey需要您自己生成 */ /* 应用AppID */ &amp;#34;appid&amp;#34;: 0, /* 通知URL 接受支付宝异步通知需要用到 */ &amp;#34;notifyUrl&amp;#34;: &amp;#34;&amp;#34;, /* 公钥 和 私钥 的填写方式 */ &amp;#34;testPrivateKey&amp;#34;: &amp;#34;-----BEGIN RSA PRIVATE KEY-----\n&amp;#34; + &amp;#34;公钥或私钥内容...&amp;#34; + &amp;#34;\n-----END RSA PRIVATE KEY-----&amp;#34;, /* 应用RSA私钥 请勿忘记 -----BEGIN RSA PRIVATE KEY----- 与 -----END RSA PRIVATE KEY----- */ &amp;#34;merchantPrivateKey&amp;#34;: &amp;#34;&amp;#34;, /* 支付宝公钥 如果为注释掉会使用沙盒公钥 请勿忘记 -----BEGIN PUBLIC KEY----- 与 -----END PUBLIC KEY----- */ &amp;#34;alipayPublicKey&amp;#34;: &amp;#34;&amp;#34;, /* 支付宝支付网关 如果为注释掉会使用沙盒网关 */ &amp;#34;gatewayUrl&amp;#34;: &amp;#34;&amp;#34;, }; 注意！您需要生成RSA2公钥与私钥来配合本项目使用.</description>
+    </item>
+    
+    <item>
+      <title>fontmin css字体压缩工具</title>
+      <link>https://wfk2022612.github.io/post/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Tue, 25 Feb 2020 21:01:53 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</guid>
+      <description>&amp;ndash; https://efe.baidu.com/blog/fontmin-getting-started/</description>
+    </item>
+    
+    <item>
+      <title>网站推广法</title>
+      <link>https://wfk2022612.github.io/post/%E7%BD%91%E7%AB%99%E6%8E%A8%E5%B9%BF%E6%B3%95/</link>
+      <pubDate>Tue, 25 Feb 2020 20:03:07 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E7%BD%91%E7%AB%99%E6%8E%A8%E5%B9%BF%E6%B3%95/</guid>
+      <description>51、百科网站推广法。去网上的百科全书添加内容。
+52、rss网站推广法。有很多rss聚合类网站，可以制作自己网站的rss，提交到这些网站。
+53、网吧推广网站推广法。如果有关系，可以把网吧的机子主页设为自己的网站。
+54、站长交流网站推广法。多和其他站长交流，探讨推广方法。说不定什么时候就有意外惊喜。在和别人的经验交流中也往往会有灵感的火花跳跃。不要吝啬你自己的经验，在告诉别人的时候，也是对自己经验的一次系统化、条理化、理性化提纯。
+55、网页病毒网站推广法。利用其他网站的dns漏洞、服务器漏洞，程序漏洞等，直接挂上自己的网站，迅速提高网站普及率。这是最强悍的另类推广方法。属于被清理的方法之列。
+56、过路费网站推广法。如果你有电信等方面的资源，掌握了网页的传输通道，可以将每个网页都进行完善，加进你想加入的内容。
+57、域名网站推广法。人是会犯错的动物。研究高流量网站的域名，分析其错误拼写的各种可能，注册相应域名，也可以从中得到不少流量。如果应用在网站内容建设上，则可以以热门内容的错误拼写文字来建设和优化内容。
+58、分类信息网站推广法。去各类分类信息站发布网站信息。
+59、免费域名网站推广法。给其他站提供二极域名，或者去申请其他站的免费域名指到自己的站，都可以。
+60、聊天室网站推广法。在各种聊天室推广。注意给出一个必须发链接的理由。
+61、演讲网站推广法。举办各种讲座，演讲，不知不觉地给网站吸引来新访客。
+62、特殊资源网站推广法。比如高考查询，英语四**查询等资源，是利益相关者不得不访问的。
+63、模仿网站推广法。处处留心皆学问。学习其他网站的推广方法，看看其他网站的链接都出现在了什么地方，想办法依葫芦画瓢。模仿是创新的基础，创新是模仿的升华。创新=模仿+经验积累+批量化+自动化。
+64、被动推广网站推广法。提高网站质量，做一个对网民有独特帮助的网站，让网民喜欢你的网站，让网民自发地传播你的网站，是效果最好的推广方法。
+65、化整为零网站推广法。在各大商务网站上，建立网站的副版本。借用其他网站的平台，推广自己的东西。
+66、预告网站推广法，也叫系列法。不要将宝贵的内容一次性全部提供，每天提供一点点，连续几个星期、几个月，让网民不断重复地访问网站。类似电视台播放电视剧和报纸的小说连载等等模式。比如赤壁，拦腰劈成两半，就能卖两倍价钱，赚双倍票房。搞网站也要学会这种留一手的做法。
+67、创建品牌网站推广法。其实品牌建设并不难，非常简单。网上信息浩如烟海，陈旧信息充斥在各个网站，价值极其微小。站长们可以持续搜集某个主题信息，根据最新条件和情况，不断对原先的旧内容维护、补充和更新，按照日期顺序有规律地发布到其他网站，提高网站影响力。当人们需要该方面信息的时候，唯一的去处就是此类信息发源地了，建立品牌就是这么容易。有了品牌知名度，网站自然而然有了流量，顺便也能带活整个网站。例如中关村在线的电脑配件报价，百度的搜索排行榜，雪缘园足球即时比分。
+68、多语言版本网站推广法。利用一些网站提供的免费翻译功能，建设不同语言版本的网站，比如繁体版，英文版等等，扩大网站的适用人群。
+69、建站程序网站推广法。开发一套网站程序，免费提供给别人使用。网站程序里少不了带上开发者的版权链接。目前流行非流行的博客程序、论坛程序等开发者网站，流量大的吓人。有点能力的站长朋友何不学习一下呢。即使开发不了完整版，搞个二次开发，推出美化版、各类主题版，发布到各类源码站。
+70、网站模板网站推广法。这个容易理解，用网页建筑师html、网页美容师css、网页魔术师javascript给流行的网站程序设计新界面，发布到对应网站，在发布的时候，可以留下网站的模板地址的，例如提供上述模板等等，这样可以获得很高的曝光率。模板其实很容易制作的，改下颜色，改下字体，变变页面元素位置即可。只要用心，没有做不到的。关键是学会思路，凡事心中有谱。
+71、讲故事出书网站推广法。书籍可以被长久反复阅读，对人们的影响是非常大的，网站也能给人留下不可磨灭的印象。
+72、创造新概念网站推广法。让新概念成为网站的代名词。当人们使用这个概念的时候，自然就宣传了你的网站。给人们先入为主的信息，融入人们的生活之中，这样的宣传效果，具有不可动摇的地位。概念的名称可以固定，概念的内容却可以常变常新，满足人们持久而不断变化的需要。
+73、改名法网站推广法。将城市名称、公司名称、道路、人名、昵称、建筑物名称或者社区名称等等实体的名字，修改设置为网站地址。这样做的话，网址的曝光率和使用频率会非常高，网站也会非常自然地出现在各种名单中，比如地图上，新闻报道里，人们的日常交往中。总之，传播效率和传播有效性都会非常高。
+74、月历墙纸网站推广法。制作各种精美独特风格多样的月历图片，提供给人们做电脑的桌面墙纸壁纸使用。只要网民一打开电脑，你的网址就跃然pc上。一年300多天，天天都在提醒网民，你的网站对其有用。
+75、征婚网站推广法。在各类报刊杂志网络上以整版的方式征婚，联系方式就仅仅留下网址。不仅可以吸引应征者，也可以吸引无数喜欢猎奇的闲极无聊的大量人群。具体做法可以参考以往的“征婚门”事件。
+76、公交车站网站推广法。在都市的热门地段设置一个车站，乘车的人必然能够留意到，绕都绕不过去。此方法最适合公交公司。
+77、地图网站推广法。让网站总部出现在地图上。地图传播面广，受众大，使用频率高。此法适合财大气粗有特殊关系者。研究研究你所在地方的地图，看看有什么公司的名字出现在上面，想想人家是怎么出现在上面的，模仿一下吧。如果做不到，那么求人不如求己，让自己的网站成为一张地图，一个平台。
+78、吹捧网站推广法。要让网站成为网民心中的唯一，只有抬高身价，自吹自擂，让网民相信，你是最好的，你是最棒的，你就是名牌。让网民访问贵站，成为一种身份的象征，成为显耀自身价值的标志，极大地满足人们的虚荣心。这个可以通过设置访问限制来达到。人们天生对打破限制有一种狂热的喜好。本来平淡无奇的东西，一旦设置了限制，身价就高了。人们始终不明白一个道理：世界上最有价值的东西是免费的。
+79、出入口网站推广法。在茫茫人海中，每个人都在各个入口和出口里进进出出，徘徊奔波，寻找活着的乐趣和存在的意义。它们找到了吗?你也许可以为之做点什么。
+80、招聘网站推广法。如今科技和社会发展，机器工具代替人们劳作的趋势越来越明显，没事可干就成了一种普遍的社会现象，工作岗位成了一种稀缺资源，“为人民服务”的口号成为争权夺利的代名词，为人民服务不再光荣，主动放弃自己不能胜任的岗位才是光荣的，可是，有谁乐意放弃呢?可以预见的是，在不久的将来，自动化工具完全代替人类的重复性劳动，所有人都将没事可干，人人要靠社会保障生存，可是，如今普遍的社会生存保障在哪里呢?既然获取为人民服务的资格如此艰苦，那么以招聘的名义，去招聘会上宣传网站，效果想来一定差不到什么地方。</description>
+    </item>
+    
+    <item>
+      <title>Flash Player与您的地区不相容</title>
+      <link>https://wfk2022612.github.io/post/flash/</link>
+      <pubDate>Mon, 24 Feb 2020 18:56:04 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/flash/</guid>
+      <description>解决办法：
+ 将127.0.0.1 geo2.adobe.com加入hosts 使用 everything 或其他搜索工具查找并删除所有的settings.sol文件 重启浏览器  </description>
+    </item>
+    
+    <item>
+      <title>反应速度训练反应速度训练</title>
+      <link>https://wfk2022612.github.io/post/%E5%8F%8D%E5%BA%94%E9%80%9F%E5%BA%A6%E8%AE%AD%E7%BB%83/</link>
+      <pubDate>Thu, 01 Jan 1970 08:00:20 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E5%8F%8D%E5%BA%94%E9%80%9F%E5%BA%A6%E8%AE%AD%E7%BB%83/</guid>
+      <description>初级：每天看一遍并说出眼睛的方向
+中级：每天看一遍并说出眼睛的相反的方向</description>
+    </item>
+    
+    <item>
+      <title>免费收录网站搜索引擎登录口大全</title>
+      <link>https://wfk2022612.github.io/post/%E5%85%8D%E8%B4%B9%E6%94%B6%E5%BD%95%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%99%BB%E5%BD%95%E5%8F%A3%E5%A4%A7%E5%85%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E5%85%8D%E8%B4%B9%E6%94%B6%E5%BD%95%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%99%BB%E5%BD%95%E5%8F%A3%E5%A4%A7%E5%85%A8/</guid>
+      <description>搜索引擎网站收录地址大全  百度搜索网站登录口：http://www.baidu.com/search/url_submit.html Google网站登录口：http://www.google.com/addurl/?hl=zh-CN&amp;amp;continue=/addurl Google新闻网站内容http://www.google.com/support/news_pub/bin/request.py?contact_type=suggest_content&amp;amp;hl=cn 搜狗网站收录提交入口:http://www.sogou.com/feedback/urlfeedback.php SOSO搜搜网站收录提交入口:http://www.soso.com/help/usb/urlsubmit.shtml 雅虎中国网站登录口：http://search.help.cn.yahoo.com/h4_4.html 中搜网站登录口：http://ads.zhongsou.com/register/page.jsp 网易有道搜索引擎登录口：http://tellbot.youdao.com/report MSN必应网站登录口：http://cn.bing.com/docs/submit.aspx?FORM=WSDD2 英文雅虎登录口：http://search.yahoo.com/info/submit.html 森标搜索网站登录：http://so.senbiao.com/add.asp 快速登录20个搜索引擎：http://www.trafficzap.com/searchsubmit.php TOM搜索网站登录口：http://search.tom.com/tools/weblog/log.php 新浪爱问网站登录口：http://www.iask.com/guest/add_url.php 新浪登录口（收费）：http://bizsite.sina.com.cn/newbizsite/docc/index-2jifu-03.htm 网络奇兵登录口：http://www.net7b.com/net7b_site/denglu.aspx 180度水平线搜索登录口：http://www.sou180.com/url_add.asp 蚁搜搜索网站登录口：http://www.antso.com/apply.asp 快搜搜索网站登录口：http://www.kuaisou.com/main/inputweb.asp 零搜搜索网站登录口：http://www.0sou.cn/protocol.asp 汕头登录口：http://www.stsou.com/join.asp 猎商登录口：http://www.lgoods.com/lg/lgss.htm 企搜搜索登录口：http://www.qisou.cn/denglu.asp 网页大搜索登录口：http://www2d.biglobe.ne.jp/~kinryou/cgi/cnaddURL.html 协通搜索登录口：http://www.net2asp.com.cn/search/regform.htm Gais搜索登录口：http://gais.cs.ccu.edu.tw/reg_new.php 法律网免费登录口：http://www.law-lib.com/lawseek/wzdl.asp  独立博客收录提交网址  百度博客提交: http://utility.baidu.com/blogsearch/submit.php 博客大全提交：http://lusongsong.com/daohang/login.asp Google博客提交：http://www.google.com/intl/zh-CN/add_url.html 雅虎中国博客提交：http://search.help.cn.yahoo.com/h4_4.html FeedSky提交博客: http://www.feedsky.com 搜狗(SoGou)博客提交：http://www.sogou.com/feedback/blogfeedback.php 有道(YoDao)博客提交：http://tellbot.yodao.com/ Live Search博客提交：http://search.msn.com/docs/submit.aspx 搜搜博客提交：http://blog.soso.com/join.html  英文搜索网站收录地址  HotBot登录口：http://www.hotbot.com/prefs_filters.asp?prov=Inktomifilter=web netscape登录口：http://about.netscape.com/ intelseek登录口：http://intelseek.com/add_url_form.asp NetSearch登录口：http://www.netsearch.org/promo/submit.htm AddMe登录口：http://www.addme.com/s0new.htm Link it All登录口：http://www.that-special-gift.com/ffa/links.html Voyager登录口：http://www.voyagersearch.com/cgi-bin/q/search.cgi?NAVG=AddURL Gigablast登录口：http://www.gigablast.com/addurl Aeiwei登录口：http://www.aeiwi.com/submit.html Infotiger登录口：http://www.infotiger.com/addurl.html Nationaldirectory登录口：http://www.nationaldirectory.com/addurl/ WhatUseek登录口：http://www.whatuseek.com/addurl-secondary.shtml Exactseek登录口：http://www.exactseek.com/add.html Walhello登录口：http://www.walhello.com/addlinkgl.html Scrubtheweb登录口：http://www.scrubtheweb.com/addurl.html dmoz的登陆地址: http://dmoz.org/World/Chinese_Simplified 注意：目前搜狗,Soso,迅雷狗狗没有网站提交入口，它们都是由谷歌提供技术支持，基本上只要谷歌收录了它们也会跟风。  网站联盟广告大全：  百度联盟申请地址：http://union.</description>
+    </item>
+    
+    <item>
+      <title>各种注册码，序列号</title>
+      <link>https://wfk2022612.github.io/post/%E5%90%84%E7%A7%8D%E6%B3%A8%E5%86%8C%E7%A0%81%E5%BA%8F%E5%88%97%E5%8F%B7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E5%90%84%E7%A7%8D%E6%B3%A8%E5%86%8C%E7%A0%81%E5%BA%8F%E5%88%97%E5%8F%B7/</guid>
+      <description>Visual Studio 2008 Team System: PYHYP-WXB3B-B2CCM-V9DX9-VDY8T vs2012 旗舰版 YKCW6-BPFPF-BT8C9-7DCTH-QXGWC</description>
+    </item>
+    
+    <item>
+      <title>国内顺利访问Google的另类技巧</title>
+      <link>https://wfk2022612.github.io/post/%E5%9B%BD%E5%86%85%E9%A1%BA%E5%88%A9%E8%AE%BF%E9%97%AEgoogle%E7%9A%84%E5%8F%A6%E7%B1%BB%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E5%9B%BD%E5%86%85%E9%A1%BA%E5%88%A9%E8%AE%BF%E9%97%AEgoogle%E7%9A%84%E5%8F%A6%E7%B1%BB%E6%8A%80%E5%B7%A7/</guid>
+      <description>在特殊的地方和特殊的时间，流畅顺利使用Google的方法也会变得很特殊。
+分享一些奇葩的Google使用方法，通过下列网址也可以使用Google来搜索：
+http://www.GoogleStable.com
+http://www.tmd123.com/ 通天塔
+http://www.Google.com.im 谷歌复原
+http://goog.sinaapp.com
+sinaapp.co Google镜像
+Wen.lu Google问路
+www.sssis.com 备案域名反代理到Google IP
+http://www.gvgle.com 代理到Google IP
+http://gu1234.com 代理到Google IP
+http://www.xiexingwen.com Google镜像，动态检测可用Google服务器IP，实时更新
+Google免翻墙镜像 如果镜像被封锁，访问 https://github.com/greatfire/wiki 获得最新网址。
+此外，在这些特殊的不能正常上网的日子里，你也可以直接利用IP使用Google。当然，Google能用，但不保证搜索结果能顺利访问，原因你懂的。最高级的方法还是需要科学上网。
+欢迎分享你的独门绝技，解救那些不能顺利使用Google的人们。</description>
+    </item>
+    
+  </channel>
+</rss>

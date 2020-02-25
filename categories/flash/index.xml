@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flash on 非常懒</title>
+    <link>https://wfk2022612.github.io/categories/flash/</link>
+    <description>Recent content in flash on 非常懒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Feb 2020 18:56:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://wfk2022612.github.io/categories/flash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flash Player与您的地区不相容</title>
+      <link>https://wfk2022612.github.io/post/flash/</link>
+      <pubDate>Mon, 24 Feb 2020 18:56:04 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/flash/</guid>
+      <description>解决办法：
+ 将127.0.0.1 geo2.adobe.com加入hosts 使用 everything 或其他搜索工具查找并删除所有的settings.sol文件 重启浏览器  </description>
+    </item>
+    
+  </channel>
+</rss>
