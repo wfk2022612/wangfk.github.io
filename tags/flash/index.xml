@@ -13,10 +13,10 @@
     
     <item>
       <title>Flash Player与您的地区不相容</title>
-      <link>https://wfk2022612.github.io/post/flash/</link>
+      <link>https://wfk2022612.github.io/post/b3fb1667-0434-46b5-b966-eedc80054993/</link>
       <pubDate>Mon, 24 Feb 2020 18:56:04 +0800</pubDate>
       
-      <guid>https://wfk2022612.github.io/post/flash/</guid>
+      <guid>https://wfk2022612.github.io/post/b3fb1667-0434-46b5-b966-eedc80054993/</guid>
       <description>解决办法：
  将127.0.0.1 geo2.adobe.com加入hosts 使用 everything 或其他搜索工具查找并删除所有的settings.sol文件 重启浏览器  </description>
     </item>

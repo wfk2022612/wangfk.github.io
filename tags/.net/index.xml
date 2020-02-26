@@ -13,10 +13,10 @@
     
     <item>
       <title>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。</title>
-      <link>https://wfk2022612.github.io/post/ikvm.net%E7%9A%84%E6%98%AF%E5%BC%80%E6%BA%90%E7%9A%84%E5%9F%BA%E4%BA%8E.net-clr-%E7%9A%84java%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+      <link>https://wfk2022612.github.io/post/655f89d4-e190-48e1-acb4-4ae935ca5407/</link>
       <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
       
-      <guid>https://wfk2022612.github.io/post/ikvm.net%E7%9A%84%E6%98%AF%E5%BC%80%E6%BA%90%E7%9A%84%E5%9F%BA%E4%BA%8E.net-clr-%E7%9A%84java%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
+      <guid>https://wfk2022612.github.io/post/655f89d4-e190-48e1-acb4-4ae935ca5407/</guid>
       <description>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。
 基于.NET的Java虚拟机意味着我们可以让Java程序跑在.NET上，可以通过虚拟机这个中介让Java程序和.NET应用程序一起协同工作。更难能可贵的是，IKVM同时支持微软的.NET Framework 和 Mono。
 IKVM的技术特性包括：

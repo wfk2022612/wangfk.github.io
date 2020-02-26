@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.65.3" />
+
+  <title>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。 &middot; 非常懒</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+
+  
+  <meta property="og:site_name" content="非常懒"/>
+  <meta property="og:title" content="IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。"/>
+  <meta property="og:description" content="IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。
+基于.NET的Java虚拟机意味着我们可以让Java程序跑在.NET上，可以通过虚拟机这个中介让Java程序和.NET应用程序一起协同工作。更难能可贵的是，IKVM同时支持微软的.NET Framework 和 Mono。
+IKVM的技术特性包括：
+ 1.可以静态和动态（运行时）把Java的字节代码转换为.NET 的IL形式；
+2.包括了一个Java的标准库，这个标准库已经静态编译成了.NET IL的形式；
+3.提供力JNI 接口，可以让Java程序通过.NET 或者 Mono 访问本地资源。
+4.提供了一个供Java调用.NET 类的Stub。
+IKVM现在可以提供对JDK 1.4很好的支持。IKVM目前不成熟的地方在以下几个方面：
+ 1.对AWT和Swing没有提供支持，在IKVM的开发计划中，这项优先级别不高。
+2.对Java的安全模型没有实现。一般来说我们可以在以下3种情况下使用IKVM：
+ 1.直接在IKVM下运行Java程序，比如：ikvm -jar myapp.jar
+2.用IKVM来把Java类库转换成.NET类库，比如：ikvmc -target:library mylib.jar ?可以生成： mylib.dll
+3.使用ikvmstub 来用Java开发.NET程序。"/>
+  <meta property="og:url" content="https://wfk2022612.github.io/post/655f89d4-e190-48e1-acb4-4ae935ca5407/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-02-25T21:05:57&#43;0800"/>
+  <meta property="article:modified_time" content="2020-02-25T21:05:57&#43;0800"/>
+  <meta property="article:author" content="">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "非常懒",
+    "url" : "https://wfk2022612.github.io/",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。",
+    "headline": "IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。",
+    "datePublished": "2020-02-25T21:05:57\x2b0800",
+    "dateModified": "2020-02-25T21:05:57\x2b0800",
+    "author": {
+      "@type": "Person",
+      "name": "",
+      "url": "https://wfk2022612.github.io/"
+    },
+    "url": "https://wfk2022612.github.io/post/655f89d4-e190-48e1-acb4-4ae935ca5407/",
+    "description": "IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。\n基于.NET的Java虚拟机意味着我们可以让Java程序跑在.NET上，可以通过虚拟机这个中介让Java程序和.NET应用程序一起协同工作。更难能可贵的是，IKVM同时支持微软的.NET Framework 和 Mono。\nIKVM的技术特性包括：\n 1.可以静态和动态（运行时）把Java的字节代码转换为.NET 的IL形式；\n2.包括了一个Java的标准库，这个标准库已经静态编译成了.NET IL的形式；\n3.提供力JNI 接口，可以让Java程序通过.NET 或者 Mono 访问本地资源。\n4.提供了一个供Java调用.NET 类的Stub。\nIKVM现在可以提供对JDK 1.4很好的支持。IKVM目前不成熟的地方在以下几个方面：\n 1.对AWT和Swing没有提供支持，在IKVM的开发计划中，这项优先级别不高。\n2.对Java的安全模型没有实现。一般来说我们可以在以下3种情况下使用IKVM：\n 1.直接在IKVM下运行Java程序，比如：ikvm -jar myapp.jar\n2.用IKVM来把Java类库转换成.NET类库，比如：ikvmc -target:library mylib.jar ?可以生成： mylib.dll\n3.使用ikvmstub 来用Java开发.NET程序。"
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://wfk2022612.github.io/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://wfk2022612.github.io/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://wfk2022612.github.io/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://wfk2022612.github.io/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+      
+
+      <h1>非常懒</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://wfk2022612.github.io/">首页</a>
+        </li>
+        <li>
+          <a href="/post/"> 文章 </a>
+        </li><li>
+          <a href="/about/"> 关于 </a>
+        </li>
+
+          
+       
+      </ul>
+    </nav>
+
+    
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。</h1>
+
+  <div class="post-date">
+    <time datetime="2020-02-25T21:05:57&#43;0800">Feb 25, 2020</time> ·
+    1 min read
+  </div>
+
+  
+
+  <p>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。</p>
+<p>基于.NET的Java虚拟机意味着我们可以让Java程序跑在.NET上，可以通过虚拟机这个中介让Java程序和.NET应用程序一起协同工作。更难能可贵的是，IKVM同时支持微软的.NET Framework 和 Mono。</p>
+<p>IKVM的技术特性包括：</p>
+<p>   1.可以静态和动态（运行时）把Java的字节代码转换为.NET 的IL形式；<br>
+   2.包括了一个Java的标准库，这个标准库已经静态编译成了.NET IL的形式；<br>
+   3.提供力JNI 接口，可以让Java程序通过.NET 或者 Mono 访问本地资源。<br>
+   4.提供了一个供Java调用.NET 类的Stub。</p>
+<p>IKVM现在可以提供对JDK 1.4很好的支持。IKVM目前不成熟的地方在以下几个方面：</p>
+<p>   1.对AWT和Swing没有提供支持，在IKVM的开发计划中，这项优先级别不高。<br>
+   2.对Java的安全模型没有实现。<!-- raw HTML omitted --></p>
+<p>一般来说我们可以在以下3种情况下使用IKVM：</p>
+<p>   1.直接在IKVM下运行Java程序，比如：ikvm -jar myapp.jar<br>
+   2.用IKVM来把Java类库转换成.NET类库，比如：ikvmc -target:library mylib.jar ?可以生成： mylib.dll<br>
+   3.使用ikvmstub 来用Java开发.NET程序。</p>
+
+
+  
+  <ul class="article-tags">
+    
+    <li> <a href="https://wfk2022612.github.io/tags/.net/">.net</a> </li>
+    
+    <li> <a href="https://wfk2022612.github.io/tags/java/">java</a> </li>
+    
+  </ul>
+  
+  
+   
+  <div id="git-comments"></div>
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+    var gitment = new Gitment({
+      id: '655f89d4-e190-48e1-acb4-4ae935ca5407',  
+      owner: 'wfk2022612',
+      repo: 'gitcomments',
+      oauth: {
+        client_id: '3d3e2c1bb7f7fec9066c',
+        client_secret: '951c10b1f308db23d76aab7693087a5c9b6a2309',
+      }
+    })
+    gitment.render('git-comments')
+  </script>
+   
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; 非常懒 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://wfk2022612.github.io/js/blog.js"></script>
+
+  
+</body>
+</html>
