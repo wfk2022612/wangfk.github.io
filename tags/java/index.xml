@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on 非常懒</title>
+    <link>https://wfk2022612.github.io/tags/java/</link>
+    <description>Recent content in java on 非常懒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2020 21:05:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://wfk2022612.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。</title>
+      <link>https://wfk2022612.github.io/post/ikvm.net%E7%9A%84%E6%98%AF%E5%BC%80%E6%BA%90%E7%9A%84%E5%9F%BA%E4%BA%8E.net-clr-%E7%9A%84java%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/ikvm.net%E7%9A%84%E6%98%AF%E5%BC%80%E6%BA%90%E7%9A%84%E5%9F%BA%E4%BA%8E.net-clr-%E7%9A%84java%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
+      <description>IKVM.NET的是开源的基于.NET CLR 的Java虚拟机。
+基于.NET的Java虚拟机意味着我们可以让Java程序跑在.NET上，可以通过虚拟机这个中介让Java程序和.NET应用程序一起协同工作。更难能可贵的是，IKVM同时支持微软的.NET Framework 和 Mono。
+IKVM的技术特性包括：
+ 1.可以静态和动态（运行时）把Java的字节代码转换为.NET 的IL形式；
+2.包括了一个Java的标准库，这个标准库已经静态编译成了.NET IL的形式；
+3.提供力JNI 接口，可以让Java程序通过.NET 或者 Mono 访问本地资源。
+4.提供了一个供Java调用.NET 类的Stub。
+IKVM现在可以提供对JDK 1.4很好的支持。IKVM目前不成熟的地方在以下几个方面：
+ 1.对AWT和Swing没有提供支持，在IKVM的开发计划中，这项优先级别不高。
+2.对Java的安全模型没有实现。一般来说我们可以在以下3种情况下使用IKVM：
+ 1.直接在IKVM下运行Java程序，比如：ikvm -jar myapp.jar
+2.用IKVM来把Java类库转换成.NET类库，比如：ikvmc -target:library mylib.jar ?可以生成： mylib.dll
+3.使用ikvmstub 来用Java开发.NET程序。</description>
+    </item>
+    
+  </channel>
+</rss>

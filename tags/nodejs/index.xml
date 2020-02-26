@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nodejs on 非常懒</title>
+    <link>https://wfk2022612.github.io/tags/nodejs/</link>
+    <description>Recent content in nodejs on 非常懒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2020 21:05:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://wfk2022612.github.io/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>支付宝当面付NodeJS API.</title>
+      <link>https://wfk2022612.github.io/post/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE/</guid>
+      <description>Markdown HTML
+https://github.com/Srar/AlipayF2F
+AlipayF2F-NodeJS 支付宝当面付NodeJS API. 如何使用 安装方式: npm install alipay-ftof express-example为express的example项目, 您可以将config.js.tpl复制为config.js然后修改好您的当面付配置信息后直接使用.
+5分钟快速了解 目前已实现的功能 createQRPay: 预创建二维码支付宝订单, 当扫码后才是真创建订单. verifyCallback: 支付宝回调验签. checkInvoiceStatus: 使用商户订单号查询订单状况. checkInvoiceStatusWithAlipayTradeNo: 使用使用支付宝订单号查询订单状况. refund: 使用商户订单号请求退款操作. (guanbo) refundWithAlipayTradeNo: 使用支付宝订单号请求退款操作. (guanbo) createBarCodePay: 使用支付宝用户付款码付款. (CloudnuY) 屁话多!如何使用? 您先需要准备一个Object对象内部存放alipay的配置如下:
+// config.js module.exports = { /* 以下信息可以在https://openhome.alipay.com/platform/appManage.htm查到, 不过merchantPrivateKey需要您自己生成 */ /* 应用AppID */ &amp;#34;appid&amp;#34;: 0, /* 通知URL 接受支付宝异步通知需要用到 */ &amp;#34;notifyUrl&amp;#34;: &amp;#34;&amp;#34;, /* 公钥 和 私钥 的填写方式 */ &amp;#34;testPrivateKey&amp;#34;: &amp;#34;-----BEGIN RSA PRIVATE KEY-----\n&amp;#34; + &amp;#34;公钥或私钥内容...&amp;#34; + &amp;#34;\n-----END RSA PRIVATE KEY-----&amp;#34;, /* 应用RSA私钥 请勿忘记 -----BEGIN RSA PRIVATE KEY----- 与 -----END RSA PRIVATE KEY----- */ &amp;#34;merchantPrivateKey&amp;#34;: &amp;#34;&amp;#34;, /* 支付宝公钥 如果为注释掉会使用沙盒公钥 请勿忘记 -----BEGIN PUBLIC KEY----- 与 -----END PUBLIC KEY----- */ &amp;#34;alipayPublicKey&amp;#34;: &amp;#34;&amp;#34;, /* 支付宝支付网关 如果为注释掉会使用沙盒网关 */ &amp;#34;gatewayUrl&amp;#34;: &amp;#34;&amp;#34;, }; 注意！您需要生成RSA2公钥与私钥来配合本项目使用.</description>
+    </item>
+    
+  </channel>
+</rss>

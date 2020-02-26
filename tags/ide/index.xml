@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IDE on 非常懒</title>
+    <link>https://wfk2022612.github.io/tags/ide/</link>
+    <description>Recent content in IDE on 非常懒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2020 21:05:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://wfk2022612.github.io/tags/ide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>codeanywhere</title>
+      <link>https://wfk2022612.github.io/post/19f092fa-555a-4242-b85c-be20c4a14f92/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/19f092fa-555a-4242-b85c-be20c4a14f92/</guid>
+      <description>xhs Container HTML5 Development Stack with Apache (running on port 3000), Node.js and npm preinstalled.
+This Codeanywhere Container comes with:
+2GB of Disc Storage 256MB RAM (+ 512 MB swap) Sudo access SSH access on host11.codeanyhost.com -p 20143 Access to all HTTP and Websocket ports The operating system running on this Container is Centos 7.2. Linux distributon (64 bit). CentOS uses the Yellowdog Updater, Modified (YUM) for updates, package and dependency management.</description>
+    </item>
+    
+    <item>
+      <title>在线IDE</title>
+      <link>https://wfk2022612.github.io/post/88827c40-2511-45bd-8a50-c3d55e388502/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/88827c40-2511-45bd-8a50-c3d55e388502/</guid>
+      <description>https://www.tutorialspoint.com/nodejs_terminal_online.php</description>
+    </item>
+    
+  </channel>
+</rss>

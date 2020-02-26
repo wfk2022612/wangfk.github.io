@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rar on 非常懒</title>
+    <link>https://wfk2022612.github.io/tags/rar/</link>
+    <description>Recent content in rar on 非常懒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2020 21:05:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://wfk2022612.github.io/tags/rar/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rar.exe</title>
+      <link>https://wfk2022612.github.io/post/rar.exe%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%89%B9%E5%A4%84%E7%90%86%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/rar.exe%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%89%B9%E5%A4%84%E7%90%86%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6/</guid>
+      <description>rar.exe命令行压缩文件[可用于批处理][备份文件]rar.exe命令行压缩文件[可用于批处理][备份文件]
+rar.exe 命令行参数
+[可用于批处理][备份文件]
+[语法]
+RAR &amp;lt;命令&amp;gt; [ -&amp;lt;开关&amp;gt; ] &amp;lt;压缩文件&amp;gt; [ &amp;lt;@列表文件&amp;hellip;&amp;gt; ]
+RAR [ &amp;lt;文件&amp;hellip;&amp;gt; ] [ &amp;lt;解压路径&amp;amp;gt; ]
+[命令]
+A 增加文件到压缩包,如果省略参数A也为添加文件,但不同的是添加当前路径文件到指定路径;另外如果-AD指定的目录带有\则不会添加子目录的文件:
+RAR A .\BACKUP\MYRAR -AD %WINDIR%\IME 添加IME目录的所有文件(包含子目录)到当前目录的\BACKU\目录的MYRAR.RAR中,其中开关-AD可以不用.
+RAR A .\BACKUP\MYRAR -AD %WINDIR%\IME&amp;amp;nbsp; 情况同上,只是添加时不包含子目录中的文件 RAR MYRAR %WINDIR%\SYSTEM 添加当前目录的所有文件(不包含子目录)到%WINDIR%\SYSTEM\MYRAR.RAR中,同时删除当前目录的文件
+RAR A MYRAR @BACK.LST 根据BACK.LST列出的文件列表来压缩文件(这个功能有时很有用,用来备份指定文件)
+RAR A -DF MYRAR C:\TEMP 添加TEMP目录的所有文件(包含子目录)到MYRAR.RAR中后删除文件
+RAR A -ED MYARR C:\TEMP E:\01 F:&amp;amp;nbsp; 同上,只是添加多个目录到压缩包中并排除空目录,
+D 从压缩文件包中删除指定文件
+RAR D MYRAR BOOT.INI 从压缩包MYRAR中删除BOOT.INI文件
+RAR D MYRAR 删除压缩包MYRAR中的所有文件,实际上是删除压缩包WINRAR</description>
+    </item>
+    
+  </channel>
+</rss>

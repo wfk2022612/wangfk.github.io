@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>矢量图 on 非常懒</title>
+    <link>https://wfk2022612.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/</link>
+    <description>Recent content in 矢量图 on 非常懒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2020 21:05:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://wfk2022612.github.io/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>生成svg及路径源码的工具</title>
+      <link>https://wfk2022612.github.io/post/svg/</link>
+      <pubDate>Tue, 25 Feb 2020 21:05:57 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/svg/</guid>
+      <description>生成svg及路径源码的工具 https://editor.method.ac/ svg矢量图loading https://codepen.io/aurer/pen/jEGbA css loading http://en.jsrun.net/IfYKp/edit?mode=light</description>
+    </item>
+    
+  </channel>
+</rss>

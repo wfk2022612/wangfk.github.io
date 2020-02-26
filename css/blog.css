@@ -1,0 +1,17 @@
+/*文章底部标签*/
+.article-tags {
+    padding-left: 0;
+}
+
+.article-tags::before{
+    content: "";
+    display: block;
+    height: 1.5rem;
+}
+
+.article-tags li {
+    display: inline-block;
+    padding: 0 0.75rem;
+    border: solid 1px #49757a;
+    border-radius: .5rem;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>字体压缩 on 非常懒</title>
+    <link>https://wfk2022612.github.io/tags/%E5%AD%97%E4%BD%93%E5%8E%8B%E7%BC%A9/</link>
+    <description>Recent content in 字体压缩 on 非常懒</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2020 21:01:53 +0800</lastBuildDate>
+    
+	<atom:link href="https://wfk2022612.github.io/tags/%E5%AD%97%E4%BD%93%E5%8E%8B%E7%BC%A9/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>fontmin css字体压缩工具</title>
+      <link>https://wfk2022612.github.io/post/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Tue, 25 Feb 2020 21:01:53 +0800</pubDate>
+      
+      <guid>https://wfk2022612.github.io/post/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</guid>
+      <description>&amp;ndash; https://efe.baidu.com/blog/fontmin-getting-started/</description>
+    </item>
+    
+  </channel>
+</rss>
